@@ -20,7 +20,7 @@
                 <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-tale">
                     <div class="card-body">
-                      <p class="mb-4">Add tour plan</p>
+                      <a href="{{route('admin.addTourplan')}}"class="mb-4">Add tour plan</a>
                      
                     </div>
                   </div>
@@ -56,7 +56,15 @@
                     </div>
                   </div>
                 </div>
-               
+                <div class="col-md-6 mb-4 stretch-card transparent">
+                
+                <div class="card card-dark-blue">
+                  <div class="card-body">
+                    <a href="{{route('admin.added.TourList')}}" class="mb-4">View Added TourList</a>
+                  
+                  </div>
+                </div>
+              </div>
                   </div>
                 </div>
               </div>

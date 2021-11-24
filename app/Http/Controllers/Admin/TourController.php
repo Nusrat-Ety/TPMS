@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
+use App\Models\AddTourPlan;
 use Illuminate\Http\Request;
 
 class TourController extends Controller
@@ -18,4 +19,27 @@ class TourController extends Controller
     public function Viewtourplan(){
         return view('admin.layouts.Tourplan.ViewPlan');
     }
+    public function addtourplan(){
+        return view('admin.layouts.Tourplan.Addtourplan');
+    }
+    public function ViewAdminTourList(){
+        $TourPlans=AddTourPlan::all();
+       // dd($TourPlans);
+      return view('admin.layouts.Tourplan.AdminTourList',compact('TourPlans'));
+        
+    }
+    public function StoreTourplan(Request $request){
+        AddTourPlan::create([
+            'Tourname'=>$request->TourName,
+            'TourDestination'=>$request->TourDestination,
+            'TourDuration'=>$request->TourDuration,
+            'TourDate'=>$request->TourDate,
+            'TourCost'=>$request->TourCost,
+            'Traveler_Amount'=>$request->Traveler_Amount
+        ]);
+        return redirect()->back();
+
+    }
+    
+    
 }

@@ -59,7 +59,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{{url('/Addevent')}}">Add event</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{url('/Mtevent')}}">Manage Traveler's Event </a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{url('/MeventR')}}">Manage Event Request </a></li>
-
+                <li class="nav-item"> <a class="nav-link" href="{{route('admin.Event.Traveler.EventList')}}">Traveler Event List</a></li>
 
               </ul>
             </div>

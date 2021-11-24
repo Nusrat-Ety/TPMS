@@ -14,12 +14,10 @@
                 <div class="col-md-6 mb-4 stretch-card transparent">
                   <div class="card card-dark-blue">
                     <div class="card-body">
-                      <p class="mb-4">Add traveler Event</p>
-                     
+                      <a href="{{route('admin.Event.Traveler.CreateEvent')}}"class="mb-4">Add traveler Event</a>
                     </div>
                   </div>
                 </div>
-                
                 <div class="col-md-6 mb-4 stretch-card transparent">
                 
                   <div class="card card-dark-blue">
