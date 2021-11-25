@@ -29,15 +29,26 @@ class TourController extends Controller
         
     }
     public function StoreTourplan(Request $request){
+        // dd(date('Ymdhms'));
+        // dd($request->all());
+        $filename = '';
+        if($request->hasFile('image'))
+        {
+            $file=$request->file('image');
+            $filename = date('Ymdhms').'.'.$file->getClientOriginalExtension();
+            $file->storeAs('/uploads',$filename);
+
+        }
         AddTourPlan::create([
             'Tourname'=>$request->TourName,
             'TourDestination'=>$request->TourDestination,
             'TourDuration'=>$request->TourDuration,
             'TourDate'=>$request->TourDate,
             'TourCost'=>$request->TourCost,
-            'Traveler_Amount'=>$request->Traveler_Amount
+            'Traveler_Amount'=>$request->Traveler_Amount,
+            'image'=>$filename
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('msg','Tour plan created successfully.');
 
     }
     

@@ -6,6 +6,9 @@
             <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                     <h3 class="font-weight-bold">Add Traveler</h3>
+                    @if(session()->has('msg'))
+        <p class="alert alert-success">{{session()->get('msg')}}</p>
+    @endif
                     <form action="{{route('admin.traveler.post')}}" method="post" class="needs-validation" novalidate>
                         @csrf
                         <div class="form-row">

@@ -24,6 +24,7 @@ class CreateTravelersEventsTable extends Migration
             $table->integer('traveler_amount');
             $table->double('cost');
             $table->String('traveler_name');
+            
             $table->timestamps();
         });
     }

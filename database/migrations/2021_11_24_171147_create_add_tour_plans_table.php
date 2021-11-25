@@ -21,6 +21,7 @@ class CreateAddTourPlansTable extends Migration
             $table->double('TourDate');
             $table->double('TourCost');
             $table->double('Traveler_Amount');
+            $table->string('image');
             $table->timestamps();
         });
     }

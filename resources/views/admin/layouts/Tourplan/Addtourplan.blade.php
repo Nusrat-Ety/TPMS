@@ -6,7 +6,11 @@
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                   <h3 class="font-weight-bold">Tour Plan Create</h3>
-<form action="{{route('Admin.Tourplan.Store')}}" method="POST">
+                  @if(session()->has('msg'))
+        <p class="alert alert-success">{{session()->get('msg')}}</p>
+    @endif
+<form action="{{route('Admin.Tourplan.Store')}}" method="POST" enctype="multipart/form-data">
+
   @csrf
   <div class="form-row">
     <div class="col-md-4 mb-3">
@@ -54,7 +58,11 @@
       <div class="valid-feedback">
         Please provide a valid zip.
       </div>
-    </div>
+      </div>
+      <div class="mb-3">
+      <label for="" class="form-label">Traveler image</label>
+      <input name="image" placeholder="Enter Traveler image" type="file" class="form-control" id="">
+  </div>
   </div>
   <div class="form-group">
     <div class="form-check">

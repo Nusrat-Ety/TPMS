@@ -15,6 +15,7 @@
       <th scope="col">Duration</th>
       <th scope="col">Date</th>
       <th scope="col">Cost</th>
+      <th scope="col">traveler_image</th>
       <th scope="col">Traveler's Amount</th>
     </tr>
   </thead>
@@ -28,6 +29,7 @@
       <td>{{$Tourplan->TourDate}}</td>
       <td>{{$Tourplan->TourCost}}</td>
       <td>{{$Tourplan->Traveler_Amount}}</td>
+      <td><img src="{{url('/uploads/'.$Tourplan->image)}}" width="200px" alt="Traveler image"></td>
     </tr>
     @endforeach
   </tbody>

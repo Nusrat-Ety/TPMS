@@ -36,7 +36,7 @@ class TravelerController extends Controller
             'Emergency_contact'=>$request->Econtact
 
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('msg','Traveler created successfully.');
     }
 
     
