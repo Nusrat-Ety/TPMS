@@ -15,8 +15,9 @@
       <th scope="col">Duration</th>
       <th scope="col">Date</th>
       <th scope="col">Cost</th>
+      <th scope="col">Traveler's name</th>
       <th scope="col">traveler_image</th>
-      <th scope="col">Traveler's Amount</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -28,7 +29,7 @@
       <td>{{$Tourplan->TourDuration}}</td>
       <td>{{$Tourplan->TourDate}}</td>
       <td>{{$Tourplan->TourCost}}</td>
-      <td>{{$Tourplan->Traveler_Amount}}</td>
+      <td>{{$Tourplan->travelar->Fname}}</td>
       <td><img src="{{url('/uploads/'.$Tourplan->image)}}" width="200px" alt="Traveler image"></td>
     </tr>
     @endforeach

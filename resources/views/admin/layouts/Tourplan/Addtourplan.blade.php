@@ -53,13 +53,22 @@
       </div>
     </div>
     <div class="col-md-3 mb-3">
-      <label for="validationCustom05">Traveler's Amount</label>
-      <input name="Traveler_Amount" class="form-control" id="validationCustom05" placeholder="Traveler's Amount" required>
+      <label for="validationCustom05">Traveler's name</label>
+      <select name="Travelar_name" class="form-control" id="exampleFormControlSelect1"required>
       <div class="valid-feedback">
-        Please provide a valid zip.
+                @foreach ($Travelars as $Travelar)
+                    <option value="{{$Travelar->id}}">{{$Travelar->first_name}}</option>
+                @endforeach
+
+                Please provide a valid zip.
+            </select>
+       
+</div>
       </div>
       </div>
-      <div class="mb-3">
+      </div>
+      <div class="form-row">
+      <div class="col-md-3 mb-2">
       <label for="" class="form-label">Traveler image</label>
       <input name="image" placeholder="Enter Traveler image" type="file" class="form-control" id="">
   </div>
@@ -73,8 +82,9 @@
       <div class="invalid-feedback">
         You must agree before submitting.
       </div>
-    </div>
-  </div>
+      </div>
+      
+  
   <button class="btn btn-primary" type="submit">Submit form</button>
 </div>
 </div>

@@ -6,20 +6,23 @@
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
+
+           <!--traveller part-->
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="icon-layout menu-icon"></i>
-              <span class="menu-title">Traveler</span>
+              <span class="menu-title">Travelers</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/Mtraveler')}}">Manage Traveler</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{url('/Ltraveler')}}">Traveler list</a></li>
- 
               </ul>
             </div>
           </li>
+
+           <!--tourplan part-->
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
               <i class="icon-columns menu-icon"></i>
@@ -29,79 +32,109 @@
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="{{url('/MTourP')}}">Manage Tour plan</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{url('/MPlanReq')}}">Manage tour request</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{url('/MPlanReq')}}">Manage Plan request</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{url('/VPlan')}}">View all TourPlan</a></li>
               </ul>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-              <i class="icon-bar-graph menu-icon"></i>
-              <span class="menu-title">Request of User</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="charts">
-              <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Manage Request</a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">View Request</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">View Comment</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-              <i class="icon-grid-2 menu-icon"></i>
-              <span class="menu-title">Event</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="tables">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('/Addevent')}}">Add event</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('/Mtevent')}}">Manage Traveler's Event </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('/MeventR')}}">Manage Event Request </a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{route('admin.Event.Traveler.EventList')}}">Traveler Event List</a></li>
-
-              </ul>
-            </div>
-          </li>
+          
+          <!--transport part-->
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
               <i class="icon-contract menu-icon"></i>
-              <span class="menu-title">Notice</span>
+              <span class="menu-title">Transport</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="icons">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Add notice</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Manage notice</a></li>
-
+                <li class="nav-item"> <a class="nav-link" href="{{route('admin.addtransportform')}}">Add Transport</a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Manage Transport</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('admin.addtransportList')}}">Transport List </a></li>
               </ul>
             </div>
           </li>
+
+          <!--location part-->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+              <i class="icon-grid-2 menu-icon"></i>
+              <span class="menu-title">Location</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="tables">
+              <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="">Add Location </a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Manage Location </a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Location List</a></li>
+              </ul>
+            </div>
+          </li>
+
+           <!--Spot part-->
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">Contact Us</span>
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Spot</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html">Manage Contact Info </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('admin.Addspot')}}">Add Spot </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('admin.Spotlist')}}">Spot List </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html">Manage Spot Info </a></li>
+              </ul>
+            </div>
+           </li>
+
+           <!--feedback part-->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <i class="icon-bar-graph menu-icon"></i>
+              <span class="menu-title">Feedback</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Manage Feedback</a></li>
+              <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">View Feedback</a></li>
               </ul>
             </div>
           </li>
-         
+           <!--contact part-->
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#demo" aria-expanded="false" aria-controls="demo">
               <i class="icon-head menu-icon"></i>
-              <span class="menu-title">About us</span>
+              <span class="menu-title">Contact us</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="demo">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">Manage About us </a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Manage Contact info</a></li>
               </ul>
             </div>
           </li>
+
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#au" aria-expanded="false" aria-controls="au">
+              <i class="icon-contract menu-icon"></i>
+              <span class="menu-title">Blog</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="au">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="#">Add Blog</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Manage Blog info</a></li>
+              </ul>
+            </div>
+          </li>
+
+           <!--report part-->
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
+              <i class="icon-grid-2 menu-icon"></i>
+              <span class="menu-title">Report</span>
+              <i class="nav-item"></i>
+            </a>
+           </li>
         </ul>
       </nav>

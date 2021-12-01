@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\AddTourPlan;
+use App\Models\Travelar;
 use Illuminate\Http\Request;
 
 class TourController extends Controller
@@ -20,11 +21,13 @@ class TourController extends Controller
         return view('admin.layouts.Tourplan.ViewPlan');
     }
     public function addtourplan(){
-        return view('admin.layouts.Tourplan.Addtourplan');
+      $Travelars = Travelar::all();
+        return view('admin.layouts.Tourplan.Addtourplan',compact('Travelars'));
     }
+    
     public function ViewAdminTourList(){
-        $TourPlans=AddTourPlan::all();
-       // dd($TourPlans);
+        $TourPlans=AddTourPlan::with('Travelar')->get();
+     //dd($TourPlans);
       return view('admin.layouts.Tourplan.AdminTourList',compact('TourPlans'));
         
     }
@@ -45,7 +48,7 @@ class TourController extends Controller
             'TourDuration'=>$request->TourDuration,
             'TourDate'=>$request->TourDate,
             'TourCost'=>$request->TourCost,
-            'Traveler_Amount'=>$request->Traveler_Amount,
+            'Travelar_id'=>$request->Travelar_name,
             'image'=>$filename
         ]);
         return redirect()->back()->with('msg','Tour plan created successfully.');
