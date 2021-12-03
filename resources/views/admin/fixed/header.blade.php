@@ -2,7 +2,7 @@
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <!--a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/dashboard/travel.png" class="mr-2" alt="logo"/></a>
         <a class="navbar-brand brand-logo-mr-8" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a-->
-        <h1 class="navbar-brand brand-logo mr-10"><a href="{{route('admin')}}"><img src="{{url('images/dashboard/mini.jpg')}}" alt="logo" /> Plan Your Tour</a></h1>
+        <h1 class="navbar-brand brand-logo mr-10"><a href="{{route('admin')}}"><img src="{{url('backend/images/dashboard/mini.jpg')}}" alt="logo" /> Plan Your Tour</a></h1>
         <!--a class="navbar-brand brand-logo-mr-12"><img src="images/dashboard/mini.jpg" alt="logo"/-->
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -72,7 +72,7 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="{{url('images/faces/admin.jpg')}}" alt="profile"/>
+              <img src="{{url('backend/images/faces/admin.jpg')}}" alt="profile"/>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
