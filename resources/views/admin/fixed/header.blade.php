@@ -2,7 +2,7 @@
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <!--a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/dashboard/travel.png" class="mr-2" alt="logo"/></a>
         <a class="navbar-brand brand-logo-mr-8" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a-->
-        <h1 class="navbar-brand brand-logo mr-10"><a href="{{url('/')}}"><img src="{{url('images/dashboard/mini.jpg')}}" alt="logo" /> Plan Your Tour</a></h1>
+        <h1 class="navbar-brand brand-logo mr-10"><a href="{{route('admin')}}"><img src="{{url('images/dashboard/mini.jpg')}}" alt="logo" /> Plan Your Tour</a></h1>
         <!--a class="navbar-brand brand-logo-mr-12"><img src="images/dashboard/mini.jpg" alt="logo"/-->
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">

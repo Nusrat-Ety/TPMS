@@ -11,8 +11,4 @@ class IndexController extends Controller
     public function index(){
         return view('admin.layouts.index');
     }
-
-    public function plan(){
-        return view('admin.layouts.plan');
-    }
 }

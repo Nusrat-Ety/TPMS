@@ -15,17 +15,18 @@ use Illuminate\Support\Facades\Route;
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
-|
+|x
 */
 
 Route::get('/', function () {
-    return view('admin.layouts.index');
+    return view('website.master');
 });
-//index Controller
-Route::get('/index',[IndexController::class,'index']);
-Route::get('/plan',[IndexController::class,'plan']);
-Route::get('/dashboard',[IndexController::class,'index']);
 
+Route::get('/d', function () {
+        return view('admin.layouts.index');
+    })->name('admin');
+// Route::group(['prefix'=>'admin'],function (){
+    
 
 //tour controller
 Route::get('/MTourP',[TourController::class,'Managetourplan']);
@@ -50,3 +51,4 @@ Route::get('/admin/Transport/transportList',[TransportController::class,'Transpo
 Route::get('/admin/Spot/Addspot',[SpotController::class,'Addspot'])->name('admin.Addspot');
 Route::post('/admin/Spot/StoreSpot',[SpotController::class,'StoreSpot'])->name('admin.StoreSpot');
 Route::get('/admin/Spot/SpotList',[SpotController::class,'SpotList'])->name('admin.Spotlist');
+// });

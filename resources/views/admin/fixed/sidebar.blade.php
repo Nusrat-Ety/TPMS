@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="{{url('/dashboard')}}">
+            <a class="nav-link" href="{{route('admin')}}">
               <i class="icon-grid menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
@@ -113,7 +113,7 @@
               </ul>
             </div>
           </li>
-
+   <!--blog part-->
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#au" aria-expanded="false" aria-controls="au">
               <i class="icon-contract menu-icon"></i>

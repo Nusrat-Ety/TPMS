@@ -26483,6 +26483,7 @@ table.dataTable tbody td.select-checkbox:after {
   right: 0;
 }
 
+
 .datepicker.datepicker-dropdown .datepicker-days table.table-condensed tbody td.old.day,
 .datepicker.datepicker-inline .datepicker-days table.table-condensed tbody td.old.day {
   color: #d9dde3;

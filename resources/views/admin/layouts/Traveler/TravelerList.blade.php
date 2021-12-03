@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('admin.welcome')
 @section('traveler')
 <div class="content-wrapper">
     <div class="row">
