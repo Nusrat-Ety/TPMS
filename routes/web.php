@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\TravelerController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TransportController;
 use App\Http\Controllers\Admin\SpotController;
+use App\Http\Controllers\Website\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 |x
 */
 
-Route::get('/', function () {
-    return view('website.master');
-});
+Route::get('/',[HomeController::class,'home']);
 
 Route::get('/d', function () {
         return view('admin.layouts.index');

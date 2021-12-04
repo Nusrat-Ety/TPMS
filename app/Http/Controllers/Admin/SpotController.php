@@ -25,7 +25,7 @@ class SpotController extends Controller
         Spot::create([
             
             'SpotName'=>$request->SpotName,
-            'SpotLocation'=>$request->SpotName,
+            'SpotLocation'=>$request->SpotLocation,
             'SpotImage'=>$Spotimagefile,
              'SpotDetails'=>$request->Spotdetail
         ]);
