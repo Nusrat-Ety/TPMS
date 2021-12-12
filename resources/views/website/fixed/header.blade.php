@@ -22,13 +22,13 @@
 									<ul class="nav navbar-nav navbar-right">
 										<li class="smooth-menu"><a href="#home">home</a></li>
 										<li class="smooth-menu"><a href="#gallery">Destination</a></li>
-										<li class="smooth-menu"><a href="#pack">Packages </a></li>
+										<li class="smooth-menu"><a href="#pack">Spots </a></li>
 										<li class="smooth-menu"><a href="#spo">Special Offers</a></li>
 										<li class="smooth-menu"><a href="#blog">blog</a></li>
 										<li class="smooth-menu"><a href="#subs">subscription</a></li>
 										<li>
-											<button class="book-btn">book now
-											</button>
+											<a href="{{route('user.login')}}" class="book-btn">Login</a>
+											
 										</li><!--/.project-btn--> 
 									</ul>
 								</div><!-- /.navbar-collapse -->

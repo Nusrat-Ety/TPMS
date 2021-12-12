@@ -639,10 +639,10 @@
 			<div class="container">
 				<div class="gallary-header text-center">
 					<h2>
-						special packages
+						special Spots
 					</h2>
 					<p>
-						Duis aute irure dolor in  velit esse cillum dolore eu fugiat nulla.  
+						Select your favorite spot and make your tour plan.  
 					</p>
 				</div><!--/.gallery-header-->
 				<div class="packages-content">
@@ -939,14 +939,14 @@
 										<div class="caption">
 											<div class="blog-txt">
 												<h3>
-													<a href="#">
+													<a href="{{route('website.blog')}}">
 														Discover on beautiful weather, Fantastic foods and historical place in Prag
 													</a>
 												</h3>
 												<p>
 													Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam 
 												</p>
-												<a href="#">Read More</a>
+												<a href="{{route('website.blog')}}">Read More</a>
 											</div><!--/.blog-txt-->
 										</div><!--/.caption-->
 									</div><!--/.thumbnail-->

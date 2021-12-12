@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TransportController;
 use App\Http\Controllers\Admin\SpotController;
 use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Website\BlogController;
+use App\Http\Controllers\Website\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +20,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |x
 */
-
+//----website-----
+//home page
 Route::get('/',[HomeController::class,'home']);
+Route::get('/website/Blog',[BlogController::class,'BlogView'])->name('website.blog');
+Route::get('/frontend/login',[LoginController::class,'login'])->name('user.login');
 
+
+//-------Admin------
 Route::get('/d', function () {
         return view('admin.layouts.index');
     })->name('admin');
@@ -50,4 +57,4 @@ Route::get('/admin/Transport/transportList',[TransportController::class,'Transpo
 Route::get('/admin/Spot/Addspot',[SpotController::class,'Addspot'])->name('admin.Addspot');
 Route::post('/admin/Spot/StoreSpot',[SpotController::class,'StoreSpot'])->name('admin.StoreSpot');
 Route::get('/admin/Spot/SpotList',[SpotController::class,'SpotList'])->name('admin.Spotlist');
-// });
+//});

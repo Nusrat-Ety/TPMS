@@ -77,7 +77,7 @@
         @yield('contents')
         	<!--contents part end-->
 		<!--subscribe end-->
-
+		@yield('item')
 		<!-- footer-copyright start -->
 		<!-- /.footer-copyright-->
         @include('website.fixed.footer')
