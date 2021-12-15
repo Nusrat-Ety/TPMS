@@ -123,6 +123,7 @@
   <script src="{{url('backend/js/jquery.cookie.js')}}" type="text/javascript"></script>
   <script src="{{url('backend/js/dashboard.js')}}"></script>
   <script src="{{url('backend/js/Chart.roundedBarCharts.js')}}"></script>
+  <script src="	https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/perfect-scrollbar.min.js.map"></script>
   <!-- End custom js for this page-->
   
 </body>

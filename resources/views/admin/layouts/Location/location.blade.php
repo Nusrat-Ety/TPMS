@@ -15,7 +15,7 @@
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">location name</label>
-      <input name="SpotName" class="form-control" id="validationCustom01" placeholder="Tour Name"  required>
+      <input name="LocationName" class="form-control" id="validationCustom01" placeholder="Tour Name"  required>
       <div class="valid-feedback">
         Looks good!
       </div>

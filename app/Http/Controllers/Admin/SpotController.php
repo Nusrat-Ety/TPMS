@@ -19,7 +19,7 @@ class SpotController extends Controller
         
         $file=$request->file('SpotImage');
         $Spotimagefile = date('Ymdhms').'.'.$file->getClientOriginalExtension();
-        $file->storeAs('/uploads',$Spotimagefile);
+        $file->storeAs('/uploads/Spots/',$Spotimagefile);
         }
         //dd($resquest->all());
         Spot::create([

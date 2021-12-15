@@ -16,7 +16,7 @@
                                             <th scope="col">Spot name</th>
                                             <th scope="col">Spot location</th>
                                             <th scope="col">Spot image</th>
-                                            <th scope="col">Spot Details</th>
+                                            <th style="width= "100px 1important;">Spot Details</th>
                                             
                                         </tr>
                                     </thead>
@@ -26,7 +26,7 @@
                                         <th>{{$key+1}}</th>
                                         <td>{{$Spot->SpotName}}</td>
                                         <td>{{$Spot->SpotLocation}}</td>
-                                        <td><img src="{{url('/uploads/'.$Spot->SpotImage)}}" width="200px" alt="Spot image"></td>
+                                        <td><img src="{{url('/uploads/Spots/'.$Spot->SpotImage)}}" width="200px" alt="Spot image"></td>
                                         <td>{{$Spot->SpotDetails}}</td>
                                       </tr>
                                       @endforeach
@@ -39,7 +39,6 @@
         </div>
     </div>
 </div>
-
 
 
 @endsection

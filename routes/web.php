@@ -6,8 +6,9 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TransportController;
 use App\Http\Controllers\Admin\SpotController;
 use App\Http\Controllers\Website\HomeController;
-use App\Http\Controllers\Website\BlogController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Website\LoginController;
+use App\Http\Controllers\Website\WebsiteBlogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,8 +24,9 @@ use Illuminate\Support\Facades\Route;
 //----website-----
 //home page
 Route::get('/',[HomeController::class,'home']);
-Route::get('/website/Blog',[BlogController::class,'BlogView'])->name('website.blog');
+Route::get('/website/Blog/{id}',[WebsiteBlogController::class,'BlogView'])->name('website.blog');
 Route::get('/frontend/login',[LoginController::class,'login'])->name('user.login');
+
 
 
 //-------Admin------
@@ -57,4 +59,9 @@ Route::get('/admin/Transport/transportList',[TransportController::class,'Transpo
 Route::get('/admin/Spot/Addspot',[SpotController::class,'Addspot'])->name('admin.Addspot');
 Route::post('/admin/Spot/StoreSpot',[SpotController::class,'StoreSpot'])->name('admin.StoreSpot');
 Route::get('/admin/Spot/SpotList',[SpotController::class,'SpotList'])->name('admin.Spotlist');
+
+//blog
+Route::get('/admin/blog',[BlogController::class,'Addblog'])->name('admin.add.blog');
+Route::post('/admin/StoreBlog',[BlogController::class,'storeBlog'])->name('admin.Store.Blog');
+Route::get('/admin/blog/bloglist',[BlogController::class,'BlogList'])->name('admin.blog.blogList');
 //});

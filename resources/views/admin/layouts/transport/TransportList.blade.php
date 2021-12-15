@@ -16,6 +16,7 @@
                                             <th scope="col">Transport name</th>
                                             <th scope="col">Transport Type</th>
                                             <th scope="col">location</th>
+                                            <th scope="col">Action</th>
                                             
                                         </tr>
                                     </thead>
@@ -26,6 +27,9 @@
                                         <td>{{$transport->transportName}}</td>
                                         <td>{{$transport->transportType}}</td>
                                         <td>{{$transport->location}}</td>
+                                        <td>
+                                            <a class="btn btn-primary"href="">view</a>
+                                        </td>
                                       </tr>
                                       @endforeach
                                    </tbody>

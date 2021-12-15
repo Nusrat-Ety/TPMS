@@ -63,9 +63,9 @@
             </a>
             <div class="collapse" id="tables">
               <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="">Add Location </a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Manage Location </a></li>
-                <li class="nav-item"> <a class="nav-link" href="">Location List</a></li>
+              <li class="nav-item"> <a class="nav-link" href="#">Add Location </a></li>
+              
+                <li class="nav-item"> <a class="nav-link" href="#">Location List</a></li>
               </ul>
             </div>
           </li>
@@ -122,8 +122,8 @@
             </a>
             <div class="collapse" id="au">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">Add Blog</a></li>
-                <li class="nav-item"> <a class="nav-link" href="#">Manage Blog info</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('admin.add.blog')}}">Add Blog</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('admin.blog.blogList')}}">Blog List</a></li>
               </ul>
             </div>
           </li>

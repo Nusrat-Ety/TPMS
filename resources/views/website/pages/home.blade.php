@@ -650,7 +650,7 @@
                         @foreach($spots as $spot)
                     <div class="col-md-4 col-sm-6">
 							<div class="single-package-item" style="height: 500px;">
-								<img style="height:200px;"src="{{url('uploads/'.$spot->SpotImage)}}" alt="package-place">
+								<img style="height:200px;"src="{{url('uploads/Spots/'.$spot->SpotImage)}}" alt="package-place">
 								<div class="single-package-item-txt">
 									<h3>{{$spot->SpotName}} <span class="pull-right">{{$spot->SpotLocation}}</span></h3>
 									<div class="packages-para">
@@ -918,20 +918,21 @@
 				<div class="blog-details">
 						<div class="gallary-header text-center">
 							<h2>
-								latest news
+								Blog
 							</h2>
 							<p>
-								Travel News from all over the world 
+								Travel Blogs from all over the world 
 							</p>
 						</div><!--/.gallery-header-->
+						
 						<div class="blog-content">
 							<div class="row">
-
+								@foreach($Blogs as $key=>$blog)
 								<div class="col-sm-4 col-md-4">
 									<div class="thumbnail">
-										<h2>trending news <span>15 november 2017</span></h2>
+										<h2>{{$blog->Location}}<span>{{$blog->Date}}</span></h2>
 										<div class="thumbnail-img">
-											<img src="{{url('/frontend/assets/images/blog/b1.jpg')}}" alt="blog-img">
+											<img src="{{url('/uploads/Blogs/'.$blog->Blogimage)}}" alt="blog-img">
 											<div class="thumbnail-img-overlay"></div><!--/.thumbnail-img-overlay-->
 										
 										</div><!--/.thumbnail-img-->
@@ -939,71 +940,29 @@
 										<div class="caption">
 											<div class="blog-txt">
 												<h3>
-													<a href="{{route('website.blog')}}">
-														Discover on beautiful weather, Fantastic foods and historical place in Prag
-													</a>
+												{{$blog->BloggerName}} 
 												</h3>
-												<p>
-													Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam 
-												</p>
-												<a href="{{route('website.blog')}}">Read More</a>
-											</div><!--/.blog-txt-->
-										</div><!--/.caption-->
-									</div><!--/.thumbnail-->
-
-								</div><!--/.col-->
-
-								<div class="col-sm-4 col-md-4">
-									<div class="thumbnail">
-										<h2>trending news <span>15 november 2017</span></h2>
-										<div class="thumbnail-img">
-											<img src="{{url('/frontend/assets/images/blog/b2.jpg')}}" alt="blog-img">
-											<div class="thumbnail-img-overlay"></div><!--/.thumbnail-img-overlay-->
-										
-										</div><!--/.thumbnail-img-->
-										<div class="caption">
-											<div class="blog-txt">
 												<h3>
-													<a href="#">
-														Discover on beautiful weather, Fantastic foods and historical place in india
+													<a href="{{route('website.blog',$blog->id)}}">
+														{{$blog->BlogName}}
 													</a>
 												</h3>
 												<p>
-													Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam 
+												{{$blog->Description}}
 												</p>
-												<a href="#">Read More</a>
+												<a href="{{route('website.blog',$blog->id)}}">Read More</a>
 											</div><!--/.blog-txt-->
 										</div><!--/.caption-->
 									</div><!--/.thumbnail-->
 
 								</div><!--/.col-->
 
-								<div class="col-sm-4 col-md-4">
-									<div class="thumbnail">
-										<h2>trending news <span>15 november 2017</span></h2>
-										<div class="thumbnail-img">
-											<img src="{{url('/frontend/assets/images/blog/b3.jpg')}}" alt="blog-img">
-											<div class="thumbnail-img-overlay"></div><!--/.thumbnail-img-overlay-->
-										
-										</div><!--/.thumbnail-img-->
-										<div class="caption">
-											<div class="blog-txt">
-												<h3><a href="#">10 Most Natural place to Discover</a></h3>
-												<p>
-													Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam 
-												</p>
-												<a href="#">Read More</a>
-											</div><!--/.blog-txt-->
-										</div><!--/.caption-->
-									</div><!--/.thumbnail-->
-
-								</div><!--/.col-->
-
+@endforeach
 							</div><!--/.row-->
 						</div><!--/.blog-content-->
 					</div><!--/.blog-details-->
 				</div><!--/.container-->
-
+</div>
 		</section><!--/.blog-->
 		<!--blog end-->
 
