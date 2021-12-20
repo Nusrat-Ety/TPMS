@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\TransportController;
 use App\Http\Controllers\Admin\SpotController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Website\LoginController;
+use App\Http\Controllers\Website\UserController;
 use App\Http\Controllers\Website\WebsiteBlogController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,7 +25,9 @@ use Illuminate\Support\Facades\Route;
 //home page
 Route::get('/',[HomeController::class,'home']);
 Route::get('/website/Blog/{id}',[WebsiteBlogController::class,'BlogView'])->name('website.blog');
-Route::get('/frontend/login',[LoginController::class,'login'])->name('user.login');
+Route::get('/frontend/login',[UserController::class,'loginView'])->name('user.page.login');
+Route::get('/frontend/Registration',[UserController::class,'registration'])->name('user.registration');
+//Route::post
 
 
 

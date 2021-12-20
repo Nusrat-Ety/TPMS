@@ -27,7 +27,7 @@
 										<li class="smooth-menu"><a href="#blog">blog</a></li>
 										<li class="smooth-menu"><a href="#subs">subscription</a></li>
 										<li>
-											<a href="{{route('user.login')}}" class="book-btn">Login</a>
+											<a href="{{route('user.page.login')}}" class="book-btn">Login</a>
 											
 										</li><!--/.project-btn--> 
 									</ul>

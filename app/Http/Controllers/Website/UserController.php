@@ -4,9 +4,13 @@ namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
+    public function loginView(){
+        return view('Website.pages.login');
+    }
     public function registration(Request $request)
     {
 //        dd($request->all());
@@ -23,7 +27,7 @@ class UserController extends Controller
     }
 
 
-    public function login(Request $request)
+    public function userlogin(Request $request)
     {
 
         $userInfo=$request->except('_token');
@@ -36,10 +40,6 @@ class UserController extends Controller
     }
 
 
-    public function logout()
-    {
-        Auth::logout();
-     return redirect()->route('website')->with('message','Logging out.');
-    }
+    
 
 }

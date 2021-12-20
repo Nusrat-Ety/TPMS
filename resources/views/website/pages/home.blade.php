@@ -928,29 +928,29 @@
 						<div class="blog-content">
 							<div class="row">
 								@foreach($Blogs as $key=>$blog)
-								<div class="col-sm-4 col-md-4">
-									<div class="thumbnail">
-										<h2>{{$blog->Location}}<span>{{$blog->Date}}</span></h2>
+								<div class="col-md-4 col-sm-6">
+									<div class="thumbnail"style="width:374px;">
+										<h2>{{$blog->Location}}<span style="float:right; padding-right:15px;font-size:12px">{{$blog->BloggerName}} </span></h2>
+										
 										<div class="thumbnail-img">
-											<img src="{{url('/uploads/Blogs/'.$blog->Blogimage)}}" alt="blog-img">
+											<img src="{{url('/uploads/Blogs/'.$blog->Blogimage)}}"style="height:250px" alt="blog-img">
 											<div class="thumbnail-img-overlay"></div><!--/.thumbnail-img-overlay-->
 										
 										</div><!--/.thumbnail-img-->
 									  
 										<div class="caption">
 											<div class="blog-txt">
-												<h3>
-												{{$blog->BloggerName}} 
-												</h3>
-												<h3>
-													<a href="{{route('website.blog',$blog->id)}}">
+											<h3>
+													<a style="font-size:20px" href="{{route('website.blog',$blog->id)}}">
 														{{$blog->BlogName}}
 													</a>
 												</h3>
+										
+												
 												<p>
 												{{$blog->Description}}
 												</p>
-												<a href="{{route('website.blog',$blog->id)}}">Read More</a>
+												<a href="{{route('website.blog',$blog->id)}}">Read More</a><span style="position:relative;font-size:10px;font-style:italic;">{{$blog->Date}}</span>
 											</div><!--/.blog-txt-->
 										</div><!--/.caption-->
 									</div><!--/.thumbnail-->
