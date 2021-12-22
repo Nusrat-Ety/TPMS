@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 */
 //----website-----
 //home page
-Route::get('/',[HomeController::class,'home']);
+Route::get('/',[HomeController::class,'home'])->name('website');
 Route::get('/website/Blog/{id}',[WebsiteBlogController::class,'BlogView'])->name('website.blog');
 Route::get('/frontend/login',[UserController::class,'loginView'])->name('user.page.login');
 Route::post('/frontend/Registration',[UserController::class,'registration'])->name('user.registration');

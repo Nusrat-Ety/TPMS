@@ -39,7 +39,7 @@ class UserController extends Controller
 
 
         if(Auth::attempt($userInfo)){
-            return redirect()->back()->with('message','Login successful.');
+            return redirect()->route('website')->with('message','Login successful.');
         }
         return redirect()->back()->with('error','Invalid user credentials');
 
