@@ -3,13 +3,14 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function loginView(){
-        return view('Website.pages.login');
+        return view('website.pages.login');
     }
     public function registration(Request $request)
     {
@@ -18,7 +19,11 @@ class UserController extends Controller
            'name'=>$request->user_name,
            'email'=>$request->user_email,
            'password'=>bcrypt($request->user_password),
-           'mobile'=>$request->user_mobile,
+           'NID'=>$request->nid,
+           'Address'=>$request->Address,
+           'Gender'=>$request->gender,
+           'DOB'=>$request->DOB,
+           'mobile'=>$request->user_mobile
         ]);
 
         return redirect()->back()->with('message','Registration successful.');
@@ -27,10 +32,11 @@ class UserController extends Controller
     }
 
 
-    public function userlogin(Request $request)
+    public function login(Request $request)
     {
 
         $userInfo=$request->except('_token');
+
 
         if(Auth::attempt($userInfo)){
             return redirect()->back()->with('message','Login successful.');
@@ -40,6 +46,9 @@ class UserController extends Controller
     }
 
 
-    
-
+    public function logout()
+    {
+        Auth::logout();
+     return redirect()->route('website')->with('message','Logging out.');
+    }
 }

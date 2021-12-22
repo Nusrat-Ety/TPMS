@@ -16,8 +16,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{url('/Mtraveler')}}">Manage Traveler</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{url('/Ltraveler')}}">Traveler list</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('manage.traveler')}}">Manage Traveler</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('traveler.List')}}">Traveler list</a></li>
               </ul>
             </div>
           </li>
@@ -31,9 +31,9 @@
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="{{url('/MTourP')}}">Manage Tour plan</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{url('/MPlanReq')}}">Manage Plan request</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{url('/VPlan')}}">View all TourPlan</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('manage.Tour.plan')}}">Manage Tour plan</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('admin.manage.TourplanReq')}}">Manage Plan request</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('view.tour.plan')}}">View all TourPlan</a></li>
               </ul>
             </div>
           </li>

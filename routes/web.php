@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SpotController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Website\UserController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Website\WebsiteBlogController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,29 +27,35 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class,'home']);
 Route::get('/website/Blog/{id}',[WebsiteBlogController::class,'BlogView'])->name('website.blog');
 Route::get('/frontend/login',[UserController::class,'loginView'])->name('user.page.login');
-Route::get('/frontend/Registration',[UserController::class,'registration'])->name('user.registration');
+Route::post('/frontend/Registration',[UserController::class,'registration'])->name('user.registration');
+Route::post('/login',[UserController::class,'login'])->name('user.dologin');
+Route::get('/logout',[UserController::class,'logout'])->name('user.logout');
 //Route::post
 
 
 
 //-------Admin------
-Route::get('/d', function () {
-        return view('admin.layouts.index');
-    })->name('admin');
-// Route::group(['prefix'=>'admin'],function (){
-    
 
+    Route::get('/admin/login',[AdminUserController::class,'login'])->name('admin.login');
+Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('admin.doLogin');
+
+    Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
+        Route::get('/', function () {
+            return view('admin.layouts.index');
+        })->name('admin');
+        //admin logout
+        Route::get('/logout',[AdminUserController::class,'logout'])->name('admin.logout');
 //tour controller
-Route::get('/MTourP',[TourController::class,'Managetourplan']);
+Route::get('/MTourP',[TourController::class,'Managetourplan'])->name('manage.Tour.plan');
 Route::get('/managetour/Addtourplan',[TourController::class,'addtourplan'])->name('admin.addTourplan');
-Route::get('/MPlanReq',[TourController::class,'ManagetourplanReq']);
-Route::get('/VPlan',[TourController::class,'Viewtourplan']);
+Route::get('/ManageTourPlanRequest',[TourController::class,'ManagetourplanReq'])->name('admin.manage.TourplanReq');
+Route::get('/ViewTourPlan',[TourController::class,'Viewtourplan'])->name('view.tour.plan');
 Route::get('/ManageTourplan/AdminAddedTourlist',[TourController::class,'ViewAdminTourList'])->name('admin.added.TourList');
-Route::post('/admin/StoreTourplan',[TourController::class,'StoreTourplan'])->name('Admin.Tourplan.Store');
+Route::post('/StoreTourplan',[TourController::class,'StoreTourplan'])->name('Admin.Tourplan.Store');
 
 //traveller controller
-Route::get('/Mtraveler',[TravelerController::class,'ManageTraveler']);
-Route::get('/Ltraveler',[TravelerController::class,'TravelerList']);
+Route::get('/Managetraveler',[TravelerController::class,'ManageTraveler'])->name('manage.traveler');
+Route::get('/TravelerList',[TravelerController::class,'TravelerList'])->name('traveler.List');
 Route::get('/admin/addtraveler',[TravelerController::class,'addtraveler'])->name('admin.traveler.addtraveler');
 Route::post('/admin/add/travelers',[TravelerController::class,'posttraveler'])->name('admin.traveler.post');
 
@@ -67,3 +74,4 @@ Route::get('/admin/blog',[BlogController::class,'Addblog'])->name('admin.add.blo
 Route::post('/admin/StoreBlog',[BlogController::class,'storeBlog'])->name('admin.Store.Blog');
 Route::get('/admin/blog/bloglist',[BlogController::class,'BlogList'])->name('admin.blog.blogList');
 //});
+});
