@@ -9,6 +9,7 @@
                     <table class="table">
                         <div class="row">
                             <div class="col-md-8 grid-margin">
+                                <div>
                                 <table class="table text-center">
                                     <thead>
                                         <tr>
@@ -17,20 +18,29 @@
                                             <th scope="col">Spot location</th>
                                             <th scope="col">Spot image</th>
                                             <th style="width= "100px 1important;">Spot Details</th>
-                                            
+                                            <th scope="col">Action</th>
+
                                         </tr>
                                     </thead>
+                                 
                                     <tbody>
                                       @foreach($Spots as $key=>$Spot)
                                       <tr>
+                                      <td>
+                                            <a class="btn btn-primary" href="{{route('admin.spot.details',$Spot->id)}}">View</a>
+                                        </td>
                                         <th>{{$key+1}}</th>
                                         <td>{{$Spot->SpotName}}</td>
                                         <td>{{$Spot->SpotLocation}}</td>
                                         <td><img src="{{url('/uploads/Spots/'.$Spot->SpotImage)}}" width="200px" alt="Spot image"></td>
                                         <td>{{$Spot->SpotDetails}}</td>
+                                        <td>
+                                            <a class="btn btn-primary" href="{{route('admin.spot.details',$Spot->id)}}">View</a>
+                                        </td>
                                       </tr>
                                       @endforeach
                                    </tbody>
+
                                 </table>
                             </div>
                         </div>

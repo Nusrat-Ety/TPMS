@@ -65,13 +65,19 @@ Route::post('/admin/Transport/Storetransport',[TransportController::class,'Store
 Route::get('/admin/Transport/transportList',[TransportController::class,'TransportList'])->name('admin.addtransportList');
 
 //Spot
-Route::get('/admin/Spot/Addspot',[SpotController::class,'Addspot'])->name('admin.Addspot');
-Route::post('/admin/Spot/StoreSpot',[SpotController::class,'StoreSpot'])->name('admin.StoreSpot');
-Route::get('/admin/Spot/SpotList',[SpotController::class,'SpotList'])->name('admin.Spotlist');
+Route::get('/Spot/Addspot',[SpotController::class,'Addspot'])->name('admin.Addspot');
+Route::post('/Spot/StoreSpot',[SpotController::class,'StoreSpot'])->name('admin.StoreSpot');
+Route::get('/Spot/SpotList',[SpotController::class,'SpotList'])->name('admin.Spotlist');
+Route::get('/view/{spot_id}',[SpotController::class,'SpotDetails'])->name('admin.spot.details');
 
 //blog
 Route::get('/admin/blog',[BlogController::class,'Addblog'])->name('admin.add.blog');
 Route::post('/admin/StoreBlog',[BlogController::class,'storeBlog'])->name('admin.Store.Blog');
 Route::get('/admin/blog/bloglist',[BlogController::class,'BlogList'])->name('admin.blog.blogList');
+Route::get('/blog/bloglist/details/{blog_id}',[BlogController::class,'Blogdetails'])->name('admin.blog.details');
+Route::get('/blog/delete/{blog_id}',[BlogController::class,'BlogDelete'])->name('admin.delete.blog');
+Route::get('/blog/edit/{blog_id}',[BlogController::class,'BlogEdit'])->name('admin.Edit.blog');
+Route::put('/blog/update/{blog_id}',[BlogController::class,'BlogUpdate'])->name('admin.update.blog');
+
 //});
 });

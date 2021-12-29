@@ -6,7 +6,7 @@
 						<div class="col-sm-3">
 							<div class="single-footer-item">
 								<div class="footer-logo">
-									<a href="index.html">
+									<a href="{{route('website')}}">
 										tour<span>Nest</span>
 									</a>
 									<p>

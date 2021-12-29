@@ -82,6 +82,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.Addspot')}}">Add Spot </a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.Spotlist')}}">Spot List </a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html">Manage Spot Info </a></li>
+
               </ul>
             </div>
            </li>

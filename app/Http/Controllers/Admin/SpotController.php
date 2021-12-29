@@ -35,5 +35,12 @@ class SpotController extends Controller
         $Spots=Spot::all();
         return view('admin.layouts.Spot.SpotList',compact('Spots'));
     }
+    //spot details
+    public function SpotDetails($spot_id)
+    {
+
+      $spot=Spot::find($spot_id);
+        return view('admin.layouts.Spot.Spotdetails',compact('spot'));
+    }
 
 }
