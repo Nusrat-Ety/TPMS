@@ -19,9 +19,11 @@ class CreateAddTourPlansTable extends Migration
             $table->String('TourDestination');
             $table->String('TourDuration');
             $table->double('TourDate');
-            $table->double('TourCost');
-            $table->string('Travelar_id');
-            $table->string('image');
+            $table->double('TourBudget');
+            $table->string('Travelar_name');
+            $table->string('members');
+            $table->string('Transport');
+            $table->string('TourSpot');
             $table->timestamps();
         });
     }

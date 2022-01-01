@@ -1,5 +1,6 @@
 @extends('website.master')
 @section('contents')
+
 <section id="home" class="about-us">
 			<div class="container">
 				<div class="about-us-content">
@@ -91,27 +92,27 @@
 													</div><!--/.single-tab-select-box-->
 												</div><!--/.col-->
 
-												<div class="col-lg-2 col-md-3 col-sm-4">
+												<!-- <div class="col-lg-2 col-md-3 col-sm-4">
 													<div class="single-tab-select-box">
 														<h2>check in</h2>
 														<div class="travel-check-icon">
 															<form action="#">
 																<input type="text" name="check_in" class="form-control" data-toggle="datepicker" placeholder="12 -01 - 2017 ">
-															</form>
-														</div><!-- /.travel-check-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
+															</form> -->
+														<!--/div><!-- /.travel-check-icon -->
+													<!--/div><!--/.single-tab-select-box-->
+												<!--/div><!--/.col-->
 
-												<div class="col-lg-2 col-md-3 col-sm-4">
+												<!-- <div class="col-lg-2 col-md-3 col-sm-4">
 													<div class="single-tab-select-box">
 														<h2>check out</h2>
 														<div class="travel-check-icon">
 															<form action="#">
 																<input type="text" name="check_out" class="form-control"  data-toggle="datepicker" placeholder="22 -01 - 2017 ">
-															</form>
-														</div><!-- /.travel-check-icon -->
-													</div><!--/.single-tab-select-box-->
-												</div><!--/.col-->
+															</form> -->
+														<!--/div><!-- /.travel-check-icon -->
+													<!--/div><!--/.single-tab-select-box-->
+												<!--/div><!--/.col-->
 
 												<div class="col-lg-2 col-md-1 col-sm-4">
 													<div class="single-tab-select-box">
@@ -659,8 +660,8 @@
 									</div><!--/.packages-para-->
 									
 									<div class="about-btn">
-										<button class="about-view packages-btn" >
-											book now
+<button class="about-view packages-btn"type="submit" >
+											<a href="{{route('user.tourplan')}}">Plan tour</a>
 										</button>
 									</div><!--/.about-btn-->
 								</div><!--/.single-package-item-txt-->
@@ -672,11 +673,87 @@
 
                         </div><!--/.row-->
 				</div><!--/.packages-content-->
+				<!--Modal: Login with Avatar Form-->
+				<div class="modal fade" id="modalLoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Sign in</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <i class="fas fa-envelope prefix grey-text"></i>
+          <input type="email" id="defaultForm-email" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="defaultForm-email">Your email</label>
+        </div>
+
+        <div class="md-form mb-4">
+          <i class="fas fa-lock prefix grey-text"></i>
+          <input type="password" id="defaultForm-pass" class="form-control validate">
+          <label data-error="wrong" data-success="right" for="defaultForm-pass">Your password</label>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button class="btn btn-default">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
 			</div><!--/.container-->
 
 		</section><!--/.packages-->
 		<!--packages end-->
-      
+      <!--packages start-->
+	  <section id="spo" class="packages">
+			<div class="container">
+				<div class="gallary-header text-center">
+					<h2>
+						Tour Plans
+					</h2>
+					<p>
+						Select your tour.  
+					</p>
+				</div><!--/.gallery-header-->
+				<div class="packages-content">
+					<div class="row">
+                        @foreach($tourplans as $tourplan)
+                    <div class="col-md-4 col-sm-6">
+
+							<div class="single-package-item" style="width: 370px;height: 300px; background-image:url('{{url('uploads/Spots/'.$spot->SpotImage)}}');background-size: cover;filter: drop-shadow(2px 4px 6px grey);">
+								<div class="single-package-item-txt">
+
+									<h3 style="color:black;box-shadow: 0 0px 20px rgb(0 0 0 / 0.68);background-color: whitesmoke;font-weight: 600;">{{$tourplan->Tourname}} <span class="pull-right">{{$tourplan->TourDestination}}</span></h3>
+									<div class="packages-para"style="background-color: #0000003b;">
+										<p style="color: #ffffff;font-weight: 500;"><i class="fa fa-angle-right"></i>{{$tourplan->members}}	</p>
+										<p style="color: #ffffff;font-weight: 500;"><i class="fa fa-angle-right"></i>{{$tourplan->TourBudget}}<span class="pull-right">{{$tourplan->TourDuration}}</span>
+										<p style="color: #ffffff;font-weight: 500;">{{$tourplan->TourDate}} <span class="pull-right">{{$tourplan->Travelar_name}}</span></p>
+                                    
+									</div><!--/.packages-para-->
+									
+									<div class="about-btn">
+										<button class="about-view packages-btn" style="float: right;" >
+											Join
+										</button>
+									</div><!--/.about-btn-->
+								</div><!--/.single-package-item-txt-->
+							</div><!--/.single-package-item-->
+
+						</div><!--/.col-->
+@endforeach
+
+
+                        </div><!--/.row-->
+				</div><!--/.packages-content-->
+				
+			</div><!--/.container-->
+
+		</section><!--/.packages-->
+		<!--packages end-->
 		<!-- testemonial Start -->
 		<section   class="testemonial">
 			<div class="container">
@@ -995,3 +1072,4 @@
 
 		</section>
         @endsection
+		

@@ -31,29 +31,6 @@ class TourController extends Controller
       return view('admin.layouts.Tourplan.AdminTourList',compact('TourPlans'));
         
     }
-    public function StoreTourplan(Request $request){
-        // dd(date('Ymdhms'));
-        // dd($request->all());
-        $filename = '';
-        if($request->hasFile('image'))
-        {
-            $file=$request->file('image');
-            $filename = date('Ymdhms').'.'.$file->getClientOriginalExtension();
-            $file->storeAs('/uploads',$filename);
-
-        }
-        AddTourPlan::create([
-            'Tourname'=>$request->TourName,
-            'TourDestination'=>$request->TourDestination,
-            'TourDuration'=>$request->TourDuration,
-            'TourDate'=>$request->TourDate,
-            'TourCost'=>$request->TourCost,
-            'Travelar_id'=>$request->Travelar_name,
-            'image'=>$filename
-        ]);
-        return redirect()->back()->with('msg','Tour plan created successfully.');
-
-    }
     
     
 }

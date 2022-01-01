@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Website\UserController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Website\WebsiteBlogController;
+use App\Http\Controllers\Website\TourController as WebsiteTourController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,9 +31,9 @@ Route::get('/frontend/login',[UserController::class,'loginView'])->name('user.pa
 Route::post('/frontend/Registration',[UserController::class,'registration'])->name('user.registration');
 Route::post('/login',[UserController::class,'login'])->name('user.dologin');
 Route::get('/logout',[UserController::class,'logout'])->name('user.logout');
-//Route::post
-
-
+//Tourplan
+route::get('/tourplan',[WebsiteTourController::class,'TourPlan'])->name('user.tourplan');
+route::post('/make/tourplan',[WebsiteTourController::class,'storeTourPlan'])->name('user.added.tourplan');
 
 //-------Admin------
 
@@ -47,11 +48,9 @@ Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('adm
         Route::get('/logout',[AdminUserController::class,'logout'])->name('admin.logout');
 //tour controller
 Route::get('/MTourP',[TourController::class,'Managetourplan'])->name('manage.Tour.plan');
-Route::get('/managetour/Addtourplan',[TourController::class,'addtourplan'])->name('admin.addTourplan');
 Route::get('/ManageTourPlanRequest',[TourController::class,'ManagetourplanReq'])->name('admin.manage.TourplanReq');
 Route::get('/ViewTourPlan',[TourController::class,'Viewtourplan'])->name('view.tour.plan');
 Route::get('/ManageTourplan/AdminAddedTourlist',[TourController::class,'ViewAdminTourList'])->name('admin.added.TourList');
-Route::post('/StoreTourplan',[TourController::class,'StoreTourplan'])->name('Admin.Tourplan.Store');
 
 //traveller controller
 Route::get('/Managetraveler',[TravelerController::class,'ManageTraveler'])->name('manage.traveler');

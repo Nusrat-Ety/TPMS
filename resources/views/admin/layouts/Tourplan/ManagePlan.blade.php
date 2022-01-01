@@ -17,14 +17,7 @@
                   
             <div class="col-md-6 grid-margin transparent">
               <div class="column">
-                <div class="col-md-6 mb-4 stretch-card transparent">
-                  <div class="card card-tale">
-                    <div class="card-body">
-                      <a href="{{route('admin.addTourplan')}}"class="mb-4">Add tour plan</a>
-                     
-                    </div>
-                  </div>
-                </div>
+             
                 
                 <div class="col-md-6 mb-4 stretch-card transparent">
                 
