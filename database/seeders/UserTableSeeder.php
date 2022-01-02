@@ -24,7 +24,8 @@ class UserTableSeeder extends Seeder
                 'Address'=>'Dhaka',
                 'Gender'=>'Female',
                 'DOB'=>'03-03-1999',
-                'mobile'=>'01730972988'
+                'mobile'=>'01730972988',
+                'role'=>'admin'
                 
             
             ]

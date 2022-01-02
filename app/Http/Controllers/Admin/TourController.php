@@ -16,19 +16,31 @@ class TourController extends Controller
     public function ManagetourplanReq(){
         return view('admin.layouts.Tourplan.ManagePlanReq');
     }
-    //for viewing the tourplan of user
-    public function Viewtourplan(){
-        return view('admin.layouts.Tourplan.ViewPlan');
-    }
-    public function addtourplan(){
-      $Travelars = Travelar::all();
-        return view('admin.layouts.Tourplan.Addtourplan',compact('Travelars'));
-    }
-    
+    //for viewing the tourplan list of user
     public function ViewAdminTourList(){
-        $TourPlans=AddTourPlan::with('Travelar')->get();
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $Tourplans=AddTourPlan::where('Tourname','LIKE','%'.$key.'%')->orwhere('TourDestination','LIKE','%'.$key.'%')->orwhere('TourSpot','LIKE','%'.$key.'%')->get();
+        return view('admin.layouts.Tourplan.AdminTourList',compact('Tourplans','key'));
+        }
+        $Tourplans=AddTourPlan::all();
      //dd($TourPlans);
-      return view('admin.layouts.Tourplan.AdminTourList',compact('TourPlans'));
+      return view('admin.layouts.Tourplan.AdminTourList',compact('Tourplans','key'));
+        
+    }
+    //for showing details of the tourplan
+    public function TourPlanDetails($tourplan_id){
+        $tourplan=AddTourPlan::find($tourplan_id);
+        return view('admin.layouts.Tourplan.TourPlanDetails',compact('tourplan'));
+    }
+  
+    
+  
+    public function DeleteTourPlan($tourplan_id){
+        $TourPlans=AddTourPlan::find($tourplan_id)->delete();
+     //dd($TourPlans);
+      return redirect()->back()->with('success','Tour Plan deleted successfully');
         
     }
     

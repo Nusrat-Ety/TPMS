@@ -1,4 +1,6 @@
-
+@if(session()->has('error'))
+    <p class="alert alert-danger">{{session()->get('error')}}</p>
+@endif
 <header class="top-area">
 			<div class="header-area">
 				<div class="container">
@@ -35,7 +37,7 @@
 <!-- <a href="{{route('user.logout')}}" class="book-btn">{{auth()->user()->name}} | Logout</a> -->
 <div class="dropdown">
   <button class=" book-btn " style="border: 1px solid #57e2ff;
-"type="button" data-toggle="dropdown">{{auth()->user()->name}}
+"type="button" data-toggle="dropdown">{{auth()->user()->name}}({{auth()->user()->role}})
   <span class="caret"></span></button>
   <ul class="dropdown-menu"style="background-color: transparent;box-shadow: 0 6px 20px rgba(0,0,0,.53);border-radius:2ch;">
     <li><a style="color: deepskyblue;text-align: center;" href="{{route('user.logout')}}">Log Out</a></li>

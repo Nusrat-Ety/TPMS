@@ -35,12 +35,13 @@ Route::get('/logout',[UserController::class,'logout'])->name('user.logout');
 route::get('/tourplan',[WebsiteTourController::class,'TourPlan'])->name('user.tourplan');
 route::post('/make/tourplan',[WebsiteTourController::class,'storeTourPlan'])->name('user.added.tourplan');
 
+
 //-------Admin------
 
     Route::get('/admin/login',[AdminUserController::class,'login'])->name('admin.login');
 Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('admin.doLogin');
 
-    Route::group(['prefix'=>'admin','middleware'=>'auth'],function (){
+    Route::group(['prefix'=>'admin','middleware'=>['auth','Admin']],function (){
         Route::get('/', function () {
             return view('admin.layouts.index');
         })->name('admin');
@@ -49,7 +50,8 @@ Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('adm
 //tour controller
 Route::get('/MTourP',[TourController::class,'Managetourplan'])->name('manage.Tour.plan');
 Route::get('/ManageTourPlanRequest',[TourController::class,'ManagetourplanReq'])->name('admin.manage.TourplanReq');
-Route::get('/ViewTourPlan',[TourController::class,'Viewtourplan'])->name('view.tour.plan');
+Route::get('/Tourplan/details/{tourplan_id}',[TourController::class,'TourPlanDetails'])->name('view.tourplan.details');
+Route::get('/tourplan/delete/{tourplan_id}',[TourController::class,'DeleteTourPlan'])->name('admin.tourplan.delete');
 Route::get('/ManageTourplan/AdminAddedTourlist',[TourController::class,'ViewAdminTourList'])->name('admin.added.TourList');
 
 //traveller controller

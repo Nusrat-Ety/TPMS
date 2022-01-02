@@ -2,6 +2,7 @@
 @section('contents')
 
 <section id="home" class="about-us">
+
 			<div class="container">
 				<div class="about-us-content">
 					<div class="row">
