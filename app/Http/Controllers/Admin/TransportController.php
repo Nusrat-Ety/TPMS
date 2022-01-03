@@ -22,7 +22,15 @@ class TransportController extends Controller
       
     }
     public function TransportList(){
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $Transports=Transport::where('transportName','LIKE','%'.$key.'%')->orwhere('transportType','LIKE','%'.$key.'%')
+                                   ->get();
+          return view('admin.layouts.transport.TransportList',compact('Transports','key'));
+
+        }
         $Transports=Transport::all();
-        return view('admin.layouts.transport.TransportList',compact('Transports'));
+        return view('admin.layouts.transport.TransportList',compact('Transports','key'));
     }
 }

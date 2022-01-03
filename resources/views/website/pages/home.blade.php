@@ -553,7 +553,7 @@
 											<img src="{{url('/frontend/assets/images/gallary/g1.jpg')}}" alt="portfolio image"/>
 											<div class="item-title">
 												<a href="#">
-													china
+													Dhaka
 												</a>
 												<p><span>20 tours</span><span>15 places</span></p>
 											</div><!-- /.item-title -->
@@ -565,7 +565,7 @@
 											<img src="{{url('/frontend/assets/images/gallary/g2.jpg')}}" alt="portfolio image"/>
 											<div class="item-title">
 												<a href="#">
-													venuzuala
+													Barishal
 												</a>
 												<p><span>12 tours</span><span>9 places</span></p>
 											</div> <!-- /.item-title-->
@@ -577,7 +577,7 @@
 											<img src="{{url('/frontend/assets/images/gallary/g3.jpg')}}" alt="portfolio image"/>
 											<div class="item-title">
 												<a href="#">
-													brazil
+												Sylhet 
 												</a>
 												<p><span>25 tours</span><span>10 places</span></p>
 											</div><!-- /.item-title -->
@@ -589,7 +589,7 @@
 											<img src="{{url('/frontend/assets/images/gallary/g4.jpg')}}" alt="portfolio image"/>
 											<div class="item-title">
 												<a href="#">
-													australia 
+												Rangpur 
 												</a>
 												<p><span>18 tours</span><span>9 places</span></p>
 											</div> <!-- /.item-title-->
@@ -601,7 +601,7 @@
 											<img src="{{url('/frontend/assets/images/gallary/g5.jpg')}}" alt="portfolio image"/>
 											<div class="item-title">
 												<a href="#">
-													netharlands
+												Rajshahi
 												</a>
 												<p><span>14 tours</span><span>12 places</span></p>
 											</div> <!-- /.item-title-->
@@ -613,13 +613,37 @@
 											<img src="{{url('/frontend/assets/images/gallary/g6.jpg')}}" alt="portfolio image"/>
 											<div class="item-title">
 												<a href="#">
-													turkey
+												Khulna
 												</a>
 												<p><span>14 tours</span><span>6 places</span></p>
 											</div> <!-- /.item-title-->
 										</div><!-- /.filtr-item -->
 						  			</div><!-- /.col -->
+									 
 
+<div class="col-md-6">
+	<div class="filtr-item">
+	  <img src="{{url('/frontend/assets/images/gallary/g1.jpg')}}" alt="portfolio image"/>
+	  <div class="item-title">
+		  <a href="#">
+		  Chattogram
+		  </a>
+		  <p><span>20 tours</span><span>15 places</span></p>
+	  </div><!-- /.item-title -->
+  </div><!-- /.filtr-item -->
+</div><!-- /.col -->
+
+<div class="col-md-6">
+	<div class="filtr-item">
+	  <img src="{{url('/frontend/assets/images/gallary/g2.jpg')}}" alt="portfolio image"/>
+	  <div class="item-title">
+		  <a href="#">
+		 Mymensingh
+		  </a>
+		  <p><span>12 tours</span><span>9 places</span></p>
+	  </div> <!-- /.item-title-->
+  </div><!-- /.filtr-item -->
+</div><!-- /.col -->
 						  		</div><!-- /.row -->
 
 						  	</div><!-- /.filtr-container-->

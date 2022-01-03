@@ -11,6 +11,7 @@ use App\Http\Controllers\Website\UserController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Website\WebsiteBlogController;
 use App\Http\Controllers\Website\TourController as WebsiteTourController;
+use App\Http\Controllers\Admin\LocationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -80,5 +81,11 @@ Route::get('/blog/delete/{blog_id}',[BlogController::class,'BlogDelete'])->name(
 Route::get('/blog/edit/{blog_id}',[BlogController::class,'BlogEdit'])->name('admin.Edit.blog');
 Route::put('/blog/update/{blog_id}',[BlogController::class,'BlogUpdate'])->name('admin.update.blog');
 
-//});
+//location
+Route::get('/create/location',[LocationController::class,'createLocation'])->name('admin.create.location');
+Route::post('/store/location',[LocationController::class,'storeLocation'])->name('admin.store.location');
+Route::get('/location/list',[LocationController::class,'LocationList'])->name('admin.location.list');
+Route::get('/location/delete/{location_id}',[LocationController::class,'deletelocation'])->name('admin.location.delete');
+
+
 });

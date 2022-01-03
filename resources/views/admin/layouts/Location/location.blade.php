@@ -9,42 +9,47 @@
                   @if(session()->has('msg'))
         <p class="alert alert-success">{{session()->get('msg')}}</p>
     @endif
-<form action="{{route('admin.StoreSpot')}}" method="POST" enctype="multipart/form-data">
+</div>
+</div>
+</div>
+</div>
+<form action="{{route('admin.store.location')}}" method="POST" enctype="multipart/form-data">
 
   @csrf
   <div class="form-row">
     <div class="col-md-4 mb-3">
-      <label for="validationCustom01">location name</label>
-      <input name="LocationName" class="form-control" id="validationCustom01" placeholder="Tour Name"  required>
+      <label for="validationCustom01">Location name</label>
+      <input name="LocationName" class="form-control" id="validationCustom01" placeholder="location name"  required>
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationCustom02">Country</label>
-      <input name="SpotLocation" class="form-control" id="validationCustom02" placeholder="spot location"  required>
+      <input name="Country" class="form-control" id="validationCustom02" placeholder="Country"  required>
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
-    </div>
-    <div class="form-row">
-    <div class="col-md-4 mb-3">
-      <label for="validationCustomUsername">Spot</label>
     
-        <input name="SpotImage" class="form-control"  type="file" id="" placeholder="image">
+    </div>
+   
+    <div class="form-row">
+  <div class="col-md-4 mb-3">
+      <label for="validationCustomUsername">Location details</label>
+    
+        <input name="Locationdetails" class="form-control" id="validationCustomUsername" placeholder="detail" aria-describedby="inputGroupPrepend" >
         <div class="valid-feedback">
-          Please choose a username.
+          
         
       </div>
     </div>
-  
-  <div class="col-md-4 mb-3">
-      <label for="validationCustomUsername">Spot details</label>
+    <div class="col-md-4 mb-3">
+      <label for="validationCustomUsername">Location Image</label>
     
-        <input name="Spotdetail" class="form-control" id="validationCustomUsername" placeholder="detail" aria-describedby="inputGroupPrepend" required>
+        <input name="location_image" type="file"class="form-control" id="validationCustomUsername" placeholder="Location image" aria-describedby="inputGroupPrepend" >
         <div class="valid-feedback">
-          Please choose a username.
+          
         
       </div>
     </div>
@@ -60,14 +65,14 @@
       <div class="invalid-feedback">
         You must agree before submitting.
       </div>
-      </div>
+     
       
-      </div>
+    
   <button class="btn btn-primary" type="submit">Submit form</button>
 </div>
 </div>
-</div>
-</div>
+
 </form>
+</div>
 @endsection
 
