@@ -54,6 +54,8 @@ Route::get('/ManageTourPlanRequest',[TourController::class,'ManagetourplanReq'])
 Route::get('/Tourplan/details/{tourplan_id}',[TourController::class,'TourPlanDetails'])->name('view.tourplan.details');
 Route::get('/tourplan/delete/{tourplan_id}',[TourController::class,'DeleteTourPlan'])->name('admin.tourplan.delete');
 Route::get('/ManageTourplan/AdminAddedTourlist',[TourController::class,'ViewAdminTourList'])->name('admin.added.TourList');
+Route::get('/tourplan/Approve/{tourplan_id}',[TourController::class,'approveTour'])->name('admin.approve.Tour');
+Route::get('/tourplan/Decline/{tourplan_id}',[TourController::class,'declineTour'])->name('admin.decline.Tour');
 
 //traveller controller
 Route::get('/Managetraveler',[TravelerController::class,'ManageTraveler'])->name('manage.traveler');
@@ -86,6 +88,9 @@ Route::get('/create/location',[LocationController::class,'createLocation'])->nam
 Route::post('/store/location',[LocationController::class,'storeLocation'])->name('admin.store.location');
 Route::get('/location/list',[LocationController::class,'LocationList'])->name('admin.location.list');
 Route::get('/location/delete/{location_id}',[LocationController::class,'deletelocation'])->name('admin.location.delete');
+Route::get('/location/details/{location_id}',[LocationController::class,'LocationDetails'])->name('admin.location.details');
+Route::get('/location/edit/{location_id}',[LocationController::class,'EditLocation'])->name('admin.location.edit');
+Route::PUT('/location/update/{location_id}',[LocationController::class,'UpdateLocation'])->name('admin.location.update');
 
 
 });

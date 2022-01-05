@@ -745,18 +745,19 @@
 					</p>
 				</div><!--/.gallery-header-->
 				<div class="packages-content">
-					<div class="row">
+				<div class="row">
                         @foreach($tourplans as $tourplan)
                     <div class="col-md-4 col-sm-6">
 
 							<div class="single-package-item" style="width: 370px;height: 300px; background-image:url('{{url('uploads/Spots/'.$spot->SpotImage)}}');background-size: cover;filter: drop-shadow(2px 4px 6px grey);">
-								<div class="single-package-item-txt">
+								
+							<div class="single-package-item-txt">
 
 									<h3 style="color:black;box-shadow: 0 0px 20px rgb(0 0 0 / 0.68);background-color: whitesmoke;font-weight: 600;">{{$tourplan->Tourname}} <span class="pull-right">{{$tourplan->TourDestination}}</span></h3>
 									<div class="packages-para"style="background-color: #0000003b;">
 										<p style="color: #ffffff;font-weight: 500;"><i class="fa fa-angle-right"></i>{{$tourplan->members}}	</p>
 										<p style="color: #ffffff;font-weight: 500;"><i class="fa fa-angle-right"></i>{{$tourplan->TourBudget}}<span class="pull-right">{{$tourplan->TourDuration}}</span>
-										<p style="color: #ffffff;font-weight: 500;">{{$tourplan->TourDate}} <span class="pull-right">{{$tourplan->Travelar_name}}</span></p>
+										<p style="color: #ffffff;font-weight: 500;">{{$tourplan->TourDate}} <span class="pull-right">{{$tourplan->user->name}}</span></p>
                                     
 									</div><!--/.packages-para-->
 									
@@ -769,6 +770,7 @@
 							</div><!--/.single-package-item-->
 
 						</div><!--/.col-->
+				
 @endforeach
 
 

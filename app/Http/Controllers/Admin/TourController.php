@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\AddTourPlan;
-use App\Models\Travelar;
+use App\Models\User;
+use App\Models\Spot;
 use Illuminate\Http\Request;
 
 class TourController extends Controller
@@ -21,10 +22,10 @@ class TourController extends Controller
         $key=null;
         if(request()->search){
             $key=request()->search;
-            $Tourplans=AddTourPlan::where('Tourname','LIKE','%'.$key.'%')->orwhere('TourDestination','LIKE','%'.$key.'%')->orwhere('TourSpot','LIKE','%'.$key.'%')->get();
+            $Tourplans=AddTourPlan::with('user','spot')->where('Tourname','LIKE','%'.$key.'%')->orwhere('TourDestination','LIKE','%'.$key.'%')->orwhere('spot_id','LIKE','%'.$key.'%')->get();
         return view('admin.layouts.Tourplan.AdminTourList',compact('Tourplans','key'));
         }
-        $Tourplans=AddTourPlan::all();
+        $Tourplans=AddTourPlan::with('user','Spot')->get();
      //dd($TourPlans);
       return view('admin.layouts.Tourplan.AdminTourList',compact('Tourplans','key'));
         
@@ -34,14 +35,41 @@ class TourController extends Controller
         $tourplan=AddTourPlan::find($tourplan_id);
         return view('admin.layouts.Tourplan.TourPlanDetails',compact('tourplan'));
     }
-  
-    
-  
+
     public function DeleteTourPlan($tourplan_id){
         $TourPlans=AddTourPlan::find($tourplan_id)->delete();
      //dd($TourPlans);
       return redirect()->back()->with('success','Tour Plan deleted successfully');
         
+    }
+    public function approveTour($tourplan_id){
+        $Tourplan=AddTourPlan::find($tourplan_id);
+        
+        if($Tourplan)
+        {
+            $Tourplan->update([
+                'status'=>'approved'
+            ]);
+            return redirect()->back()->with('success','Tour plan has been approved');
+        }
+        return redirect()->back();
+    
+    }
+    public function declineTour($tourplan_id){
+        $Tourplan=AddTourPlan::find($tourplan_id);
+        
+        if($Tourplan)
+        {
+            $Tourplan->update([
+                'status'=>'decline'
+                
+            ]);
+            
+            // $TourPlans=AddTourPlan::find($tourplan_id)->delete();
+            return redirect()->back()->with('error','Tour plan has been declined');
+        }
+        return redirect()->back();
+    
     }
     
     

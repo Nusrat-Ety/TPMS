@@ -41,4 +41,30 @@ class LocationController extends Controller
         return redirect()->back()->with('success','Location deleted successfully');
 
     }
+    public function LocationDetails($location_id){
+        $location=Location::find($location_id);
+        return view('admin.layouts.Location.locationDetails',compact('location'));
+
+    }
+    public function EditLocation($location_id){
+        $location=Location::find($location_id);
+        return view('admin.layouts.Location.location-edit',compact('location'));
+    }
+    public function UpdateLocation(Request $request,$location_id){
+        // dd($request->all());
+        $location=Location::find($location_id);
+        $locationImage=$location->Location_image;
+        if($request->hasFile('location_image')){
+            $locationImage=date('Ymdhms').'.'.$request->file('location_image')->getClientOriginalExtension();
+            $request->file('location_image')->storeAs('/uploads/Locations/',$locationImage);
+        }
+        $location->update([
+            'Location_name'=>$request->LocationName,
+            'Country'=>$request->Country,
+            'Location_image'=>$locationImage,
+            'LocationDetails'=>$request->Locationdetails
+
+        ]);
+        return redirect()->route('admin.location.list')->with('success','Location Updated successfully.');
+    }
 }

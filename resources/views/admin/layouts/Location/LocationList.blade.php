@@ -13,6 +13,20 @@
         width:inherit;
     }
     
+a:hover i {
+            transform: scale(1.5);
+        }
+        .setWidth{
+        max-width:100px;
+    }
+    .concat div{
+        overflow:hidden;
+        -ms-text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        width:inherit;
+    }
 
     
     </style>
@@ -64,9 +78,9 @@
                                         
                                         <td class="setWidth concat"><div>{{$location->LocationDetails}}</div></td>
                                         <td>
-                                        <a class="btn btn-primary" href="">View</a>
-                                        <a class="btn btn-primary" href="">Edit</a>
-                                        <a class="btn btn-primary" href="{{route('admin.location.delete',$location->id)}}">Delete</a>
+                                        <a  href="{{route('admin.location.details',$location->id)}}"><i class="fa fa-eye fa-2x"style="color: #4b49ac;"></i></a>
+       <a href="{{route('admin.location.edit',$location->id)}}"><span class="ml-2"><i class="fa fa-pencil-square fa-2x"style="color: #4b49ac;"></i></span></a>
+       <a href="{{route('admin.location.delete',$location->id)}}"><span class="ml-2"><i class="fa fa-trash fa-2x"style="color:red;"></i></span></a>
                                         </td>
                                       </tr>
                                       @endforeach

@@ -65,7 +65,12 @@
 									<div class="col-sm-5">
 										<div class="form-group">
 											<span class="form-label">Spot</span>
-											<input class="form-control"name="TourSpot" type="text" required>
+											<select class="form-control"name="spotname">
+											 @foreach ($spot as $spot)
+											 
+												<option value="{{$spot->id}}">{{$spot->SpotName}}</option>
+												@endforeach
+												</select>
 										</div>
 									</div>
 		
@@ -101,14 +106,19 @@
 									</div>
 									<div class="col-sm-7">
 										<div class="form-group">
+										
+									
 											<span class="form-label">Traveler name</span>
-                                            <input class="form-control" name="Travelar_name"type="text" required>
-											<!-- <select class="form-control">
-												<option>1</option>
-												<option>2</option>
-												<option>3</option>
-											</select>
-											<span class="select-arrow"></span> -->
+	
+											<select class="form-control"name="username">
+											 @foreach ($user as $user)
+											 @if($user->role=='user')
+												<option value="{{$user->id}}">{{$user->name}}</option>
+												@endif
+												@endforeach
+												</select>
+											<span class="select-arrow"></span> 
+											
 										</div>
 									</div>
 									<div class="col-sm-5">

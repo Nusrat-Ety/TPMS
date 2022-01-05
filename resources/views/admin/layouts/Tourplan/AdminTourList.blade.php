@@ -23,6 +23,11 @@ a:hover i {
             {{session()->get('success')}}
         </p>
     @endif
+    @if(session()->has('error'))
+  <p class="alert alert-danger">
+            {{session()->get('error')}}
+        </p>
+    @endif
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row">
@@ -80,30 +85,37 @@ a:hover i {
       <th scope="col">Budget</th>
       <th scope="col">Traveler Name</th>
       <th scope="col">Action</th>
+      <th scope="col">Status</th>
       
     </tr>
   </thead>
   <tbody>
   @foreach($Tourplans as $key=>$Tourplan)
+  
     <tr style="text-align: center">
       <th>{{$key+1}}</th>
       <td>{{$Tourplan->Tourname}}</td>
       <td>{{$Tourplan->TourDestination}}</td>
-      <td>{{$Tourplan->TourSpot}}</td>
+      <td>{{$Tourplan->spot->SpotName}}</td>
       <td>{{$Tourplan->TourDuration}}</td>
       <td>{{$Tourplan->Transport}}</td>
       <td>{{$Tourplan->members}}</td>
       <td>{{$Tourplan->TourDate}}</td>
       <td>{{$Tourplan->TourBudget}}</td>
-      <td>{{$Tourplan->Travelar_name}}</td>
+      <td>{{$Tourplan->user->name}}</td>
       <td>
       <a  href="{{route('view.tourplan.details',$Tourplan->id)}}"><i class="fa fa-eye fa-2x"style="color: #4b49ac;"></i></a>
-       <!-- <a href=""><span class="ml-2"><i class="fa fa-pencil-square fa-2x"style="color: #4b49ac;"></i></span></a> -->
        <a href="{{route('admin.tourplan.delete',$Tourplan->id)}}"><span class="ml-2"><i class="fa fa-trash fa-2x"style="color:red;"></i></span></a>
-
+       @if($Tourplan->status=='pending')
+       <a href="{{route('admin.approve.Tour',$Tourplan->id)}}"><span class="ml-2"><i class="fa fa-check-square-o fa-2x"style="color:#4b49ac;" ></i></span></a>
+       
+       <a href="{{route('admin.decline.Tour',$Tourplan->id)}}"><span class="ml-2"> <i class="fa fa-times fa-2x"style="color:#4b49ac;" ></i></span></a>
+       @endif
       </td>
+      <td>{{$Tourplan->status}}</td>
     
     </tr>
+  
     @endforeach
   </tbody>
 </table>

@@ -15,15 +15,16 @@ class CreateAddTourPlansTable extends Migration
     {
         Schema::create('add_tour_plans', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id');
+            $table->string('status')->default('pending');
             $table->String('Tourname');
             $table->String('TourDestination');
             $table->String('TourDuration');
-            $table->double('TourDate');
+            $table->date('TourDate');
             $table->double('TourBudget');
-            $table->string('Travelar_name');
             $table->string('members');
             $table->string('Transport');
-            $table->string('TourSpot');
+            $table->string('spot_id');
             $table->timestamps();
         });
     }
