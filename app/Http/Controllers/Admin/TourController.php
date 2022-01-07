@@ -22,7 +22,8 @@ class TourController extends Controller
         $key=null;
         if(request()->search){
             $key=request()->search;
-            $Tourplans=AddTourPlan::with('user','spot')->where('Tourname','LIKE','%'.$key.'%')->orwhere('TourDestination','LIKE','%'.$key.'%')->orwhere('spot_id','LIKE','%'.$key.'%')->get();
+            $Tourplans=AddTourPlan::with('user','spot')
+            ->whereLike(['spot.SpotName','user.name','Tourname'],$key)->get();
         return view('admin.layouts.Tourplan.AdminTourList',compact('Tourplans','key'));
         }
         $Tourplans=AddTourPlan::with('user','Spot')->get();

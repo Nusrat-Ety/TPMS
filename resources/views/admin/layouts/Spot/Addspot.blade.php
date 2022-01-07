@@ -22,10 +22,18 @@
     </div>
     <div class="col-md-4 mb-3">
       <label for="validationCustom02">Spot location</label>
-      <input name="SpotLocation" class="form-control" id="validationCustom02" placeholder="spot location"  required>
+      <select name="SpotLocation" class="form-control"  placeholder="spot location"  required>
+      @foreach($locations as $location)
+      <option value="{{$location->id}}">{{$location->Location_name}}</option> 
+      @endforeach  
+    </select>
+      
       <div class="valid-feedback">
         Looks good!
       </div>
+     
+      
+    
     </div>
     </div>
     <div class="form-row">

@@ -547,103 +547,20 @@
 						<div class="gallery-content">
 						  	<div class="filtr-container">
 						  		<div class="row">
-
+@foreach($locations as $location)
 						  			<div class="col-md-6">
 						  				<div class="filtr-item">
-											<img src="{{url('/frontend/assets/images/gallary/g1.jpg')}}" alt="portfolio image"/>
+											<img src="{{url('/uploads/Locations/'.$location->Location_image)}}" alt="portfolio image"/>
 											<div class="item-title">
-												<a href="#">
-													Dhaka
+												<a href="{{route('website.view.location',$location->id)}}">
+													{{$location->Location_name}}
 												</a>
-												<p><span>20 tours</span><span>15 places</span></p>
+												<p><span>{{$location->Country}}</span><span>15 places</span></p>
 											</div><!-- /.item-title -->
 										</div><!-- /.filtr-item -->
 						  			</div><!-- /.col -->
-
-						  			<div class="col-md-6">
-						  				<div class="filtr-item">
-											<img src="{{url('/frontend/assets/images/gallary/g2.jpg')}}" alt="portfolio image"/>
-											<div class="item-title">
-												<a href="#">
-													Barishal
-												</a>
-												<p><span>12 tours</span><span>9 places</span></p>
-											</div> <!-- /.item-title-->
-										</div><!-- /.filtr-item -->
-						  			</div><!-- /.col -->
-
-						  			<div class="col-md-4">
-						  				<div class="filtr-item">
-											<img src="{{url('/frontend/assets/images/gallary/g3.jpg')}}" alt="portfolio image"/>
-											<div class="item-title">
-												<a href="#">
-												Sylhet 
-												</a>
-												<p><span>25 tours</span><span>10 places</span></p>
-											</div><!-- /.item-title -->
-										</div><!-- /.filtr-item -->
-						  			</div><!-- /.col -->
-
-						  			<div class="col-md-4">
-						  				<div class="filtr-item">
-											<img src="{{url('/frontend/assets/images/gallary/g4.jpg')}}" alt="portfolio image"/>
-											<div class="item-title">
-												<a href="#">
-												Rangpur 
-												</a>
-												<p><span>18 tours</span><span>9 places</span></p>
-											</div> <!-- /.item-title-->
-										</div><!-- /.filtr-item -->
-						  			</div><!-- /.col -->
-
-						  			<div class="col-md-4">
-						  				<div class="filtr-item">
-											<img src="{{url('/frontend/assets/images/gallary/g5.jpg')}}" alt="portfolio image"/>
-											<div class="item-title">
-												<a href="#">
-												Rajshahi
-												</a>
-												<p><span>14 tours</span><span>12 places</span></p>
-											</div> <!-- /.item-title-->
-										</div><!-- /.filtr-item -->
-						  			</div><!-- /.col -->
-
-						  			<div class="col-md-8">
-						  				<div class="filtr-item">
-											<img src="{{url('/frontend/assets/images/gallary/g6.jpg')}}" alt="portfolio image"/>
-											<div class="item-title">
-												<a href="#">
-												Khulna
-												</a>
-												<p><span>14 tours</span><span>6 places</span></p>
-											</div> <!-- /.item-title-->
-										</div><!-- /.filtr-item -->
-						  			</div><!-- /.col -->
-									 
-
-<div class="col-md-6">
-	<div class="filtr-item">
-	  <img src="{{url('/frontend/assets/images/gallary/g1.jpg')}}" alt="portfolio image"/>
-	  <div class="item-title">
-		  <a href="#">
-		  Chattogram
-		  </a>
-		  <p><span>20 tours</span><span>15 places</span></p>
-	  </div><!-- /.item-title -->
-  </div><!-- /.filtr-item -->
-</div><!-- /.col -->
-
-<div class="col-md-6">
-	<div class="filtr-item">
-	  <img src="{{url('/frontend/assets/images/gallary/g2.jpg')}}" alt="portfolio image"/>
-	  <div class="item-title">
-		  <a href="#">
-		 Mymensingh
-		  </a>
-		  <p><span>12 tours</span><span>9 places</span></p>
-	  </div> <!-- /.item-title-->
-  </div><!-- /.filtr-item -->
-</div><!-- /.col -->
+@endforeach
+						  			
 						  		</div><!-- /.row -->
 
 						  	</div><!-- /.filtr-container-->
@@ -678,7 +595,7 @@
 							<div class="single-package-item" style="height: 500px;">
 								<img style="height:200px;"src="{{url('uploads/Spots/'.$spot->SpotImage)}}" alt="package-place">
 								<div class="single-package-item-txt">
-									<h3>{{$spot->SpotName}} <span class="pull-right">{{$spot->SpotLocation}}</span></h3>
+									<h3>{{$spot->SpotName}} <span class="pull-right">{{$spot->location->Location_name}}</span></h3>
 									<div class="packages-para">
 										<p><i class="fa fa-angle-right"></i>{{$spot->SpotDetails}}	</p>
                                     

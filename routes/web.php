@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Website\WebsiteBlogController;
 use App\Http\Controllers\Website\TourController as WebsiteTourController;
 use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Website\WebsiteLocationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +37,8 @@ Route::get('/logout',[UserController::class,'logout'])->name('user.logout');
 route::get('/tourplan',[WebsiteTourController::class,'TourPlan'])->name('user.tourplan');
 route::post('/make/tourplan',[WebsiteTourController::class,'storeTourPlan'])->name('user.added.tourplan');
 
+//location
+Route::get('/location/{location_id}',[WebsiteLocationController::class,'LocationSpotView'])->name('website.view.location');
 
 //-------Admin------
 

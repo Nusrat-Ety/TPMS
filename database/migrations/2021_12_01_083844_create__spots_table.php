@@ -16,7 +16,7 @@ class CreateSpotsTable extends Migration
         Schema::create('_spots', function (Blueprint $table) {
             $table->id();
             $table->String('SpotName');
-            $table->String('SpotLocation');
+            $table->String('location_id');
             $table->String('SpotImage');
             $table->String('SpotDetails');
             $table->timestamps();

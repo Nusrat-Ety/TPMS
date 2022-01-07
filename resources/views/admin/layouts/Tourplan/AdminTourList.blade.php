@@ -16,7 +16,7 @@ a:hover i {
         width:inherit;
     }
 </style>
-<div class="content-wrapper">
+<div class="content-wrapper"style="overflow-y:scroll;">
 
   @if(session()->has('success'))
   <p class="alert alert-success">

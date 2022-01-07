@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 use App\Models\Spot;
+use App\Models\Location;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -9,7 +10,8 @@ class SpotController extends Controller
 {
     //Add spot
     public function Addspot(){
-        return view('admin.layouts.Spot.Addspot');
+        $locations=Location::all();
+        return view('admin.layouts.Spot.Addspot',compact('locations'));
     }
     //store spot
     public function StoreSpot(Request $request){
@@ -25,14 +27,14 @@ class SpotController extends Controller
         Spot::create([
             
             'SpotName'=>$request->SpotName,
-            'SpotLocation'=>$request->SpotLocation,
+            'location_id'=>$request->SpotLocation,
             'SpotImage'=>$Spotimagefile,
              'SpotDetails'=>$request->Spotdetail
         ]);
         return redirect()->back()->with('msg','Spot created successfully.');
     }
     public function SpotList(){
-        $Spots=Spot::all();
+        $Spots=Spot::with('location')->get();
         return view('admin.layouts.Spot.SpotList',compact('Spots'));
     }
     //spot details
