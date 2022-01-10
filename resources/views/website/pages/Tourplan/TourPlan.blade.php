@@ -50,11 +50,20 @@
 						<div class="booking-form"style="background-color:#0bc4e94d">
 							<form action="{{route('user.added.tourplan')}}" method="POST">
 								@csrf
+								<div class="row">
+									<div class="col-sm-7">
                             <div class="form-group">
 									<span class="form-label">Tour Name</span>
 									<input class="form-control" name="TourName" type="text" placeholder="Enter a destination or hotel name">
 								</div>
-								
+								</div>
+								<div class="col-sm-5">
+										<div class="form-group">
+											<span class="form-label">From</span>
+											<input class="form-control" name="From"type="text" placeholder="from which place"required>
+										</div>
+									</div>
+									</div>
 								<div class="row">
 									<div class="col-sm-7">
 										<div class="form-group">

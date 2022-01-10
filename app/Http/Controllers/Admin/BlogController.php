@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Models\Blog;
+use App\Models\Location;
+
+use App\Models\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -9,7 +12,10 @@ class BlogController extends Controller
 {
     //Admin blog add
     public function Addblog(){
-        return view('admin.layouts.blog.AddBlog');
+        $user=User::all();
+        $location=Location::all();
+        
+        return view('admin.layouts.blog.AddBlog',compact('user','location'));
     }
     public function storeBlog(Request $request){
         $BlogImagefile='';
@@ -32,9 +38,9 @@ class BlogController extends Controller
         }
         Blog::create([
             'BlogName'=>$request->BlogName,
-            'Location'=>$request->Location,
+            'location_id'=>$request->Location,
             'Date'=>$request->Date,
-            'BloggerName'=>$request->blogger_name,
+            'user_id'=>$request->blogger_name,
             'Blogimage'=>$BlogImagefile,
             'SecondBlogimage'=>$SecondBlogImagefile,
             'ThirdBlogimage'=>$ThirdBlogImagefile,
@@ -47,13 +53,14 @@ class BlogController extends Controller
         $key=null;
         if(request()->search){
             $key=request()->search;
-            $Blogs=Blog::where('BlogName','LIKE','%'.$key.'%')->orwhere('Location','LIKE','%'.$key.'%')->orwhere('BloggerName','LIKE','%'.$key.'%')->get();
+            $Blogs=Blog::with('user','locatin')
+                        ->whereLike(['BlogName','location.Location_name','user.name'],$key)->get();
             return view('admin.layouts.blog.BlogList',compact('Blogs','key'));
             
         }
         
     
-        $Blogs=Blog::all();
+        $Blogs=Blog::with('user','location')->get();
         return view('admin.layouts.blog.BlogList',compact('Blogs','key'));
 
     }
@@ -93,9 +100,9 @@ $request->file('BlogImagefile')->storeAs('/uploads/Blogs',$blogimage);
 
        $blog->update([
         'BlogName'=>$request->BlogName,
-        'Location'=>$request->Location,
+        'location_id'=>$request->Location,
         'Date'=>$request->Date,
-        'BloggerName'=>$request->blogger_name,
+        'user_id'=>$request->blogger_name,
         'Blogimage'=>$blogimage,
         'SecondBlogimage'=>$secondblogimage,
         'ThirdBlogimage'=>$thirdblogimagefile,

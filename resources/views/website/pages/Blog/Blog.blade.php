@@ -1,6 +1,7 @@
 @extends('website.master')
 @section('item')
 
+
 <!-- <br><br><br><br><br> -->
 <div class="container" style="width: 100%;">
             <div class="row">
@@ -8,42 +9,28 @@
                     <div class="text-container" >
                          <!-- <h3>Limitations Of Liability</h3> -->
                         <section id="home" class="" style="display:flex; align-items:center; background-size:contain; background-position:center;min-height: 500px; background-image: url('{{url('/uploads/Blogs/'.$blogs->Blogimage)}}')">
-			<div class="container">
-				<div class="about-us-content">
-					<!-- <div class="row">
-						<div class="col-sm-12">
-							<div class="single-about-us">
-								<div class="about-us-txt">
-									<h2>
-										Explore the Beauty of the Beautiful World 
+			
+			
 
-									</h2>
-									<div class="about-btn">
-										<button  class="about-view">
-											explore now
-										</button>
+           
+    <div class="col-md-4"style="width: fit-content;    top: 100px;left: 620px;border: solid;">
+    
+            <div class="packages-para"style="background-color: #00000087;">
+            
+										<h4 style="color: #ffffff;font-weight: 500;text-align:center;font-size: xxx-large;text-shadow: 0 6px black;">{{$blogs->location->Location_name}}	</h4>
+										<h3 style="color: #ffffff;font-weight: 500;text-align:center;text-shadow: 2px 3px black;">[ {{$blogs->BlogName}} ]</h3>
+										<p></p>
+                                    
 									</div>
-								</div>
-							</div>
-						</div>
-						<div class="col-sm-0">
-							<div class="single-about-us">
-								
-							</div>
-						</div>
-					</div> -->
-                                        <h4 style="text-align:right; text-align:left; margin-top: 470px;color: white; font-size: 50px;">{{$blogs->Location}}</h4>
-                                        <h3 style="text-align:left; text-align:left;color: seashell; font-size: 32px;">{{$blogs->BlogName}}</h3>
-                                        
-                                        <h2 style="text-align:left; text-align:end;color: seashell; font-size: 23px;">{{$blogs->BloggerName}}</h2>
-                                        <p style="color: white; margin-top:1px;"><span>{{$blogs->Date}}</span></p>
-				</div><!--/.about-us-content-->
-			</div><!--/.container-->
+                                    </div>
+                                      
+		
 
 		        </section>
                     </div> <!-- end of text-container -->
                    <div style="padding-left: 25px; padding-right: 25px; margin-bottom: 70px;">
                     <div class="text-container" style="margin-top: 30px;">
+                    <p >{{$blogs->Date}}---{{$blogs->user->name}}</p>
                         <h3 style="padding-bottom: 15px;">Description</h3>
                         <p>{{$blogs->Description}}</p>
                     </div> <!-- end of text-container -->

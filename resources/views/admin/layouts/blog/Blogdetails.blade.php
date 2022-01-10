@@ -11,8 +11,8 @@
         <img style="border-radius: 4px;" width="500px;" src=" {{url('/uploads/Blogs/'.$blog->Blogimage)}}" alt="Blog">
     </p>
 <p style="font-weight:bold;">Blog Name: {{$blog->BlogName}}</p>
-<p>Location: {{$blog->Location}}</p>
-<p>Blogger Name: {{$blog->BloggerName}}</p>
+<p>Location: {{$blog->location->Location_name}}</p>
+<p>Blogger Name: {{$blog->user->name}}</p>
 <div class="images-container">
 
 

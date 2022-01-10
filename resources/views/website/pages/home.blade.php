@@ -555,7 +555,12 @@
 												<a href="{{route('website.view.location',$location->id)}}">
 													{{$location->Location_name}}
 												</a>
-												<p><span>{{$location->Country}}</span><span>15 places</span></p>
+												<p><span>{{$location->Country}}</span>
+												
+												<span>15 places</span>
+												
+											</p>
+
 											</div><!-- /.item-title -->
 										</div><!-- /.filtr-item -->
 						  			</div><!-- /.col -->
@@ -666,7 +671,7 @@
                         @foreach($tourplans as $tourplan)
                     <div class="col-md-4 col-sm-6">
 
-							<div class="single-package-item" style="width: 370px;height: 300px; background-image:url('{{url('uploads/Spots/'.$spot->SpotImage)}}');background-size: cover;filter: drop-shadow(2px 4px 6px grey);">
+							<div class="single-package-item" style="width: 370px;height: 300px; background-image:url('{{url('uploads/Spots/'.$tourplan->spot->SpotImage)}}');background-size: cover;filter: drop-shadow(2px 4px 6px grey);">
 								
 							<div class="single-package-item-txt">
 
@@ -942,7 +947,7 @@
 								Blog
 							</h2>
 							<p>
-								Travel Blogs from all over the world 
+								Travel Blogs from all over the world and <a style="font-size :14px;"href="{{route('Add.blog')}}">Add Blog.</a>
 							</p>
 						</div><!--/.gallery-header-->
 						
@@ -951,10 +956,10 @@
 								@foreach($Blogs as $key=>$blog)
 								<div class="col-md-4 col-sm-6">
 									<div class="thumbnail"style="width:374px;">
-										<h2>{{$blog->Location}}<span style="float:right; padding-right:15px;font-size:12px">{{$blog->BloggerName}} </span></h2>
+										<h2>{{$blog->location->Location_name}}<span style="float:right; padding-right:15px;font-size:12px">{{$blog->user->name}} </span></h2>
 										
 										<div class="thumbnail-img">
-											<img src="{{url('/uploads/Blogs/'.$blog->Blogimage)}}"style="height:250px" alt="blog-img">
+											<img src="{{url('/uploads/Blogs/'.$blog->Blogimage)}}"style="height:250px;width:380px;" alt="blog-img">
 											<div class="thumbnail-img-overlay"></div><!--/.thumbnail-img-overlay-->
 										
 										</div><!--/.thumbnail-img-->

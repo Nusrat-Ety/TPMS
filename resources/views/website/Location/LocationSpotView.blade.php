@@ -1,11 +1,23 @@
 @extends('website.master')
 @section('item')
-<section id="pack" class="packages">
+<div class="container" style="width: 100%;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-container" >
+                         <!-- <h3>Limitations Of Liability</h3> -->
+                        <section id="home" class="" style="display:flex; align-items:center; background-size:contain; background-position:center;min-height: 500px; background-image: url('{{url('/uploads/Locations/'.$locations->Location_image)}}')">
+
+<h4 style=" text-shadow: 2px 5.5px black;   background-color: #595757e6; border: solid;   border-color: whitesmoke;text-align:center; margin: auto;color: white; font-size: 50px;">
+						{{$locations->Location_name}}
+					</h4>
+</div>
+</div>
+</div>
+
+					<section id="pack" class="packages">
 			<div class="container">
 				<div class="gallary-header text-center">
-					<h2>
-						{{$locations->Location_name}}
-					</h2>
+					
 					
 				<div class="packages-content">
 					<div class="row">

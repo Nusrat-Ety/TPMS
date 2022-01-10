@@ -90,9 +90,9 @@
                                         <th>{{$key+1}}</th>
                                         
                                         <td>{{$blog->BlogName}}</td>
-                                        <td>{{$blog->Location}}</td>
+                                        <td>{{$blog->location->Location_name}}</td>
                                         <td>{{$blog->Date}}</td>
-                                        <td>{{$blog->BloggerName}}</td>
+                                        <td>{{$blog->user->name}}</td>
                                         <td><img src="{{url('/uploads/Blogs/'.$blog->Blogimage)}}" width="200px" alt="Blog image"></td>
                                         <td><img src="{{url('/uploads/Blogs/'.$blog->SecondBlogimage)}}" width="200px" alt="Blog image"></td>
                                         <td><img src="{{url('/uploads/Blogs/'.$blog->ThirdBlogimage)}}" width="200px" alt="Blog image"></td>

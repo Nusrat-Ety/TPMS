@@ -76,6 +76,7 @@ a:hover i {
     <tr>
       <th scope="col">SL</th>
       <th scope="col">Tour Name</th>
+      <th scope="col">From</th>
       <th scope="col">Destination</th>
       <th scope="col">Spot</th>
       <th scope="col">Duration</th>
@@ -95,6 +96,7 @@ a:hover i {
     <tr style="text-align: center">
       <th>{{$key+1}}</th>
       <td>{{$Tourplan->Tourname}}</td>
+      <td>{{$Tourplan->from}}</td>
       <td>{{$Tourplan->TourDestination}}</td>
       <td>{{$Tourplan->spot->SpotName}}</td>
       <td>{{$Tourplan->TourDuration}}</td>

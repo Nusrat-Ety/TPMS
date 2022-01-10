@@ -39,6 +39,7 @@ route::post('/make/tourplan',[WebsiteTourController::class,'storeTourPlan'])->na
 
 //location
 Route::get('/location/{location_id}',[WebsiteLocationController::class,'LocationSpotView'])->name('website.view.location');
+Route::get('/AddBlog',[WebsiteBlogController::class,'BlogAdd'])->name('Add.blog');
 
 //-------Admin------
 

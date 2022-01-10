@@ -15,6 +15,7 @@ class HomeController extends Controller
         $spots=Spot::all();
         $Blogs=Blog::all();
         $locations=Location::all();
+       
         $tourplans=AddTourPlan::where('status','approved')->get();
         // dd($tourplans);
         // dd($Blogs);

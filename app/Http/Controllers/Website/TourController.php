@@ -20,6 +20,7 @@ class TourController extends Controller
         // dd($request->all());
         AddTourPlan::create([
                 'Tourname'=>$request->TourName,
+                'from'=>$request->From,
                 'TourDestination'=>$request->TourDestination,
                 'spot_id'=>$request->spotname,
                 'TourDuration'=>$request->TourDuration,
