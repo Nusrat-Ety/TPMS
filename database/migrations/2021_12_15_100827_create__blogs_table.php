@@ -23,6 +23,7 @@ class CreateBlogsTable extends Migration
             $table->String('SecondBlogimage')->nullable();
             $table->String('ThirdBlogimage')->nullable();
             $table->String('Description');
+            $table->String('status')->default('pending');
             $table->timestamps();
         });
     }

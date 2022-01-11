@@ -80,6 +80,7 @@
                                             <th scope="col">Third Blog Image</th>
                                             <th style="width= 100px 1important;">Description</th>
                                             <th scope="col">Action</th>
+                                            <th scope="col">status</th>
                                             
                                         </tr>
                                     </thead>
@@ -94,13 +95,20 @@
                                         <td>{{$blog->Date}}</td>
                                         <td>{{$blog->user->name}}</td>
                                         <td><img src="{{url('/uploads/Blogs/'.$blog->Blogimage)}}" width="200px" alt="Blog image"></td>
-                                        <td><img src="{{url('/uploads/Blogs/'.$blog->SecondBlogimage)}}" width="200px" alt="Blog image"></td>
-                                        <td><img src="{{url('/uploads/Blogs/'.$blog->ThirdBlogimage)}}" width="200px" alt="Blog image"></td>
+                                        <td><img src="{{url('/uploads/Blogs/secondimage/'.$blog->SecondBlogimage)}}" width="200px" alt="Blog image"></td>
+                                        <td><img src="{{url('/uploads/Blogs/thirdimage/'.$blog->ThirdBlogimage)}}" width="200px" alt="Blog image"></td>
                                         <td class="setWidth concat"><div>{{$blog->Description}}</div></td>
                                         <td>
                                         <a class="btn btn-primary" href="{{route('admin.blog.details',$blog->id)}}">View</a>
                                         <a class="btn btn-primary" href="{{route('admin.Edit.blog',$blog->id)}}">Edit</a>
                                         <a class="btn btn-primary" href="{{route('admin.delete.blog',$blog->id)}}">Delete</a>
+                                        @if($blog->status=='pending')
+       <a href="{{route('admin.approve.blog',$blog->id)}}"><span class="ml-2"><i class="fa fa-check-square-o fa-2x"style="color:#4b49ac;" ></i></span></a>
+       
+       <a href="{{route('admin.decline.blog',$blog->id)}}"><span class="ml-2"> <i class="fa fa-times fa-2x"style="color:#4b49ac;" ></i></span></a>
+       @endif
+      </td>
+      <td>{{$blog->status}}</td>
                                         </td>
                                       </tr>
                                       @endforeach

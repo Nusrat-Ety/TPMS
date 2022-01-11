@@ -90,12 +90,12 @@ $request->file('BlogImagefile')->storeAs('/uploads/Blogs',$blogimage);
         $secondblogimage=$blog->SecondBlogimage;
         if($request->hasFile('SecondBlogimage')){
             $secondblogimage=date('Ymdhis').'.'.$request->file('SecondBlogimage')->getClientOriginalExtension();
-            $request->file('SecondBlogimage')->storeAs('/uploads/Blogs',$secondblogimage);
+            $request->file('SecondBlogimage')->storeAs('/uploads/Blogs/secondimage/',$secondblogimage);
         }
         $thirdblogimagefile=$blog->ThirdBlogimage;
         if($request->hasFile('ThirdBlogImagefile')){
             $thirdblogimagefile=date('Ymdhis').'.'.$request->file('ThirdBlogImagefile')->getClientOriginalExtension();
-            $request->file('ThirdBlogImagefile')->storeAs('/uploads/Blogs',$thirdblogimagefile);
+            $request->file('ThirdBlogImagefile')->storeAs('/uploads/Blogs/thirdimage/',$thirdblogimagefile);
         }
 
        $blog->update([
@@ -110,6 +110,35 @@ $request->file('BlogImagefile')->storeAs('/uploads/Blogs',$blogimage);
 
        ]);
        return redirect()->route('admin.blog.blogList')->with('success','blog updated successfully');
+    }
+    public function approveBlog($blog_id){
+        $Blog=Blog::find($blog_id);
+        
+        if($Blog)
+        {
+            $Blog->update([
+                'status'=>'approved'
+            ]);
+            return redirect()->back()->with('success','Blog has been approved');
+        }
+        return redirect()->back();
+    
+    }
+    public function declineBlog($blog_id){
+        $Blog=Blog::find($blog_id);
+        
+        if($Blog)
+        {
+            $Blog->update([
+                'status'=>'decline'
+                
+            ]);
+            
+            // $TourPlans=AddTourPlan::find($tourplan_id)->delete();
+            return redirect()->back()->with('error','Tour plan has been declined');
+        }
+        return redirect()->back();
+    
     }
 
 }

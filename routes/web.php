@@ -39,7 +39,11 @@ route::post('/make/tourplan',[WebsiteTourController::class,'storeTourPlan'])->na
 
 //location
 Route::get('/location/{location_id}',[WebsiteLocationController::class,'LocationSpotView'])->name('website.view.location');
+
+//Blog
 Route::get('/AddBlog',[WebsiteBlogController::class,'BlogAdd'])->name('Add.blog');
+Route::post('/storeBlog',[WebsiteBlogController::class,'Blogstore'])->name('store.blog');
+
 
 //-------Admin------
 
@@ -86,7 +90,8 @@ Route::get('/blog/bloglist/details/{blog_id}',[BlogController::class,'Blogdetail
 Route::get('/blog/delete/{blog_id}',[BlogController::class,'BlogDelete'])->name('admin.delete.blog');
 Route::get('/blog/edit/{blog_id}',[BlogController::class,'BlogEdit'])->name('admin.Edit.blog');
 Route::put('/blog/update/{blog_id}',[BlogController::class,'BlogUpdate'])->name('admin.update.blog');
-
+Route::get('/blog/Approve/{blog_id}',[BlogController::class,'approveBlog'])->name('admin.approve.blog');
+Route::get('/blog/Decline/{blog_id}',[BlogController::class,'declineBlog'])->name('admin.decline.blog');
 //location
 Route::get('/create/location',[LocationController::class,'createLocation'])->name('admin.create.location');
 Route::post('/store/location',[LocationController::class,'storeLocation'])->name('admin.store.location');

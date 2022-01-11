@@ -13,7 +13,7 @@ class HomeController extends Controller
     //home
     public function home(){
         $spots=Spot::all();
-        $Blogs=Blog::all();
+        $Blogs=Blog::where('status','approved')->get();
         $locations=Location::all();
        
         $tourplans=AddTourPlan::where('status','approved')->get();

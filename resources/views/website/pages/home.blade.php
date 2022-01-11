@@ -548,6 +548,7 @@
 						  	<div class="filtr-container">
 						  		<div class="row">
 @foreach($locations as $location)
+
 						  			<div class="col-md-6">
 						  				<div class="filtr-item">
 											<img src="{{url('/uploads/Locations/'.$location->Location_image)}}" alt="portfolio image"/>
@@ -557,18 +558,21 @@
 												</a>
 												<p><span>{{$location->Country}}</span>
 												
-												<span>15 places</span>
+												<span>{{$location->spots?count($location->spots):0}} </span>
 												
 											</p>
 
 											</div><!-- /.item-title -->
 										</div><!-- /.filtr-item -->
+										
 						  			</div><!-- /.col -->
-@endforeach
+									 
+									  @endforeach
 						  			
 						  		</div><!-- /.row -->
 
 						  	</div><!-- /.filtr-container-->
+							  
 						</div><!-- /.gallery-content -->
 					</div><!--/.galley-box-->
 				</div><!--/.gallery-details-->

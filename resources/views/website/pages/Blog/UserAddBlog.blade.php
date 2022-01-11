@@ -48,7 +48,7 @@
     @endif
 					<div class="col-md-4 col-md-pull-7"style="width:470px;right:150px;">
 						<div class="booking-form"style="background-color: #0000006e;">
-							<form action="{{route('user.added.tourplan')}}" method="POST">
+							<form action="{{route('store.blog')}}" method="POST"enctype="multipart/form-data">
 								@csrf
 								
 									
@@ -63,7 +63,7 @@
 								<div class="row">
                                 <div class="col-sm-7">
                                     <label class="form-label">Blogger name</label>
-                                <select class="form-control"name="username">
+                                <select class="form-control"name="blogger_name">
 											 @foreach ($user as $user)
 											 @if($user->role=='user')
 												<option value="{{$user->id}}">{{$user->name}}</option>
@@ -87,41 +87,43 @@
 		
 								</div>
 								<div class="row">
-									<div class="col-sm-5">
-										<div class="form-group">
-											<span class="form-label">Date</span>
-											<input class="form-control"name="Date" type="date" required>
-										</div>
-									</div>
-									
-								
-
-								
-									
-									
-                                            <div class="col-sm-7">
+								<div class="col-sm-6">
 										<div class="form-group">
 											<span class="form-label">Blog image</span>
-											<input class="form-control" name="BlogImagefile"type="file" required>
+											<input class="form-control" name="BlogImage"type="file" required>
                                            
 										</div>
 									</div>
-                                    </div>
-                                    <div class="row">
-                                    <div class="col-sm-6">
+									<div class="col-sm-6">
 										<div class="form-group">
                                         <span class="form-label">Blog image (2)</span>
-                                    <input class="form-control" name="SecondBlogImagefile"type="file" >
+                                    <input class="form-control" name="SecondBlogImage"type="file" >
                                          
 											</div>
                                             </div>
-                                            <div class="col-sm-6">
+								
+								
+
+								
+									
+									
+                                          
+                                    </div>
+                                    <div class="row">
+									<div class="col-sm-5">
 										<div class="form-group">
                                         <span class="form-label">Blog image (3)</span>
-                                            <input class="form-control" name="ThirdBlogImagefile"type="file" >
+                                            <input class="form-control" name="ThirdBlogImage"type="file" >
 											</div>
                                             </div>
+                                           
 
+											<div class="col-sm-7">
+										<div class="form-group">
+											<span class="form-label">Date</span>
+											<input class="form-control"name="Date" type="dateTime-local" required>
+										</div>
+									</div>
                                             </div>
                                             <div class="row">
 									<div class="col-sm-12">

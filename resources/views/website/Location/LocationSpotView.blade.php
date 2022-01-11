@@ -17,7 +17,18 @@
 					<section id="pack" class="packages">
 			<div class="container">
 				<div class="gallary-header text-center">
-					
+				
+                    <div class="text-container" style="margin-top: 30px;">
+                   
+                        <h3 style="padding-bottom: 15px;">Description</h3>
+                        <p>{{$locations->LocationDetails}}</p>
+					<div>
+					<div>
+					<div class="text-container" style="margin-top: 30px;">
+                   
+				   <h3 style="padding-bottom: 15px;">Related Spots</h3>
+				  
+			   <div>
 					
 				<div class="packages-content">
 					<div class="row">
@@ -46,7 +57,59 @@
 
                         </div><!--/.row-->
 				</div><!--/.packages-content-->
-                </div>
-                </div>
-                </div>
+
+				<section id="blog" class="blog">
+			<div class="container">
+				<div class="blog-details">
+				<div class="text-container" style="margin-top: 30px;">
+                   
+				   <h3 style="padding-bottom: 15px;">Related Blogs</h3>
+				  
+			   <div><!--/.gallery-header-->
+						
+						<div class="blog-content">
+							<div class="row">
+								@foreach($blog as $key=>$blog)
+								<div class="col-md-4 col-sm-6">
+									<div class="thumbnail"style="width:374px;">
+										<h2>{{$blog->location->Location_name}}<span style="float:right; padding-right:15px;font-size:12px">{{$blog->user->name}} </span></h2>
+										
+										<div class="thumbnail-img">
+											<img src="{{url('/uploads/Blogs/'.$blog->Blogimage)}}"style="height:250px;width:380px;" alt="blog-img">
+											<div class="thumbnail-img-overlay"></div><!--/.thumbnail-img-overlay-->
+										
+										</div><!--/.thumbnail-img-->
+									  
+										<div class="caption">
+											<div class="blog-txt">
+											<h3>
+													<a style="font-size:20px" href="{{route('website.blog',$blog->id)}}">
+														{{$blog->BlogName}}
+													</a>
+												</h3>
+										
+												
+												<p>
+												{{$blog->Description}}
+												</p>
+												<a href="{{route('website.blog',$blog->id)}}">Read More</a><span style="position:relative;font-size:10px;font-style:italic;">{{$blog->Date}}</span>
+											</div><!--/.blog-txt-->
+										</div><!--/.caption-->
+									</div><!--/.thumbnail-->
+
+								</div><!--/.col-->
+
+@endforeach
+							</div><!--/.row-->
+						</div><!--/.blog-content-->
+					</div><!--/.blog-details-->
+				</div><!--/.container-->
+</div>
+		</section><!--/.blog-->
+		<!--blog end-->
+
+				<div>
+				<div>
+				<div>
+				<div>	
                 @endsection

@@ -76,22 +76,7 @@
 	</div>
 </div>
 
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registration">
-                                Registration modal
-                            </button> -->
 
-<!-- @if(auth()->user()) -->
-                    <!-- Button trigger modal -->
-
-                        <!-- <a href="{{route('user.logout')}}" class="btn btn-success">{{auth()->user()->name}} | Logout</a>
-
-                        @else
-                           
-
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">
-                                Login
-                            </button>
-                        @endif -->
 
 <!-- Modal -->
 <div class="modal fade" id="registration" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
