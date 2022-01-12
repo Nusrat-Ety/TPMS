@@ -68,7 +68,12 @@
 									<div class="col-sm-7">
 										<div class="form-group">
 											<span class="form-label">Destination</span>
-											<input class="form-control"name="TourDestination" type="text" required>
+											<select class="form-control"name="TourDestination">
+											 @foreach ($locations as $location)
+											 
+												<option value="{{$location->id}}">{{$location->Location_name}}</option>
+												@endforeach
+												</select>
 										</div>
 									</div>
 									<div class="col-sm-5">

@@ -97,7 +97,7 @@ a:hover i {
       <th>{{$key+1}}</th>
       <td>{{$Tourplan->Tourname}}</td>
       <td>{{$Tourplan->from}}</td>
-      <td>{{$Tourplan->TourDestination}}</td>
+      <td>{{$Tourplan->location->Location_name}}</td>
       <td>{{$Tourplan->spot->SpotName}}</td>
       <td>{{$Tourplan->TourDuration}}</td>
       <td>{{$Tourplan->Transport}}</td>

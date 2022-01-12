@@ -15,12 +15,16 @@ class HomeController extends Controller
         $spots=Spot::all();
         $Blogs=Blog::where('status','approved')->get();
         $locations=Location::all();
+        
        
         $tourplans=AddTourPlan::where('status','approved')->get();
         // dd($tourplans);
         // dd($Blogs);
         return view('website.pages.home',compact('spots','Blogs','tourplans','locations'));
     }
+
+
+    
 
     
 }

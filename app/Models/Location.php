@@ -18,4 +18,5 @@ public function spots(){
 public function blogs(){
     return $this->hasMany(Blog::class);
  }
+ 
 }

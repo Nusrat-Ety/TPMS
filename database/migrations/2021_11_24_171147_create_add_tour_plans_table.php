@@ -19,7 +19,7 @@ class CreateAddTourPlansTable extends Migration
             $table->string('status')->default('pending');
             $table->String('Tourname');
             $table->String('from');
-            $table->String('TourDestination');
+            $table->String('location_id');
             $table->String('TourDuration');
             $table->date('TourDate');
             $table->double('TourBudget');

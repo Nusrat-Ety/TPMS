@@ -10,9 +10,11 @@
     <p>
         <img style="border-radius: 4px;" width="500px;" src=" {{url('/uploads/Spots/'.$spot->SpotImage)}}" alt="product">
     </p>
-<p style="font-weight:bold;">Spot Name: {{$spot->SpotName}}</p>
-<p>Spot Details: {{$spot->SpotLocation}}</p>
-<p>Spot Status: {{$spot->SpotDetails}}</p>
+<h3 style="font-weight:bold;">Spot Name: {{$spot->SpotName}}</h3>
+<h4 style="font-weight:bold;">Spot Location:</h4><p> {{$spot->location->Location_name}}</p>
+<h4 style="font-weight:bold;">Spot Details:</h4>
+<p>{{$spot->SpotDetails}}</p>
+
 </div>
 </div>
 </div>

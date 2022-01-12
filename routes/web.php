@@ -44,6 +44,9 @@ Route::get('/location/{location_id}',[WebsiteLocationController::class,'Location
 Route::get('/AddBlog',[WebsiteBlogController::class,'BlogAdd'])->name('Add.blog');
 Route::post('/storeBlog',[WebsiteBlogController::class,'Blogstore'])->name('store.blog');
 
+//search
+Route::get('/search',[HomeController::class,'search'])->name('search.website.tourplans');
+
 
 //-------Admin------
 

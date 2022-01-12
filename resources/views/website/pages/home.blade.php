@@ -93,27 +93,7 @@
 													</div><!--/.single-tab-select-box-->
 												</div><!--/.col-->
 
-												<!-- <div class="col-lg-2 col-md-3 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>check in</h2>
-														<div class="travel-check-icon">
-															<form action="#">
-																<input type="text" name="check_in" class="form-control" data-toggle="datepicker" placeholder="12 -01 - 2017 ">
-															</form> -->
-														<!--/div><!-- /.travel-check-icon -->
-													<!--/div><!--/.single-tab-select-box-->
-												<!--/div><!--/.col-->
-
-												<!-- <div class="col-lg-2 col-md-3 col-sm-4">
-													<div class="single-tab-select-box">
-														<h2>check out</h2>
-														<div class="travel-check-icon">
-															<form action="#">
-																<input type="text" name="check_out" class="form-control"  data-toggle="datepicker" placeholder="22 -01 - 2017 ">
-															</form> -->
-														<!--/div><!-- /.travel-check-icon -->
-													<!--/div><!--/.single-tab-select-box-->
-												<!--/div><!--/.col-->
+												
 
 												<div class="col-lg-2 col-md-1 col-sm-4">
 													<div class="single-tab-select-box">
@@ -304,7 +284,7 @@
 										</div><!--/.tab-para-->
 
 									</div><!--/.tabpannel-->
-
+<!-- flight search -->
 									<div role="tabpanel" class="tab-pane fade in" id="flights">
 										<div class="tab-para">
 											<div class="trip-circle">
@@ -605,8 +585,8 @@
 								<img style="height:200px;"src="{{url('uploads/Spots/'.$spot->SpotImage)}}" alt="package-place">
 								<div class="single-package-item-txt">
 									<h3>{{$spot->SpotName}} <span class="pull-right">{{$spot->location->Location_name}}</span></h3>
-									<div class="packages-para">
-										<p><i class="fa fa-angle-right"></i>{{$spot->SpotDetails}}	</p>
+									<div class="packages-para"style="overflow: hidden;text-overflow: ellipsis;">
+										<p style="height: 100px;"><i class="fa fa-angle-right"></i>{{$spot->SpotDetails}}	</p>
                                     
 									</div><!--/.packages-para-->
 									
@@ -679,7 +659,7 @@
 								
 							<div class="single-package-item-txt">
 
-									<h3 style="color:black;box-shadow: 0 0px 20px rgb(0 0 0 / 0.68);background-color: whitesmoke;font-weight: 600;">{{$tourplan->Tourname}} <span class="pull-right">{{$tourplan->TourDestination}}</span></h3>
+									<h3 style="color:black;box-shadow: 0 0px 20px rgb(0 0 0 / 0.68);background-color: whitesmoke;font-weight: 600;">{{$tourplan->Tourname}} <span class="pull-right">{{$tourplan->location->Location_name}}</span></h3>
 									<div class="packages-para"style="background-color: #0000003b;">
 										<p style="color: #ffffff;font-weight: 500;"><i class="fa fa-angle-right"></i>{{$tourplan->members}}	</p>
 										<p style="color: #ffffff;font-weight: 500;"><i class="fa fa-angle-right"></i>{{$tourplan->TourBudget}}<span class="pull-right">{{$tourplan->TourDuration}}</span>

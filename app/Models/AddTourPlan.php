@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Spot;
+use App\Models\Location;
 class AddTourPlan extends Model
 {
     use HasFactory;
@@ -19,5 +20,8 @@ class AddTourPlan extends Model
         }
         public function spot(){
             return $this->belongsTo(Spot::class);
+        }
+        public function location(){
+            return $this->belongsTo(Location::class);
         }
 }
