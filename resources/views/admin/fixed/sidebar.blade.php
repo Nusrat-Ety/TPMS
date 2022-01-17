@@ -97,7 +97,7 @@
             <div class="collapse" id="charts">
               <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Manage Feedback</a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">View Feedback</a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{route('admin.review.list')}}">View Feedback</a></li>
               </ul>
             </div>
           </li>
@@ -110,7 +110,7 @@
             </a>
             <div class="collapse" id="demo">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="#">Manage Contact info</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('admin.query.list')}}">Manage Contact info</a></li>
               </ul>
             </div>
           </li>

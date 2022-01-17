@@ -69,7 +69,7 @@
 										<div class="form-group">
 											<span class="form-label">Destination</span>
 											<select class="form-control"name="TourDestination">
-											 @foreach ($locations as $location)
+											 @foreach ($location as $location)
 											 
 												<option value="{{$location->id}}">{{$location->Location_name}}</option>
 												@endforeach

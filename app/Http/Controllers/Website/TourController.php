@@ -41,4 +41,14 @@ class TourController extends Controller
         return view('website.pages.home',compact('tourplans'));
 
     }
+    public function ViewTourPlanDetails($tourplan_id){
+        $tourplan=AddTourPlan::with('User','spot','location')->find($tourplan_id);
+        // dd($tourplans);
+        return view('website.pages.Tourplan.ViewTourPlan',compact('tourplan'));
+
+    }
+
+    
+    
+
 }

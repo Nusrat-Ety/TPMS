@@ -659,7 +659,7 @@
 								
 							<div class="single-package-item-txt">
 
-									<h3 style="color:black;box-shadow: 0 0px 20px rgb(0 0 0 / 0.68);background-color: whitesmoke;font-weight: 600;">{{$tourplan->Tourname}} <span class="pull-right">{{$tourplan->location->Location_name}}</span></h3>
+									<h3 style="color:black;box-shadow: 0 0px 20px rgb(0 0 0 / 0.68);background-color: whitesmoke;font-weight: 600;"><a style="font-size: inherit;"href="{{route('view.tourplan.user',$tourplan->id)}}">{{$tourplan->Tourname}} </a><span class="pull-right">{{$tourplan->location->Location_name}}</span></h3>
 									<div class="packages-para"style="background-color: #0000003b;">
 										<p style="color: #ffffff;font-weight: 500;"><i class="fa fa-angle-right"></i>{{$tourplan->members}}	</p>
 										<p style="color: #ffffff;font-weight: 500;"><i class="fa fa-angle-right"></i>{{$tourplan->TourBudget}}<span class="pull-right">{{$tourplan->TourDuration}}</span>
@@ -668,6 +668,8 @@
 									</div><!--/.packages-para-->
 									
 									<div class="about-btn">
+
+									
 										<button class="about-view packages-btn" style="float: right;" >
 											Join
 										</button>
@@ -696,13 +698,14 @@
 						clients reviews
 					</h2>
 					<p>
-						Duis aute irure dolor in  velit esse cillum dolore eu fugiat nulla. 
+						Tour plan reviews of travelers.
+						<a href="{{route('user.review')}}">add review</a>
 					</p>
 
 				</div><!--/.gallery-header-->
 
 				<div class="owl-carousel owl-theme" id="testemonial-carousel">
-
+@foreach($reviews as $review)
 					<div class="home1-testm item">
 						<div class="home1-testm-single text-center">
 							<div class="home1-testm-img">
@@ -712,204 +715,21 @@
 								<span class="icon section-icon">
 									<i class="fa fa-quote-left" aria-hidden="true"></i>
 								</span>
+								<h4>{{$review->spot->SpotName}},{{$review->location->Location_name}}</h4>
 								<p>
-									Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam. 
+								{{$review->review}}
 								</p>
 								<h3>
 									<a href="#">
-										kevin watson
+										{{$review->user->name}}
 									</a>
 								</h3>
-								<h4>london, england</h4>
+								<h4>{{$review->user->Address}}</h4>
 							</div><!--/.home1-testm-txt-->	
 						</div><!--/.home1-testm-single-->
 
 					</div><!--/.item-->
-
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img src="{{url('/frontend/assets/images/client/testimonial2.jpg')}}" alt="img"/>
-							</div><!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p>
-									Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam. 
-								</p>
-								<h3>
-									<a href="#">
-										kevin watson
-									</a>
-								</h3>
-								<h4>london, england</h4>
-							</div><!--/.home1-testm-txt-->	
-						</div><!--/.home1-testm-single-->
-
-					</div><!--/.item-->
-
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img src="{{url('/frontend/assets/images/client/testimonial1.jpg')}}" alt="img"/>
-							</div><!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p>
-									Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam. 
-								</p>
-								<h3>
-									<a href="#">
-										kevin watson
-									</a>
-								</h3>
-								<h4>london, england</h4>
-							</div><!--/.home1-testm-txt-->	
-						</div><!--/.home1-testm-single-->
-
-					</div><!--/.item-->
-
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img src="{{url('/frontend/assets/images/client/testimonial1.jpg')}}" alt="img"/>
-							</div><!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p>
-									Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam. 
-								</p>
-								<h3>
-									<a href="#">
-										kevin watson
-									</a>
-								</h3>
-								<h4>london, england</h4>
-							</div><!--/.home1-testm-txt-->	
-						</div><!--/.home1-testm-single-->
-
-					</div><!--/.item-->
-
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img src="{{url('/frontend/assets/images/client/testimonial2.jpg')}}" alt="img"/>
-							</div><!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p>
-									Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam. 
-								</p>
-								<h3>
-									<a href="#">
-										kevin watson
-									</a>
-								</h3>
-								<h4>london, england</h4>
-							</div><!--/.home1-testm-txt-->	
-						</div><!--/.home1-testm-single-->
-
-					</div><!--/.item-->
-
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img src="{{url('/frontend/assets/images/client/testimonial1.jpg')}}" alt="img"/>
-							</div><!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p>
-									Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam. 
-								</p>
-								<h3>
-									<a href="#">
-										kevin watson
-									</a>
-								</h3>
-								<h4>london, england</h4>
-							</div><!--/.home1-testm-txt-->	
-						</div><!--/.home1-testm-single-->
-
-					</div><!--/.item-->
-
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img src="{{url('/frontend/assets/images/client/testimonial1.jpg')}}" alt="img"/>
-							</div><!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p>
-									Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam. 
-								</p>
-								<h3>
-									<a href="#">
-										kevin watson
-									</a>
-								</h3>
-								<h4>london, england</h4>
-							</div><!--/.home1-testm-txt-->	
-						</div><!--/.home1-testm-single-->
-
-					</div><!--/.item-->
-
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img src="{{url('/frontend/assets/images/client/testimonial2.jpg')}}" alt="img"/>
-							</div><!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p>
-									Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam. 
-								</p>
-								<h3>
-									<a href="#">
-										kevin watson
-									</a>
-								</h3>
-								<h4>london, england</h4>
-							</div><!--/.home1-testm-txt-->	
-						</div><!--/.home1-testm-single-->
-
-					</div><!--/.item-->
-
-					<div class="home1-testm item">
-						<div class="home1-testm-single text-center">
-							<div class="home1-testm-img">
-								<img src="{{url('/frontend/assets/images/client/testimonial1.jpg')}}" alt="img"/>
-							</div><!--/.home1-testm-img-->
-							<div class="home1-testm-txt">
-								<span class="icon section-icon">
-									<i class="fa fa-quote-left" aria-hidden="true"></i>
-								</span>
-								<p>
-									Lorem ipsum dolor sit amet, contur adip elit, sed do mod incid ut labore et dolore magna aliqua. Ut enim ad minim veniam. 
-								</p>
-								<h3>
-									<a href="#">
-										kevin watson
-									</a>
-								</h3>
-								<h4>london, england</h4>
-							</div><!--/.home1-testm-txt-->	
-						</div><!--/.home1-testm-single-->
-
-					</div><!--/.item-->
-
+@endforeach
 				</div><!--/.testemonial-carousel-->
 			</div><!--/.container-->
 
@@ -982,20 +802,25 @@
 			<div class="container">
 				<div class="subscribe-title text-center">
 					<h2>
-						Join our Subscribers List to Get Regular Update
+						Register and Be a member to make your tourplan.
 					</h2>
 					<p>
-						Subscribe Now. We will send you Best offer for your Trip 
+						For any Queries select query and for review select review button.
 					</p>
 				</div>
 				<form>
 					<div class="row">
-						<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+						<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2"style="margin-left: 38%;">
 							<div class="custom-input-group">
-								<input type="email" class="form-control" placeholder="Enter your Email Here">
-								<button class="appsLand-btn subscribe-btn">Subscribe</button>
-								<div class="clearfix"></div>
-								<i class="fa fa-envelope"></i>
+							<a style="padding-top: 11px;font-weight: 500;width: 143px;height: 50px;border-radius: 56px;font-size: 20px;" class="book-btn"href="{{route('user.review')}}">Review</a>
+						
+								<a style="padding-top: 11px;font-weight: 500;width: 143px;height: 50px;border-radius: 56px;font-size: 20px;" href="{{route('user.query')}}"class="book-btn">query</a>
+								@foreach($query as $query)
+								@if(auth()->user()?auth()->user()->id==$query->user_id:null)
+ <a style="padding-top: 11px;font-weight: 500;width: 143px;height: 50px;border-radius: 56px;font-size: 20px;" href="{{route('reply.show')}}"class="book-btn">reply({{count([$query->reply])}})</a>		
+	@endif	
+	@endforeach			
+								
 							</div>
 
 						</div>

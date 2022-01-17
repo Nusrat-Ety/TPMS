@@ -1373,10 +1373,12 @@ html,body{
 .appsLand-btn:hover, .appsLand-btn:focus, .appsLand-btn:active {
     text-decoration: none;
     outline: none;
+    
 }
 .appsLand-btn:hover {
     box-shadow: 0 3px 25px rgba(2, 3, 3, 0.25);
     background: #00d8ff;
+    
 }
 
 .appsLand-btn.appsLand-btn-larg {

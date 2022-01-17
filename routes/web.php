@@ -6,13 +6,18 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TransportController;
 use App\Http\Controllers\Admin\SpotController;
 use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Website\JoinController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\AdminReviewController;
 use App\Http\Controllers\Website\UserController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
 use App\Http\Controllers\Website\WebsiteBlogController;
 use App\Http\Controllers\Website\TourController as WebsiteTourController;
 use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Website\ContactController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Website\WebsiteLocationController;
+use App\Http\Controllers\Website\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -36,6 +41,7 @@ Route::get('/logout',[UserController::class,'logout'])->name('user.logout');
 //Tourplan
 route::get('/tourplan',[WebsiteTourController::class,'TourPlan'])->name('user.tourplan');
 route::post('/make/tourplan',[WebsiteTourController::class,'storeTourPlan'])->name('user.added.tourplan');
+route::get('/view/tourplan/{tourplan_id}',[WebsiteTourController::class,'ViewTourPlanDetails'])->name('view.tourplan.user');
 
 //location
 Route::get('/location/{location_id}',[WebsiteLocationController::class,'LocationSpotView'])->name('website.view.location');
@@ -44,10 +50,20 @@ Route::get('/location/{location_id}',[WebsiteLocationController::class,'Location
 Route::get('/AddBlog',[WebsiteBlogController::class,'BlogAdd'])->name('Add.blog');
 Route::post('/storeBlog',[WebsiteBlogController::class,'Blogstore'])->name('store.blog');
 
-//search
-Route::get('/search',[HomeController::class,'search'])->name('search.website.tourplans');
+//join
+// Route::get('/join/Approve/{join_request_id}',[JoinController::class,'approveJoin'])->name('approve.Join');
+// Route::get('/join/Decline/{join_request_id}',[JoinController::class,'declineJoin'])->name('decline.Join');
 
 
+//Query
+route::get('/query',[ContactController::class,'QueryView'])->name('user.query');
+route::post('/store/query',[ContactController::class,'QueryStore'])->name('user.query.store');
+route::get('/query/reply',[ContactController::class,'replyview'])->name('reply.show');
+
+//review
+
+route::get('/review',[ReviewController::class,'addreview'])->name('user.review');
+route::post('/review/store',[ReviewController::class,'storereview'])->name('user.store.review');
 //-------Admin------
 
     Route::get('/admin/login',[AdminUserController::class,'login'])->name('admin.login');
@@ -104,5 +120,14 @@ Route::get('/location/details/{location_id}',[LocationController::class,'Locatio
 Route::get('/location/edit/{location_id}',[LocationController::class,'EditLocation'])->name('admin.location.edit');
 Route::PUT('/location/update/{location_id}',[LocationController::class,'UpdateLocation'])->name('admin.location.update');
 
+//query
+route::get('/querylist',[AdminContactController::class,'querylist'])->name('admin.query.list');
+Route::get('/query/replyView/{query_id}',[AdminContactController::class,'ViewqueryReply'])->name('admin.view.queryReply');
+Route::put('/query/reply/{query_id}',[AdminContactController::class,'queryReply'])->name('admin.query.reply');
+
+//review
+Route::get('/user-review',[AdminReviewController::class,'reviewlist'])->name('admin.review.list');
+Route::get('/user-review/approve/{review_id}',[AdminReviewController::class,'ApproveReview'])->name('admin.review.approve');
+Route::get('/user-review/decline/{review_id}',[AdminReviewController::class,'DeclineReview'])->name('admin.review.decline');
 
 });
