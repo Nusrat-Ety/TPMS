@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\Join;
 use App\Models\Spot;
 use App\Models\Location;
 class AddTourPlan extends Model
@@ -23,5 +24,8 @@ class AddTourPlan extends Model
         }
         public function location(){
             return $this->belongsTo(Location::class);
+        }
+        public function travelers(){
+            return $this->hasMany(Join::class,'tourplan_id','id');
         }
 }

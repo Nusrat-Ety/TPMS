@@ -26,6 +26,7 @@ class CreateAddTourPlansTable extends Migration
             $table->string('members');
             $table->string('Transport');
             $table->string('spot_id');
+            $table->integer('join_id')->default('0');
             $table->timestamps();
         });
     }

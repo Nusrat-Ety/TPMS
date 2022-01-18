@@ -669,16 +669,28 @@
 									
 									<div class="about-btn">
 
-									
-										<button class="about-view packages-btn" style="float: right;" >
-											Join
-										</button>
+									@if(auth()->user()?auth()->user()->id==$tourplan->user_id:0)
+									<a href="{{route('view.tourplan.user',$tourplan->id)}}"class="about-view packages-btn" style="float: right;" >
+											View
+</a>
+
+@elseif($tourplan->join_id?$$tourplan->join->status=='pending':0)
+								
+<a href="{{route('request.Join',$tourplan->id)}}"class="about-view packages-btn" style="float: right;" >
+											join
+</a>
+@else
+
+<a href="{{route('request.Join',$tourplan->id)}}"class="about-view packages-btn" style="float: right;" >
+											joined
+</a>
+@endif
 									</div><!--/.about-btn-->
 								</div><!--/.single-package-item-txt-->
 							</div><!--/.single-package-item-->
 
 						</div><!--/.col-->
-				
+								
 @endforeach
 
 

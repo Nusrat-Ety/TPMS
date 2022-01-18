@@ -5,6 +5,7 @@ use App\Models\AddTourPlan;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Spot;
+use App\Models\Join;
 use App\Models\Location;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,7 @@ class TourController extends Controller
     //show tour in website
     public function TourPlan(){
         $user=User::all();
+        
         $spot=Spot::all();
         $location=Location::all();
 
@@ -42,11 +44,16 @@ class TourController extends Controller
 
     }
     public function ViewTourPlanDetails($tourplan_id){
-        $tourplan=AddTourPlan::with('User','spot','location')->find($tourplan_id);
-        // dd($tourplans);
+       
+     
+        $tourplan=AddTourPlan::with('user','travelers')->find($tourplan_id);
+
+        
+
         return view('website.pages.Tourplan.ViewTourPlan',compact('tourplan'));
 
     }
+  
 
     
     

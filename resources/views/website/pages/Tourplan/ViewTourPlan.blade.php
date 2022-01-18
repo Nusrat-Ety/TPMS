@@ -30,14 +30,67 @@
 				
                     <div class="text-container" style="margin-top: 30px;">
                    
-                        <h3 style="padding-bottom: 15px;">Description</h3>
+                        <h3 style="padding-bottom: 15px;">About Tour Plan</h3>
                         <p>{{$tourplan->Tourname}}</p>
 					<div>
 					<div>
 
 </div>
+<div class="gallary-header text-center">
+				
+                    <div class="text-container" style="margin-top: 30px;margin-right:70rem;border:solid;">
+                   
+                        <h3 style="padding-bottom: 15px;">{{$tourplan->spot->SpotName}} | {{$tourplan->location->Location_name}}</h3>
+                        <p><span style="color:black;background-color:#00d8ff7a;">Tour name :</span>{{$tourplan->Tourname}}</p>
+                        <p><span style="color:black;background-color:#00d8ff7a;">Tour From :</span>{{$tourplan->from}}</p>
+                        <p><span style="color:black;background-color:#00d8ff7a;">Tour Duration :</span>{{$tourplan->TourDuration}}</p>
+                        <p><span style="color:black;background-color:#00d8ff7a;">Tour Date :</span>{{$tourplan->TourDate}}</p>
+                        <p><span style="color:black;background-color:#00d8ff7a;">Tour Budget :</span>{{$tourplan->TourBudget}}</p>
+  </div>
+  </div>
+          
+          <div class="gallary-header text-center">
+				
+        <div class="text-container" style="margin-top: 30px;margin-right:70rem;border:solid;">
+        <h3 style="padding-bottom: 15px;">[Join Request]</h3>
+            <h3 style="padding-bottom: 15px;">{{$tourplan->spot->SpotName}} | {{$tourplan->location->Location_name}}</h3>
+
+            <table class="table text-center">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">SL</th>
+                                            <th scope="col">Traveller Name</th>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">Action</th>
+
+                                        </tr>
+                                    </thead>
+                                 
+                                    <tbody>
+                                      @foreach($tourplan->travelers as $key=>$traveler)
+                                      <tr>
+                      
+                                        <th>{{$key+1}}</th>
+                                        <td>{{$traveler->user->name}}</td>
+                                        <td>{{$traveler->status}}</td>
+                                    
+                                        <td>
+                                       
+                                            <a class="btn btn-primary" href="">View</a>
+                                    
+                                        </td>
+                                      </tr>
+                                      @endforeach
+                                   </tbody>
+
+                                </table>
 
 
+
+
+  </div>
+  </div>
+  
 <div class="card" style="width: 28rem;margin-left: 1000px;margin-top: -155px; box-shadow: 2px 2px 4px black;height: 28rem;background-color:#e7ffff;">
   <!-- <img
     src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp"
@@ -57,10 +110,7 @@
     <ul>
     <a class="btn btn-default"style="width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">Traveler Profile</a>
   </ul>
-  <div class="card-body">
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
-  </div>
+ 
 
        
 </section>

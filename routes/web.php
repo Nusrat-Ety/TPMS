@@ -5,19 +5,22 @@ use App\Http\Controllers\Admin\TravelerController;
 use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\TransportController;
 use App\Http\Controllers\Admin\SpotController;
-use App\Http\Controllers\Website\HomeController;
-use App\Http\Controllers\Website\JoinController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\AdminReviewController;
+//---website---//
 use App\Http\Controllers\Website\UserController;
-use App\Http\Controllers\Admin\UserController as AdminUserController;
+use App\Http\Controllers\Website\HomeController;
+use App\Http\Controllers\Website\JoinController;
 use App\Http\Controllers\Website\WebsiteBlogController;
 use App\Http\Controllers\Website\TourController as WebsiteTourController;
-use App\Http\Controllers\Admin\LocationController;
-use App\Http\Controllers\Website\ContactController;
-use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\Website\WebsiteLocationController;
 use App\Http\Controllers\Website\ReviewController;
+use App\Http\Controllers\Website\ContactController;
+
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,6 +45,7 @@ Route::get('/logout',[UserController::class,'logout'])->name('user.logout');
 route::get('/tourplan',[WebsiteTourController::class,'TourPlan'])->name('user.tourplan');
 route::post('/make/tourplan',[WebsiteTourController::class,'storeTourPlan'])->name('user.added.tourplan');
 route::get('/view/tourplan/{tourplan_id}',[WebsiteTourController::class,'ViewTourPlanDetails'])->name('view.tourplan.user');
+// route::get('/view/joined-details/{tourplan_id}',[WebsiteTourController::class,'JoinedUserDetails'])->name('view.tourplan.user');
 
 //location
 Route::get('/location/{location_id}',[WebsiteLocationController::class,'LocationSpotView'])->name('website.view.location');
@@ -49,10 +53,6 @@ Route::get('/location/{location_id}',[WebsiteLocationController::class,'Location
 //Blog
 Route::get('/AddBlog',[WebsiteBlogController::class,'BlogAdd'])->name('Add.blog');
 Route::post('/storeBlog',[WebsiteBlogController::class,'Blogstore'])->name('store.blog');
-
-//join
-// Route::get('/join/Approve/{join_request_id}',[JoinController::class,'approveJoin'])->name('approve.Join');
-// Route::get('/join/Decline/{join_request_id}',[JoinController::class,'declineJoin'])->name('decline.Join');
 
 
 //Query
@@ -64,7 +64,12 @@ route::get('/query/reply',[ContactController::class,'replyview'])->name('reply.s
 
 route::get('/review',[ReviewController::class,'addreview'])->name('user.review');
 route::post('/review/store',[ReviewController::class,'storereview'])->name('user.store.review');
-//-------Admin------
+
+//join
+//join
+Route::get('/join/{join_request_id}',[JoinController::class,'JoinRequest'])->name('request.Join');
+Route::get('/join/view/{join_request_id}',[JoinController::class,'viewJoin'])->name('request.Join.view');
+//-------Admin------//
 
     Route::get('/admin/login',[AdminUserController::class,'login'])->name('admin.login');
 Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('admin.doLogin');
