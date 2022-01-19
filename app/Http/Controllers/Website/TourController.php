@@ -53,6 +53,14 @@ class TourController extends Controller
         return view('website.pages.Tourplan.ViewTourPlan',compact('tourplan'));
 
     }
+
+
+    public function viewTourList(){
+        $tourplans=Join::with('user','tourplan')->get();
+      
+        return view('website.pages.Tourplan.TourPlanList',compact('tourplans'));
+    }
+    
   
 
     

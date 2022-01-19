@@ -48,7 +48,7 @@
                         <p><span style="color:black;background-color:#00d8ff7a;">Tour Budget :</span>{{$tourplan->TourBudget}}</p>
   </div>
   </div>
-          
+  @if(auth()->user()?auth()->user()->id==$tourplan->user->id:0)  
           <div class="gallary-header text-center">
 				
         <div class="text-container" style="margin-top: 30px;margin-right:70rem;border:solid;">
@@ -67,7 +67,9 @@
                                     </thead>
                                  
                                     <tbody>
+                                 
                                       @foreach($tourplan->travelers as $key=>$traveler)
+                                     
                                       <tr>
                       
                                         <th>{{$key+1}}</th>
@@ -76,11 +78,13 @@
                                     
                                         <td>
                                        
-                                            <a class="btn btn-primary" href="">View</a>
+                                            <a class="btn btn-primary" href="">approve</a>
+                                            <a class="btn btn-primary" href="">decline</a>
                                     
                                         </td>
                                       </tr>
                                       @endforeach
+                                      
                                    </tbody>
 
                                 </table>
@@ -90,7 +94,7 @@
 
   </div>
   </div>
-  
+  @endif
 <div class="card" style="width: 28rem;margin-left: 1000px;margin-top: -155px; box-shadow: 2px 2px 4px black;height: 28rem;background-color:#e7ffff;">
   <!-- <img
     src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp"

@@ -40,6 +40,8 @@
 "type="button" data-toggle="dropdown">{{auth()->user()->name}}({{auth()->user()->role}})
   <span class="caret"></span></button>
   <ul class="dropdown-menu"style="background-color: transparent;box-shadow: 0 6px 20px rgba(0,0,0,.53);border-radius:2ch;">
+  <li><a style="color: deepskyblue;text-align: center;" href="{{route('tourplan.list')}}">tour plan</a></li>
+
     <li><a style="color: deepskyblue;text-align: center;" href="{{route('user.logout')}}">Log Out</a></li>
   </ul>
 </div>

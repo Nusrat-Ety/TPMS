@@ -16,7 +16,7 @@ class HomeController extends Controller
 {
     //home
     public function home(){
-        $join=Join::all();
+        // 
         $spots=Spot::all();
         $Blogs=Blog::where('status','approved')->get();
         $locations=Location::all();
@@ -28,6 +28,15 @@ class HomeController extends Controller
         $reviews=Review::where('status','approved')->get();
         // dd($tourplans);
         // dd($Blogs);
+        if (auth()->user()) {
+         $user = auth()->user()->id;
+        $join=Join::where('user_id',$user)->get();
+        }
+        else {
+            $join=Join::all();
+        }
+       
+        
 
         return view('website.pages.home',compact('spots','Blogs','tourplans','locations','query','reviews','join'));
 

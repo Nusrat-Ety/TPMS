@@ -41,14 +41,20 @@ Route::get('/frontend/login',[UserController::class,'loginView'])->name('user.pa
 Route::post('/frontend/Registration',[UserController::class,'registration'])->name('user.registration');
 Route::post('/login',[UserController::class,'login'])->name('user.dologin');
 Route::get('/logout',[UserController::class,'logout'])->name('user.logout');
+
+//location
+Route::get('/location/{location_id}',[WebsiteLocationController::class,'LocationSpotView'])->name('website.view.location');
+
+Route::group(['middleware'=>'check_user'],function (){
 //Tourplan
 route::get('/tourplan',[WebsiteTourController::class,'TourPlan'])->name('user.tourplan');
 route::post('/make/tourplan',[WebsiteTourController::class,'storeTourPlan'])->name('user.added.tourplan');
 route::get('/view/tourplan/{tourplan_id}',[WebsiteTourController::class,'ViewTourPlanDetails'])->name('view.tourplan.user');
+route::get('/view/tourplan-list',[WebsiteTourController::class,'viewTourList'])->name('tourplan.list');
+
 // route::get('/view/joined-details/{tourplan_id}',[WebsiteTourController::class,'JoinedUserDetails'])->name('view.tourplan.user');
 
-//location
-Route::get('/location/{location_id}',[WebsiteLocationController::class,'LocationSpotView'])->name('website.view.location');
+
 
 //Blog
 Route::get('/AddBlog',[WebsiteBlogController::class,'BlogAdd'])->name('Add.blog');
@@ -65,10 +71,14 @@ route::get('/query/reply',[ContactController::class,'replyview'])->name('reply.s
 route::get('/review',[ReviewController::class,'addreview'])->name('user.review');
 route::post('/review/store',[ReviewController::class,'storereview'])->name('user.store.review');
 
-//join
+
 //join
 Route::get('/join/{join_request_id}',[JoinController::class,'JoinRequest'])->name('request.Join');
 Route::get('/join/view/{join_request_id}',[JoinController::class,'viewJoin'])->name('request.Join.view');
+Route::get('/join/request/approved/{join_request_id}',[JoinController::class,'joinApprove'])->name('request.join.approve');
+
+});
+
 //-------Admin------//
 
     Route::get('/admin/login',[AdminUserController::class,'login'])->name('admin.login');
