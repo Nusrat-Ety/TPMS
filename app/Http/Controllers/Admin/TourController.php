@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AddTourPlan;
 use App\Models\User;
 use App\Models\Spot;
+use App\Models\Transport;
 use App\Models\Location;
 use Illuminate\Http\Request;
 
@@ -23,11 +24,11 @@ class TourController extends Controller
         $key=null;
         if(request()->search){
             $key=request()->search;
-            $Tourplans=AddTourPlan::with('user','spot','location')
+            $Tourplans=AddTourPlan::with('user','spot','location','transports')
             ->whereLike(['spot.SpotName','user.name','Tourname'],$key)->get();
         return view('admin.layouts.Tourplan.AdminTourList',compact('Tourplans','key'));
         }
-        $Tourplans=AddTourPlan::with('user','spot','location')->get();
+        $Tourplans=AddTourPlan::with('user','spot','location','transports')->get();
      //dd($TourPlans);
       return view('admin.layouts.Tourplan.AdminTourList',compact('Tourplans','key'));
         

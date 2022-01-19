@@ -25,7 +25,7 @@
                                              
                                          
                                               @foreach($tourplans as $key=>$traveler)
-                                     
+                                     @if(auth()->user()->id==$traveler->tourplan->user->id?$traveler->all():auth()->user()->id==$traveler->user->id)
                                               <tr >
                               
                                                 <th style=" text-align: center;">{{$key+1}}</th>
@@ -34,12 +34,19 @@
                                                 <td style=" text-align: center;">{{$traveler->user->name}}</td>
                                                 <td style=" text-align: center;">{{$traveler->status}}</td>
                                                 <td style=" text-align: center;">
-                                               
+                                               @if(auth()->user()?auth()->user()->id==$traveler->tourplan->user->id:0)
                                                     <a class="btn btn-primary" href="{{route('request.join.approve',$traveler->id)}}">approve</a>
-                                                    <a class="btn btn-primary" href="">decline</a>
-                                            
+                                                    <a class="btn btn-primary" href="{{route('request.join.decline',$traveler->id)}}">decline</a>
+                                            @endif
+                                            @if(auth()->user()->id==$traveler->user->id?$traveler->status=='approved':0)
+                                            <a class="btn btn-primary" href="{{route('view.tourplan.user',$traveler->tourplan->id)}}">Tour plan</a>
+@endif
+<a class="btn btn-primary" href="{{route('website')}}">Back</a>
+
                                                 </td>
+
                                               </tr>
+                                              @endif
                                               @endforeach
                                               
                                            </tbody>

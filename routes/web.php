@@ -76,7 +76,7 @@ route::post('/review/store',[ReviewController::class,'storereview'])->name('user
 Route::get('/join/{join_request_id}',[JoinController::class,'JoinRequest'])->name('request.Join');
 Route::get('/join/view/{join_request_id}',[JoinController::class,'viewJoin'])->name('request.Join.view');
 Route::get('/join/request/approved/{join_request_id}',[JoinController::class,'joinApprove'])->name('request.join.approve');
-
+Route::get('/join/request/decline/{join_request_id}',[JoinController::class,'joinDecline'])->name('request.join.decline');
 });
 
 //-------Admin------//

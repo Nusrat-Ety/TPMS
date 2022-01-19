@@ -108,8 +108,13 @@
                                 <div class="col-sm-6">
 										<div class="form-group">
 											<span class="form-label">Transport</span>
-											<input class="form-control" name="Transport"type="text" required>
-										</div>
+											<select class="form-control"name="Transport">
+											 @foreach ($transports as $transport)
+											 
+												<option value="{{$transport->id}}">{{$transport->transportType}}</option>
+												@endforeach
+												</select>										
+											</div>
 									</div>
 									<div class="col-sm-6">
 										<div class="form-group">
@@ -127,7 +132,7 @@
 											<select class="form-control"name="username">
 											 @foreach ($user as $user)
 											 @if($user->role=='user')
-												<option value="{{$user->id}}">{{$user->name}}</option>
+												<option value="{{auth()->user()->id}}">{{auth()->user()->name}}</option>
 												@endif
 												@endforeach
 												</select>

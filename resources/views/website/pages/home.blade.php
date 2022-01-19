@@ -811,8 +811,13 @@
 
                                 @else
                                 @foreach($join as $Join)
-                                @if($Join->tourplan_id == $tourplan->id)
-                                <a href="" class="about-view packages-btn" style="float: right;">Joined</a>
+                                @if(auth()->user()?$Join->tourplan_id == $tourplan->id:0)
+                                @if($Join->status=='approved'||$Join->status=='pending')
+                                <button  class="about-view packages-btn" style="float: right;">{{$Join->status}}</button>
+                               @endif
+                                @if($Join->status=='declined')
+                                <button class="about-view packages-btn" style="box-shadow: 0 5px 20px rgb(14 20 18 / 52%);border: 1px solid #f00;float: right;background-color:red;">{{$Join->status}}</button>
+                                @endif
                                 @else
                                 <a href="{{route('request.Join',$tourplan->id)}}" class="about-view packages-btn"
                                     style="float: right;">
@@ -820,6 +825,7 @@
                                 </a>
                                 @endif
 								@endforeach
+                            
                                 @endif
                             </div>
                             <!--/.about-btn-->

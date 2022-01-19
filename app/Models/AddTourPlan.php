@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Join;
 use App\Models\Spot;
+use App\Models\Transport;
 use App\Models\Location;
 class AddTourPlan extends Model
 {
@@ -18,6 +19,9 @@ class AddTourPlan extends Model
             // 1 to  1 dependent =belongsTo
             // 1 to 1 not dependent = hasOne
             return $this->belongsTo(User::class);
+        }
+        public function transports(){
+            return $this->belongsTo(Transport::class);
         }
         public function spot(){
             return $this->belongsTo(Spot::class);

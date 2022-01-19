@@ -24,7 +24,7 @@ class CreateAddTourPlansTable extends Migration
             $table->date('TourDate');
             $table->double('TourBudget');
             $table->string('members');
-            $table->string('Transport');
+            $table->string('transport_id');
             $table->string('spot_id');
             $table->integer('join_id')->default('0');
             $table->timestamps();
