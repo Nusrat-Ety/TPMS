@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>Booking Form HTML Template</title>
+	<title>FAQ</title>
 
 
 
@@ -35,9 +35,9 @@
 			<div class="container">
 				<div class="row">
 					
-						<div class="col-md-7 col-md-push-5"style="left: 42.666667%;bottom: 15rem;">
+						<div class="col-md-7 col-md-push-5"style="left: 45.666667%;bottom: 15rem;">
 						<div class="booking-cta">
-						<h1 style="font-size: 30px;">Ask Us</h1>
+						<h1 style="font-size: 30px;">FAQ</h1>
 						
 						</div>
 					</div>
@@ -50,21 +50,19 @@
 								@csrf
 								<div class="row">
 									<div class="col-sm-12">
-                            <div class="form-group">
-									<span class="form-label">email</span>
-									<select class="form-control"name="useremail">
-                                       
-											 @foreach ($user as $user)
-                                             @if($user->role=='user')
-												<option value="{{$user->id}}">{{$user->email}}</option>
-												@endif
-                                                @endforeach
-                                                
-												</select>
-								</div>
-                                </div>
-                                </div>
-								
+										<div class="form-group">
+											<span class="form-label">Tourplan Name</span>
+											
+											
+											<label>{{$tourplan->Tourname}}</label>
+											<input type="hidden"  class="form-control" name="plan_id" value="{{$tourplan->id}}">
+									
+											
+						
+										</div>
+									
+									</div>
+                                    </div>
 							
 								
                 

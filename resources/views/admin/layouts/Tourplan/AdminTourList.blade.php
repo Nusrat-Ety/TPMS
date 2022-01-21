@@ -92,7 +92,7 @@ a:hover i {
   </thead>
   <tbody>
   @foreach($Tourplans as $key=>$Tourplan)
-  @dd($Tourplan)
+
     <tr style="text-align: center">
       <th>{{$key+1}}</th>
       <td>{{$Tourplan->Tourname}}</td>
@@ -100,7 +100,7 @@ a:hover i {
       <td>{{$Tourplan->location->Location_name}}</td>
       <td>{{$Tourplan->spot->SpotName}}</td>
       <td>{{$Tourplan->TourDuration}}</td>
-      <td>{{$Tourplan->transport->transportType}}</td>
+      <td>{{$Tourplan->transports->transportType}}</td>
       <td>{{$Tourplan->members}}</td>
       <td>{{$Tourplan->TourDate}}</td>
       <td>{{$Tourplan->TourBudget}}</td>

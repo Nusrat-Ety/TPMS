@@ -7,7 +7,6 @@ use App\Models\Review;
 use App\Models\Join;
 use App\Models\Location;
 use App\Models\AddTourPlan;
-use App\Models\Query;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -22,7 +21,7 @@ class HomeController extends Controller
         $locations=Location::all();
         
         // $query=Query::all();
-       $query=Query::Where('status','replied')->get();
+    //    $query=Query::Where('status','replied')->get();
        //dd($query);
         $tourplans=AddTourPlan::where('status','approved')->get();
         $reviews=Review::where('status','approved')->get();
@@ -38,7 +37,7 @@ class HomeController extends Controller
        
         
 
-        return view('website.pages.home',compact('spots','Blogs','tourplans','locations','query','reviews','join'));
+        return view('website.pages.home',compact('spots','Blogs','tourplans','locations','reviews','join'));
 
 
     }

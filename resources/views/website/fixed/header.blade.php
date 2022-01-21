@@ -26,9 +26,9 @@
 										<li class="smooth-menu"><a href="#home">home</a></li>
 										<li class="smooth-menu"><a href="#gallery">Destination</a></li>
 										<li class="smooth-menu"><a href="#pack">Spots </a></li>
-										<li class="smooth-menu"><a href="#spo">Special Offers</a></li>
+										<li class="smooth-menu"><a href="#spo">Tour Plans</a></li>
 										<li class="smooth-menu"><a href="#blog">blog</a></li>
-										<li class="smooth-menu"><a href="#subs">subscription</a></li>
+										<li class="smooth-menu"><a href="#subs">Contact Us</a></li>
 										<li>
 										@if(auth()->user())
                     <!-- Button trigger modal -->

@@ -5,7 +5,7 @@
 <br></br>
 <div class="gallary-header text-center">
 				
-                <div class="text-container" style="margin-top: 30px;margin-right:70rem;border:solid;">
+                <div class="text-container" style="margin-top: 30px;margin-right: 7rem;margin-left: 10rem;">
                 <h3 style="padding-bottom: 15px;margin-bottom: 4rem;">[Join Request]</h3>
         
                     <table class="table text-center">

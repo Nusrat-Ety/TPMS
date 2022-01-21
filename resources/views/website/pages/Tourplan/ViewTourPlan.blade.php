@@ -110,28 +110,17 @@
   </div>
   @foreach($joins as $join)
   <ul class="list-group list-group-flush">
-@if(auth()->user()?auth()->user()->id==$join->user_id:0)
+@if(auth()->user()->id == $join->user->id)
     <a class="btn btn-default"style="margin-bottom: 2rem;width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">{{$join->status}}</a>
+    
+@endif
 
-@if($join->status=='approved')
-<p class="card-text">
-Your request has been approved,please contact tour planner for further query related to tour.You can found tour planner information in traveler profile.
-    </p>
-    @endif
-    @if($join->status=='declined')
-<p class="card-text"style="margin-bottom:3rem;color:red;">
-  
-Your request has been declined.
-    </p>
-    @endif
-    @endif
-    @if($join->status=='pending'||$join->status=='approved')
-    <ul>
-    <a class="btn btn-default"style="margin-bottom: 2rem;width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">Traveler Profile</a>
-  </ul>
-  @endif
 @endforeach
+<ul>
 
+
+    <a class="btn btn-default" href="{{route('user.query',$tourplan->id)}}"style="margin-bottom: 2rem;width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">Query</a>
+  </ul>
   </ul>
     <!-- <li class="list-group-item"></li> -->
     

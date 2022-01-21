@@ -19,6 +19,7 @@ use App\Http\Controllers\Website\TourController as WebsiteTourController;
 use App\Http\Controllers\Website\WebsiteLocationController;
 use App\Http\Controllers\Website\ReviewController;
 use App\Http\Controllers\Website\ContactController;
+use App\Http\Controllers\Website\SearchController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -62,7 +63,7 @@ Route::post('/storeBlog',[WebsiteBlogController::class,'Blogstore'])->name('stor
 
 
 //Query
-route::get('/query',[ContactController::class,'QueryView'])->name('user.query');
+route::get('/query/{tourplan_id}',[ContactController::class,'QueryView'])->name('user.query');
 route::post('/store/query',[ContactController::class,'QueryStore'])->name('user.query.store');
 route::get('/query/reply',[ContactController::class,'replyview'])->name('reply.show');
 
@@ -77,6 +78,9 @@ Route::get('/join/{join_request_id}',[JoinController::class,'JoinRequest'])->nam
 Route::get('/join/view/{join_request_id}',[JoinController::class,'viewJoin'])->name('request.Join.view');
 Route::get('/join/request/approved/{join_request_id}',[JoinController::class,'joinApprove'])->name('request.join.approve');
 Route::get('/join/request/decline/{join_request_id}',[JoinController::class,'joinDecline'])->name('request.join.decline');
+
+//search
+route::get('/search',[SearchController::class,'search'])->name('search.plan');
 });
 
 //-------Admin------//

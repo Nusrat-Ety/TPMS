@@ -70,40 +70,39 @@
 
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <div class="single-tab-select-box">
+                                            <form action="{{route('search.plan')}}">
+                                                <div class="single-tab-select-box">
 
-                                                <h2>destination</h2>
+                                                    <h2>destination</h2>
 
-                                                <div class="travel-select-icon">
-                                                    <select class="form-control ">
+                                                    <div class="travel-select-icon">
+                                                        <select name="spot" class="form-control ">
+                                                            @foreach($spots as $spot)
+                                                            <option value="{{$spot->id}}">{{$spot->SpotName}}</option>
+                                                            <!-- /.option-->
+                                                            @endforeach
 
-                                                        <option value="default">enter your destination country</option>
-                                                        <!-- /.option-->
+                                                        </select><!-- /.select-->
+                                                    </div><!-- /.travel-select-icon -->
+                                                </div>
+                                                <div class="single-tab-select-box">
 
-                                                        <option value="turkey">turkey</option><!-- /.option-->
+                                                    <h2>destination</h2>
 
-                                                        <option value="russia">russia</option><!-- /.option-->
-                                                        <option value="egept">egypt</option><!-- /.option-->
+                                                    <div class="travel-select-icon">
+                                                        <select name="location" class="form-control ">
+                                                            @foreach($locations as $location)
+                                                            <option value="{{$location->id}}">{{$location->Location_name}}</option>
+                                                            <!-- /.option-->
+                                                            @endforeach
+                                                        
 
-                                                    </select><!-- /.select-->
-                                                </div><!-- /.travel-select-icon -->
-
-                                                <div class="travel-select-icon">
-                                                    <select class="form-control ">
-
-                                                        <option value="default">enter your destination location</option>
-                                                        <!-- /.option-->
-
-                                                        <option value="istambul">istambul</option><!-- /.option-->
-
-                                                        <option value="mosko">mosko</option><!-- /.option-->
-                                                        <option value="cairo">cairo</option><!-- /.option-->
-
-                                                    </select><!-- /.select-->
-                                                </div><!-- /.travel-select-icon -->
-
-                                            </div>
-                                            <!--/.single-tab-select-box-->
+                                                        </select><!-- /.select-->
+                                                    </div><!-- /.travel-select-icon -->
+                                                </div>
+                                                <!--/.single-tab-select-box-->
+                                                <button class="btn btn-info">Search</button>
+                                            </form>
                                         </div>
                                         <!--/.col-->
 
@@ -189,9 +188,9 @@
                                         <!--/.col-->
                                         <div class="clo-sm-7">
                                             <div class="about-btn travel-mrt-0 pull-right">
-                                                <button class="about-view travel-btn">
+                                                <a class="about-view travel-btn"href="">
                                                     search
-                                                </button>
+</a>
                                                 <!--/.travel-btn-->
                                             </div>
                                             <!--/.about-btn-->
@@ -803,30 +802,19 @@
 
                             <div class="about-btn">
 
-                                @if(auth()->user()?auth()->user()->id==$tourplan->user_id:0)
+                                @if(auth()->user()?auth()->user()->id==$tourplan->user->id:0)
                                 <a href="{{route('view.tourplan.user',$tourplan->id)}}" class="about-view packages-btn"
                                     style="float: right;">
                                     View
                                 </a>
-
-                                @else
-                                @foreach($join as $Join)
-                                @if(auth()->user()?$Join->tourplan_id == $tourplan->id:0)
-                                @if($Join->status=='approved'||$Join->status=='pending')
-                                <button  class="about-view packages-btn" style="float: right;">{{$Join->status}}</button>
-                               @endif
-                                @if($Join->status=='declined')
-                                <button class="about-view packages-btn" style="box-shadow: 0 5px 20px rgb(14 20 18 / 52%);border: 1px solid #f00;float: right;background-color:red;">{{$Join->status}}</button>
-                                @endif
-                                @else
+                                
+@else
                                 <a href="{{route('request.Join',$tourplan->id)}}" class="about-view packages-btn"
                                     style="float: right;">
                                     join
                                 </a>
-                                @endif
-								@endforeach
-                            
-                                @endif
+                            @endif
+                              
                             </div>
                             <!--/.about-btn-->
                         </div>
@@ -1002,14 +990,7 @@
                         <a style="padding-top: 11px;font-weight: 500;width: 143px;height: 50px;border-radius: 56px;font-size: 20px;"
                             class="book-btn" href="{{route('user.review')}}">Review</a>
 
-                        <a style="padding-top: 11px;font-weight: 500;width: 143px;height: 50px;border-radius: 56px;font-size: 20px;"
-                            href="{{route('user.query')}}" class="book-btn">query</a>
-                        @foreach($query as $query)
-                        @if(auth()->user()?auth()->user()->id==$query->user_id:null)
-                        <a style="padding-top: 11px;font-weight: 500;width: 143px;height: 50px;border-radius: 56px;font-size: 20px;"
-                            href="{{route('reply.show')}}" class="book-btn">reply({{count([$query->reply])}})</a>
-                        @endif
-                        @endforeach
+                      
 
                     </div>
 

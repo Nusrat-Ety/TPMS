@@ -20,6 +20,7 @@ class TourController extends Controller
         return view('admin.layouts.Tourplan.ManagePlanReq');
     }
     //for viewing the tourplan list of user
+    //problem
     public function ViewAdminTourList(){
         $key=null;
         if(request()->search){
@@ -33,6 +34,7 @@ class TourController extends Controller
       return view('admin.layouts.Tourplan.AdminTourList',compact('Tourplans','key'));
         
     }
+    //problem
     //for showing details of the tourplan
     public function TourPlanDetails($tourplan_id){
         $tourplan=AddTourPlan::find($tourplan_id);

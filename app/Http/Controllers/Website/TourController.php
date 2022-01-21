@@ -48,7 +48,7 @@ class TourController extends Controller
        
         
         $tourplan=AddTourPlan::with('user','travelers')->find($tourplan_id);
-        $joins=Join::with('user','tourplan')->get();
+        $joins=Join::with('user','tourplan')->where('tourplan_id',$tourplan_id)->get();
         
 
         return view('website.pages.Tourplan.ViewTourPlan',compact('tourplan','joins'));

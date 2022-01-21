@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use App\Models\User;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,7 +10,7 @@ class Query extends Model
 {
     use HasFactory;
     protected $guarded=[];
-    protected $table="queries";
+    protected $table="plan_query";
 
 
 

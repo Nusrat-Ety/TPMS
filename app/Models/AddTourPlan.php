@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Join;
 use App\Models\Spot;
+use App\Models\Query;
+
 use App\Models\Transport;
 use App\Models\Location;
 class AddTourPlan extends Model
@@ -21,7 +23,7 @@ class AddTourPlan extends Model
             return $this->belongsTo(User::class);
         }
         public function transports(){
-            return $this->belongsTo(Transport::class);
+            return $this->belongsTo(Transport::class,'transport_id','id');
         }
         public function spot(){
             return $this->belongsTo(Spot::class);
@@ -31,5 +33,8 @@ class AddTourPlan extends Model
         }
         public function travelers(){
             return $this->hasMany(Join::class,'tourplan_id','id');
+        }
+        public function question(){
+            return $this->hasMany(Query::class,'tourplan_id','id');
         }
 }
