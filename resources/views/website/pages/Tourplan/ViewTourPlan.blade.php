@@ -117,9 +117,10 @@
 
 @endforeach
 <ul>
+<a class="btn btn-default" href="{{route('query.list.view')}}"style="margin-bottom: 2rem;width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">Question/Answer</a>
 
 
-    <a class="btn btn-default" href="{{route('user.query',$tourplan->id)}}"style="margin-bottom: 2rem;width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">Query</a>
+    <a class="btn btn-default" href="{{route('user.query',$tourplan->id)}}"style="margin-bottom: 2rem;width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">Ask Us</a>
   </ul>
   </ul>
     <!-- <li class="list-group-item"></li> -->

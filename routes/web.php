@@ -52,8 +52,11 @@ route::get('/tourplan',[WebsiteTourController::class,'TourPlan'])->name('user.to
 route::post('/make/tourplan',[WebsiteTourController::class,'storeTourPlan'])->name('user.added.tourplan');
 route::get('/view/tourplan/{tourplan_id}',[WebsiteTourController::class,'ViewTourPlanDetails'])->name('view.tourplan.user');
 route::get('/view/tourplan-list',[WebsiteTourController::class,'viewTourList'])->name('tourplan.list');
-
-// route::get('/view/joined-details/{tourplan_id}',[WebsiteTourController::class,'JoinedUserDetails'])->name('view.tourplan.user');
+/*My plan*/
+route::get('/view/MyPlan/list',[WebsiteTourController::class,'MyPlanList'])->name('Myplan.list');
+route::get('/view/MyPlan/Edit/{tourplan_id}',[WebsiteTourController::class,'MyPlanEdit'])->name('Myplan.Edit');
+route::PUT('/view/MyPlan/update/{tourplan_id}',[WebsiteTourController::class,'MyPlanUpdate'])->name('Myplan.update');
+route::get('/view/My-Joined-Plan/list',[WebsiteTourController::class,'MyJoinedPlanList'])->name('My.Joined.Plan.List');
 
 
 
@@ -65,7 +68,7 @@ Route::post('/storeBlog',[WebsiteBlogController::class,'Blogstore'])->name('stor
 //Query
 route::get('/query/{tourplan_id}',[ContactController::class,'QueryView'])->name('user.query');
 route::post('/store/query',[ContactController::class,'QueryStore'])->name('user.query.store');
-route::get('/query/reply',[ContactController::class,'replyview'])->name('reply.show');
+route::get('/list/query',[ContactController::class,'ViewQueryList'])->name('query.list.view');
 
 //review
 
@@ -140,7 +143,6 @@ Route::get('/location/edit/{location_id}',[LocationController::class,'EditLocati
 Route::PUT('/location/update/{location_id}',[LocationController::class,'UpdateLocation'])->name('admin.location.update');
 
 //query
-route::get('/querylist',[AdminContactController::class,'querylist'])->name('admin.query.list');
 Route::get('/query/replyView/{query_id}',[AdminContactController::class,'ViewqueryReply'])->name('admin.view.queryReply');
 Route::put('/query/reply/{query_id}',[AdminContactController::class,'queryReply'])->name('admin.query.reply');
 

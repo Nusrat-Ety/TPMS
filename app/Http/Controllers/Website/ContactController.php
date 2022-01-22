@@ -27,8 +27,11 @@ class ContactController extends Controller
       
         return redirect()->back()->with('msg','query sent. Wait for your reply.'); 
     }
-    public function replyview(){
-$query=Query::where('status','replied')->get();
-return view('website.pages.contact.replyview',compact('query'));
+    public function ViewQueryList(){
+// $query=Query::where('status','replied')->get();
+// return view('website.pages.contact.replyview',compact('query'));
+$query=Query::with('user','tourplan')->get();
+return view('website.pages.Contact.query-list',compact('query'));
+
     }
 }

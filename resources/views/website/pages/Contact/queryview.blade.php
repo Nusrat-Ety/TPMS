@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>FAQ</title>
+	<title>Query</title>
 
 
 
@@ -35,9 +35,9 @@
 			<div class="container">
 				<div class="row">
 					
-						<div class="col-md-7 col-md-push-5"style="left: 45.666667%;bottom: 15rem;">
+						<div class="col-md-7 col-md-push-5"style="left: 42.666667%;bottom: 15rem;">
 						<div class="booking-cta">
-						<h1 style="font-size: 30px;">FAQ</h1>
+						<h1 style="font-size: 30px;">Ask Us</h1>
 						
 						</div>
 					</div>
@@ -70,7 +70,13 @@
 									<div class="col-sm-12">
 										<div class="form-group">
 											<span class="form-label">Subject</span>
-											<input class="form-control"name="subject" type="text" required>
+											
+											<select class="form-control"name="subject" required>
+												
+												<option class="form-control"value="1">Tour Plan</option>
+													<option class="form-control"value="2">Join</option>
+														<option class="form-control"value="3">Other</option>
+	</select>
 										</div>
 									
 									</div>

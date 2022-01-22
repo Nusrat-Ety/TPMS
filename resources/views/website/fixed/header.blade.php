@@ -8,7 +8,7 @@
 						<div class="col-sm-2">
 							<div class="logo">
 								<a href="{{route('website')}}">
-									tour<span>Nest</span>
+									tour<span>Plan</span>
 								</a>
 							</div><!-- /.logo-->
 						</div><!-- /.col-->
@@ -41,6 +41,8 @@
   <span class="caret"></span></button>
   <ul class="dropdown-menu"style="background-color: transparent;box-shadow: 0 6px 20px rgba(0,0,0,.53);border-radius:2ch;">
   <li><a style="color: deepskyblue;text-align: center;" href="{{route('tourplan.list')}}">tour plan</a></li>
+  <li><a style="color: deepskyblue;text-align: center;" href="{{route('My.Joined.Plan.List')}}">I joined</a></li>
+  <li><a style="color: deepskyblue;text-align: center;" href="{{route('Myplan.list')}}">My plan</a></li>
 
     <li><a style="color: deepskyblue;text-align: center;" href="{{route('user.logout')}}">Log Out</a></li>
   </ul>

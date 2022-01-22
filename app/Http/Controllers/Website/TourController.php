@@ -62,9 +62,51 @@ class TourController extends Controller
         return view('website.pages.Tourplan.TourPlanList',compact('tourplans'));
     }
     
-  
+  //My plan List
+  public function MyPlanList(){
+      $MyPlans=AddTourPlan::with('user','transports','spot','location')->where('user_id',auth()->user()->id)->get();
+    //   dd($MyPlans);
+    return view('website.pages.Tourplan.My-Plan.MyPlanList',compact('MyPlans'));
+  }
 
-    
-    
+  //my plan edit
+  public function MyPlanEdit($tourplan_id){
+      $planEdit=AddTourPlan::with('user','transports','spot','location')->find($tourplan_id);
+      $transports=Transport::all();
+      $spot=Spot::all();
+      $location=Location::all();
+      return view('website.pages.Tourplan.My-Plan.MyPlan-Edit',compact('planEdit','transports','spot','location'));
+  }
+ 
+//my plan update
+    public function MyPlanUpdate(Request $request,$tourplan_id){
+        $tourplan=AddTourPlan::with('user','transports','spot','location')->find($tourplan_id);
+// dd($tourplan);
+       $tourplan->update([
+        'Tourname'=>$request->TourName,
+        'from'=>$request->From,
+        'location_id'=>$request->TourDestination,
+        'TourDuration'=>$request->TourDuration,
+        'TourDate'=>$request->TourDate,
+        'TourBudget'=>$request->TourBudget,
+        'members'=>$request->members,
+        'transport_id'=>$request->Transport,
+        'spot_id'=>$request->spotname,
+        
 
+       ]);
+       return redirect()->route('Myplan.list')->with('success','blog updated successfully');
+    }
+
+    //the plans i joined
+    public function MyJoinedPlanList(){
+        $joinedplan=Join::with('tourplan','user')->where('user_id',auth()->user()->id)->get();
+        // dd($joinedplan);
+        return view('website.pages.Tourplan.My-Plan.MyJoined-PlanList',compact('joinedplan'));
+    }
 }
+
+    
+    
+
+
