@@ -69,6 +69,9 @@ Route::post('/storeBlog',[WebsiteBlogController::class,'Blogstore'])->name('stor
 route::get('/query/{tourplan_id}',[ContactController::class,'QueryView'])->name('user.query');
 route::post('/store/query',[ContactController::class,'QueryStore'])->name('user.query.store');
 route::get('/list/query',[ContactController::class,'ViewQueryList'])->name('query.list.view');
+route::get('/reply/{query_id}',[ContactController::class,'ViewReply'])->name('reply.view');
+Route::put('/query/reply/{query_id}',[ContactController::class,'queryReply'])->name('query.reply');
+route::get('/query/details/{query_id}',[ContactController::class,'ViewQueryDetail'])->name('query.details.view');
 
 //review
 
@@ -143,8 +146,8 @@ Route::get('/location/edit/{location_id}',[LocationController::class,'EditLocati
 Route::PUT('/location/update/{location_id}',[LocationController::class,'UpdateLocation'])->name('admin.location.update');
 
 //query
-Route::get('/query/replyView/{query_id}',[AdminContactController::class,'ViewqueryReply'])->name('admin.view.queryReply');
-Route::put('/query/reply/{query_id}',[AdminContactController::class,'queryReply'])->name('admin.query.reply');
+// Route::get('/query/replyView/{query_id}',[AdminContactController::class,'ViewqueryReply'])->name('admin.view.queryReply');
+// Route::put('/query/reply/{query_id}',[AdminContactController::class,'queryReply'])->name('admin.query.reply');
 
 //review
 Route::get('/user-review',[AdminReviewController::class,'reviewlist'])->name('admin.review.list');

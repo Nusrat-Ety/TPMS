@@ -73,9 +73,9 @@
 											
 											<select class="form-control"name="subject" required>
 												
-												<option class="form-control"value="1">Tour Plan</option>
-													<option class="form-control"value="2">Join</option>
-														<option class="form-control"value="3">Other</option>
+												<option class="form-control"value="Tour Plan">Tour Plan</option>
+													<option class="form-control"value="Join">Join</option>
+														<option class="form-control"value="Other">Other</option>
 	</select>
 										</div>
 									

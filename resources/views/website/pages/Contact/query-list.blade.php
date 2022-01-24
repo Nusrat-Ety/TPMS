@@ -3,6 +3,35 @@
 <br></br>
 <br></br>
 <br></br>
+<style>
+    .setWidth{
+        max-width:100px;
+    }
+    .concat div{
+        overflow:hidden;
+        -ms-text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        width:inherit;
+    }
+    a:hover i {
+            transform: scale(1.5);
+        }
+        .setWidth{
+        max-width:100px;
+    }
+    .concat div{
+        overflow:hidden;
+        -ms-text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        width:inherit;
+    }
+
+    
+    </style>
 <div class="gallary-header text-center">
 				
                 <div class="text-container" style="margin-top: 30px;margin-right: 7rem;margin-left: 10rem;">
@@ -38,22 +67,21 @@
                                         <td style="text-align: center;">{{$query->user->email}}</td>
                                         <td style="text-align: center;">{{$query->subject}}</td>
                                         <td style="text-align: center;"class="setWidth concat"><div>{{$query->query}}</div></td>
-                                        <td style="text-align: center;">
-                                        @if(auth()->user()->id != $query->user_id )
+                                        <td class="setWidth concat"style="text-align: center;">
+                                      
                                             @if($query->status=='pending')
-                                            <a style="text-align: center;"class="btn btn-primary" href="{{route('admin.view.queryReply',$query->id)}}">reply</a>
+                                            <a style="text-align: center;"class="btn btn-primary" href="{{route('reply.view',$query->id)}}">reply</a>
                                             
                                            @else
-                                            {{$query->reply}}
+                                           <div> {{$query->reply}}</div>
                                             @endif
-                                            @endif
+                                          
                                         </td>
                                         
                                         <td style="text-align: center;">
-                                        <a class="btn btn-primary" href="">View</a>
-                                        <a class="btn btn-primary" href="">Edit</a>
-                                        <a class="btn btn-primary" href="">Delete</a>
-                                      
+                                        <a href="{{route('query.details.view',$query->id)}}"><span class="ml-2"><i class="fa fa-eye fa-2x"style="color:#4b49ac;" ></i></span></a>
+       
+       <a href=""><span class="ml-2"> <i class="fa fa-times fa-2x"style="color:#4b49ac;" ></i></span></a>
       <td style="text-align: center;">{{$query->status}}</td>
                                         </td>
                                       </tr>

@@ -19,6 +19,7 @@ class CreatePlanQueryTable extends Migration
             $table->integer('user_id');
             $table->string('subject');
             $table->string('query');
+            $table->string('reply')->default('null');
             $table->string('status')->default('pending');
             $table->timestamps();
         });
