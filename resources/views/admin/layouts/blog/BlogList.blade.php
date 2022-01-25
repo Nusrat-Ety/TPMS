@@ -13,7 +13,20 @@
         width:inherit;
     }
     
-
+    a:hover i {
+            transform: scale(1.5);
+        }
+        .setWidth{
+        max-width:100px;
+    }
+    .concat div{
+        overflow:hidden;
+        -ms-text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        width:inherit;
+    }
     
     </style>
     
@@ -98,10 +111,12 @@
                                         <td><img src="{{url('/uploads/Blogs/secondimage/'.$blog->SecondBlogimage)}}" width="200px" alt="Blog image"></td>
                                         <td><img src="{{url('/uploads/Blogs/thirdimage/'.$blog->ThirdBlogimage)}}" width="200px" alt="Blog image"></td>
                                         <td class="setWidth concat"><div>{{$blog->Description}}</div></td>
+                                        
                                         <td>
-                                        <a class="btn btn-primary" href="{{route('admin.blog.details',$blog->id)}}">View</a>
-                                        <a class="btn btn-primary" href="{{route('admin.Edit.blog',$blog->id)}}">Edit</a>
-                                        <a class="btn btn-primary" href="{{route('admin.delete.blog',$blog->id)}}">Delete</a>
+                                        <a  href="{{route('admin.blog.details',$blog->id)}}"><i class="fa fa-eye fa-2x"style="color: #4b49ac;"></i></a>
+       <a href="{{route('admin.Edit.blog',$blog->id)}}"><span class="ml-2"><i class="fa fa-pencil-square fa-2x"style="color: #4b49ac;"></i></span></a>
+       <a href="{{route('admin.delete.blog',$blog->id)}}"><span class="ml-2"><i class="fa fa-trash fa-2x"style="color:red;"></i></span></a>
+                                       
                                         @if($blog->status=='pending')
        <a href="{{route('admin.approve.blog',$blog->id)}}"><span class="ml-2"><i class="fa fa-check-square-o fa-2x"style="color:#4b49ac;" ></i></span></a>
        
@@ -109,7 +124,7 @@
        @endif
       </td>
       <td>{{$blog->status}}</td>
-                                        </td>
+                                       
                                       </tr>
                                       @endforeach
                                    </tbody>

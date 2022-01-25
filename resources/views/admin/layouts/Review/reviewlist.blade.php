@@ -66,9 +66,9 @@
                                       
                                         <td class="setWidth concat"><div>{{$review->review}}</div></td>
                                         <td>
-                                        <a class="btn btn-primary" href="">View</a>
-                                        <a class="btn btn-primary" href="">Edit</a>
-                                        <a class="btn btn-primary" href="">Delete</a>
+                                        <a  href=""><i class="fa fa-eye fa-2x"style="color: #4b49ac;"></i></a>
+       <a href=""><span class="ml-2"><i class="fa fa-pencil-square fa-2x"style="color: #4b49ac;"></i></span></a>
+       <a href=""><span class="ml-2"><i class="fa fa-trash fa-2x"style="color:red;"></i></span></a>
                                         @if($review->status=='pending')
        <a href="{{route('admin.review.approve',$review->id)}}"><span class="ml-2"><i class="fa fa-check-square-o fa-2x"style="color:#4b49ac;" ></i></span></a>
        

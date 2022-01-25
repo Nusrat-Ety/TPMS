@@ -1,5 +1,23 @@
 @extends('admin.welcome')
 @section('contents')
+<style>
+a:hover i {
+            transform: scale(1.5);
+        }
+        .setWidth{
+        max-width:100px;
+    }
+    .concat div{
+        overflow:hidden;
+        -ms-text-overflow:ellipsis;
+        -o-text-overflow:ellipsis;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+        width:inherit;
+    }
+
+    
+    </style>
 <div class="content-wrapper">
     <div class="row">
         <div class="col-md-12 grid-margin">
@@ -59,9 +77,13 @@
                                         <td>{{$transport->transportName}}</td>
                                         <td>{{$transport->transportType}}</td>
                                         <td>{{$transport->location}}</td>
-                                        <td>
-                                            <a class="btn btn-primary"href="">view</a>
+                                        
+                                           <td>
+                                        <a  href=""><i class="fa fa-eye fa-2x"style="color: #4b49ac;"></i></a>
+       <a href=""><span class="ml-2"><i class="fa fa-pencil-square fa-2x"style="color: #4b49ac;"></i></span></a>
+       <a href=""><span class="ml-2"><i class="fa fa-trash fa-2x"style="color:red;"></i></span></a>
                                         </td>
+                                        
                                       </tr>
                                       @endforeach
                                    </tbody>

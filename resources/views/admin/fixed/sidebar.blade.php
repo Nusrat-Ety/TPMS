@@ -16,8 +16,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{route('manage.traveler')}}">Manage Traveler</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{route('traveler.List')}}">Traveler list</a></li>
+                <li class="nav-item"> <a class="nav-link" href="">Traveler List</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('traveler.List')}}">Traveler Report</a></li>
               </ul>
             </div>
           </li>
@@ -31,9 +31,9 @@
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="{{route('manage.Tour.plan')}}">Manage Tour plan</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{route('admin.manage.TourplanReq')}}">Manage Plan request</a></li>
-                <li class="nav-item"><a class="nav-link" href="">View all TourPlan</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('admin.added.TourList')}}">view Tour plan</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('admin.manage.TourplanReq')}}">Joined Tour Plan List</a></li>
+                <li class="nav-item"><a class="nav-link" href="">Tour Plan Report</a></li>
               </ul>
             </div>
           </li>
@@ -48,8 +48,9 @@
             <div class="collapse" id="icons">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.addtransportform')}}">Add Transport</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Manage Transport</a></li>
+
                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.addtransportList')}}">Transport List </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Transport Report</a></li>
               </ul>
             </div>
           </li>
@@ -87,33 +88,8 @@
             </div>
            </li>
 
-           <!--feedback part-->
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-              <i class="icon-bar-graph menu-icon"></i>
-              <span class="menu-title">Feedback</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="charts">
-              <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Manage Feedback</a></li>
-              <li class="nav-item"> <a class="nav-link" href="{{route('admin.review.list')}}">View Feedback</a></li>
-              </ul>
-            </div>
-          </li>
-           <!--contact part-->
-          <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#demo" aria-expanded="false" aria-controls="demo">
-              <i class="icon-head menu-icon"></i>
-              <span class="menu-title">Contact us</span>
-              <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="demo">
-              <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{route('admin.query.list')}}">Manage Contact info</a></li>
-              </ul>
-            </div>
-          </li>
+           
+         
    <!--blog part-->
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#au" aria-expanded="false" aria-controls="au">
@@ -128,14 +104,41 @@
               </ul>
             </div>
           </li>
-
-           <!--report part-->
+  <!--contact part-->
+  <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#demo" aria-expanded="false" aria-controls="demo">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Contact us</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="demo">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="">Manage Contact info</a></li>
+              </ul>
+            </div>
+          </li>
+          <!--feedback part-->
           <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+              <i class="icon-bar-graph menu-icon"></i>
+              <span class="menu-title">Feedback</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="charts">
+              <ul class="nav flex-column sub-menu">
+     
+              <li class="nav-item"> <a class="nav-link" href="{{route('admin.review.list')}}">View Feedback</a></li>
+              <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Feedback report</a></li>
+              </ul>
+            </div>
+          </li>
+           <!--report part-->
+          <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#" aria-expanded="false" aria-controls="">
               <i class="icon-grid-2 menu-icon"></i>
               <span class="menu-title">Report</span>
               <i class="nav-item"></i>
             </a>
-           </li>
+           </li> -->
         </ul>
       </nav>

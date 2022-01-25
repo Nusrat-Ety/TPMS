@@ -3,23 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Travelar;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TravelerController extends Controller
 {
-    public function addtraveler(){
-        return view('admin.layouts.Traveler.addtraveler');
-    }
-    //for managing the traveler info 
-    Public function ManageTraveler(){
-        return view('admin.layouts.Traveler.ManageTraveler');
-    }
+    
     //for showing the traveler list 
     Public function TravelerList(){
-        $travelars=Travelar::all();
-        // dd($travelars);
-        return view('admin.layouts.Traveler.TravelerList',compact('travelars'));
+       $travelers=User::all();
+        // dd($travelers);
+        return view('admin.layouts.Traveler.TravelerList',compact('travelers'));
     }
 
     public function posttraveler(Request $request){

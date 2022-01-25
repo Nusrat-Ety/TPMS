@@ -101,7 +101,7 @@ Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('adm
         //admin logout
         Route::get('/logout',[AdminUserController::class,'logout'])->name('admin.logout');
 //tour controller
-Route::get('/MTourP',[TourController::class,'Managetourplan'])->name('manage.Tour.plan');
+
 Route::get('/ManageTourPlanRequest',[TourController::class,'ManagetourplanReq'])->name('admin.manage.TourplanReq');
 Route::get('/Tourplan/details/{tourplan_id}',[TourController::class,'TourPlanDetails'])->name('view.tourplan.details');
 Route::get('/tourplan/delete/{tourplan_id}',[TourController::class,'DeleteTourPlan'])->name('admin.tourplan.delete');
