@@ -85,9 +85,25 @@ Route::get('/join/view/{join_request_id}',[JoinController::class,'viewJoin'])->n
 Route::get('/join/request/approved/{join_request_id}',[JoinController::class,'joinApprove'])->name('request.join.approve');
 Route::get('/join/request/decline/{join_request_id}',[JoinController::class,'joinDecline'])->name('request.join.decline');
 
+
+//profile
+Route::get('/profile/{user_id}',[UserController::class,'profile'])->name('profile');
+
 //search
-route::get('/search',[SearchController::class,'search'])->name('search.plan');
+Route::post('/search',[SearchController::class,'search'])->name('search.plan');
+
+
+
 });
+
+
+
+//forgot password
+
+Route::get('/password/forgot',[UserController::class,'showForgotForm'])->name('forgot.password.form');
+Route::post('/password/forgot/link',[UserController::class,'sendResetLink'])->name('forgot.password.link');
+Route::get('/password/reset/{token}',[UserController::class,'showResetForm'])->name('reset.password.form');
+Route::post('/password/user/reset',[UserController::class,'resetPassword'])->name('reset.password');
 
 //-------Admin------//
 

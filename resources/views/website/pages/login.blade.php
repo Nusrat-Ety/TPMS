@@ -69,7 +69,7 @@
 					Don't have an account?<a data-toggle="modal"href="#registration">Sign Up</a>
 				</div>
 				<div class="d-flex justify-content-center">
-					<a href="#">Forgot your password?</a>
+					<a href="{{route('forgot.password.form')}}">Forgot your password?</a>
 				</div>
 			</div>
 		</div>

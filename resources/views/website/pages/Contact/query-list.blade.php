@@ -44,6 +44,7 @@
                                     <thead>
                                         <tr>
                                             <th style="text-align: center;"scope="col">SL</th>
+                                            <th style="text-align: center;"scope="col">Tour Name</th>
                                             <th style="text-align: center;"scope="col">Traveler email</th>
                                             <th style="text-align: center;"scope="col">subject</th>
                                             
@@ -63,15 +64,16 @@
                                         <th style="text-align: center;">{{$key+1}}</th>
                                         
                                         
-                                        
+                                        <td style="text-align: center;">{{$query->tourplan->Tourname}}</td>
                                         <td style="text-align: center;">{{$query->user->email}}</td>
                                         <td style="text-align: center;">{{$query->subject}}</td>
                                         <td style="text-align: center;"class="setWidth concat"><div>{{$query->query}}</div></td>
                                         <td class="setWidth concat"style="text-align: center;">
                                       
-                                            @if($query->status=='pending')
+                                            @if($query->status=='pending' )
+                                            @if($query->tourplan->user->id == auth()->user()->id)
                                             <a style="text-align: center;"class="btn btn-primary" href="{{route('reply.view',$query->id)}}">reply</a>
-                                            
+                                            @endif
                                            @else
                                            <div> {{$query->reply}}</div>
                                             @endif

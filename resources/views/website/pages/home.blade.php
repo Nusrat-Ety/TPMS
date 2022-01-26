@@ -70,7 +70,8 @@
 
                                     <div class="row">
                                         <div class="col-lg-4 col-md-4 col-sm-12">
-                                            <form action="{{route('search.plan')}}">
+                                            <form action="{{route('search.plan')}}" method="post">
+                                                @csrf
                                                 <div class="single-tab-select-box">
 
                                                     <h2>destination</h2>
@@ -101,7 +102,7 @@
                                                     </div><!-- /.travel-select-icon -->
                                                 </div>
                                                 <!--/.single-tab-select-box-->
-                                                <button class="btn btn-info">Search</button>
+                                                <button type="submit" class="btn btn-info">Search</button>
                                             </form>
                                         </div>
                                         <!--/.col-->
