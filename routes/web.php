@@ -1,28 +1,28 @@
 <?php
-use App\Http\Controllers\Admin\TourController;
-use App\Http\Controllers\Admin\IndexController;
-use App\Http\Controllers\Admin\TravelerController;
-use App\Http\Controllers\Admin\EventController;
-use App\Http\Controllers\Admin\TransportController;
-use App\Http\Controllers\Admin\SpotController;
-use App\Http\Controllers\Admin\UserController as AdminUserController;
-use App\Http\Controllers\Admin\LocationController;
-use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\AdminReviewController;
-//---website---//
-use App\Http\Controllers\Website\UserController;
+use App\Http\Controllers\Admin\SpotController;
+use App\Http\Controllers\Admin\TourController;
+use App\Http\Controllers\Admin\EventController;
+use App\Http\Controllers\Admin\IndexController;
 use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\JoinController;
-use App\Http\Controllers\Website\WebsiteBlogController;
-use App\Http\Controllers\Website\TourController as WebsiteTourController;
-use App\Http\Controllers\Website\WebsiteLocationController;
+use App\Http\Controllers\Website\UserController;
+use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Admin\TravelerController;
+//---website---//
 use App\Http\Controllers\Website\ReviewController;
-use App\Http\Controllers\Website\ContactController;
 use App\Http\Controllers\Website\SearchController;
+use App\Http\Controllers\Admin\TransportController;
+use App\Http\Controllers\Website\ContactController;
+use App\Http\Controllers\Admin\AdminReviewController;
+use App\Http\Controllers\Website\WebsiteBlogController;
+use App\Http\Controllers\Website\WebsiteLocationController;
+use App\Http\Controllers\Admin\UserController as AdminUserController;
 
-
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\Website\TourController as WebsiteTourController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -105,6 +105,25 @@ Route::get('/password/forgot',[UserController::class,'showForgotForm'])->name('f
 Route::post('/password/forgot/link',[UserController::class,'sendResetLink'])->name('forgot.password.link');
 Route::get('/password/reset/{token}',[UserController::class,'showResetForm'])->name('reset.password.form');
 Route::post('/password/user/reset',[UserController::class,'resetPassword'])->name('reset.password');
+
+
+//-----payment-------//
+
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout'])->name('advance.pay');
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
+
+
 
 //-------Admin------//
 
