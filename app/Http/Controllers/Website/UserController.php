@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Website;
 
-use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
+use App\Models\User;
+use App\Mail\VerifyEmail;
+use App\Models\VerifyUser;
+use Illuminate\Support\Str;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 class UserController extends Controller
 {
     public function loginView(){
@@ -15,7 +20,7 @@ class UserController extends Controller
     public function registration(Request $request)
     {
 //        dd($request->all());
-        User::create([
+        $user = User::create([
            'name'=>$request->user_name,
            'email'=>$request->user_email,
            'password'=>bcrypt($request->user_password),
@@ -25,10 +30,35 @@ class UserController extends Controller
            'DOB'=>$request->DOB,
            'mobile'=>$request->user_mobile
         ]);
+      //for email verification 
+       VerifyUser::create([
+        'token' => Str::random(60),
+        'user_id' => $user->id
+        
+       ]);
+       Mail::to($user->email)->send(new VerifyEmail($user));
 
-        return redirect()->back()->with('message','Registration successful.');
+        return redirect()->back()->with('message','You need to verify your email. we have sent a verification link in your mail. please check.');
 
 
+    }
+
+    public function verifyEmail($token){
+        $verifiedUser = VerifyUser::where('token',$token)->first();
+        if(isset($verifiedUser)){
+            $user = $verifiedUser->user;
+            if(!$user->email_verified_at){
+                $user->email_verified_at = Carbon::now();
+                $user->save();
+                return \redirect()->route('user.page.login')->with('message','Your email has been verified.');
+            }
+            else{
+                return \redirect()->back()->with('message','your email has already been verified.');
+            }
+        }
+        else{
+            return \redirect()->route('user.page.login')->with('error','Something went wrong!!');
+        }
     }
 
 
@@ -39,12 +69,16 @@ class UserController extends Controller
 
 
         if(Auth::attempt($userInfo)){
+            if(Auth::user()->email_verified_at == null){
+                Auth::logout();
+                return redirect()->route('user.page.login')->with('error','please verify your email to continue!');
+            }
             return redirect()->route('website')->with('message','Login successful.');
         }
         return redirect()->back()->with('error','Invalid user credentials');
 
     }
-
+//view profile
     public function profile($user_id)
     {
         $user=User::find($user_id);
@@ -57,7 +91,7 @@ class UserController extends Controller
      return redirect()->route('website')->with('message','Logging out.');
     }
 
-
+//reset password
     public function showForgotForm(){
         return view('website.reset.forgot');
     }
@@ -108,4 +142,6 @@ class UserController extends Controller
         }
     
     }
+
+    
 }

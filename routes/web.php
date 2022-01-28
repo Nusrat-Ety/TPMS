@@ -96,7 +96,8 @@ Route::post('/search',[SearchController::class,'search'])->name('search.plan');
 
 });
 
-
+//email verification
+Route::get('/user/verify/{token}',[UserController::class,'verifyEmail'])->name('user.verify');
 
 //forgot password
 

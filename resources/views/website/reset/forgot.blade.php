@@ -10,7 +10,7 @@
     <head>
 	<title>forgot password </title>
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-</head>
+</head> 
  <body class="img js-fullheight" style="filter: drop-shadow(2px 4px 6px black);background-image: url('{{url('/image/forgot-password.jpg')}}');">
  <div class="form-gap"></div>
 <div class="container">
