@@ -83,7 +83,7 @@
   aria-hidden="true">
   <div class="modal-dialog form-dark" role="document">
     <!--Content-->
-    <div class="modal-content card card-image" style="background-image: url('{{url('/frontend/log in/image/regi-banner.jpg')}}');height:700px;width:600px">
+    <div class="modal-content card card-image" style="background-image: url('{{url('/frontend/log in/image/regi-banner.jpg')}}');height:900px;width:600px">
       <div class="text-white rgba-stylish-strong py-5 px-5 z-depth-4">
         <!--Header-->
         <div class="modal-header text-center pb-4">
@@ -95,7 +95,7 @@
         </div>
         <!--Body-->
         <div class="modal-body">
-        <form action="{{route('user.registration')}}" method="post">
+        <form action="{{route('user.registration')}}" method="post" enctype="multipart/form-data">
             @csrf
           <!--Body-->
           <!-- <div class="md-form mb-5">
@@ -171,6 +171,19 @@
                       <label class="form-label" for="form3Example1n">NID/Birth cirtificate</label>
                     </div>
                   </div>
+                  <div class="row">
+                  <div class="col-md-12 mb-4">
+               
+               <input type="file" name="image" id="form3Example1n" class="form-control form-control-lg" />
+               <label class="form-label" for="form3Example1n">image</label>
+             </div>
+                <div class="col-12">
+                  <textarea name="bio" type="text" id="form3Example1m" class="form-control form-control-lg"></textarea>
+                  <label class="form-label" for="form3Example1m">Bio</label>
+                </div>
+              
+             
+              </div>
                
                             
 

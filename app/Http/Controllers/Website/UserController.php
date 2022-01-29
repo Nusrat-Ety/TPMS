@@ -19,7 +19,19 @@ class UserController extends Controller
     }
     public function registration(Request $request)
     {
-//        dd($request->all());
+        $user_image=null;
+
+if($request->hasFile('image'))
+{
+    
+    // step 2: generate file name
+    $user_image=date('Ymdhms') .'.'. $request->file('image')->getClientOriginalExtension();
+
+    //step 3 : store into project directory
+
+    $request->file('image')->storeAs('/uploads/users/',$user_image);
+
+}  
         $user = User::create([
            'name'=>$request->user_name,
            'email'=>$request->user_email,
@@ -28,6 +40,8 @@ class UserController extends Controller
            'Address'=>$request->Address,
            'Gender'=>$request->gender,
            'DOB'=>$request->DOB,
+           'image'=>$user_image,
+           'bio'=>$request->bio,
            'mobile'=>$request->user_mobile
         ]);
       //for email verification 
@@ -141,6 +155,41 @@ class UserController extends Controller
             return redirect()->route('user.page.login')->with('message','Your password has been changed! You can login with new password.');
         }
     
+    }
+
+
+
+    //user profile edit
+    public function profileEdit($user_id){
+        $user= User::find($user_id);
+        return view('website.pages.profile-edit',compact('user'));
+    }
+    public function profileUpdate(Request $request,$user_id){
+        $user= User::find($user_id);
+        $profile_image=$user->image;
+        if($request->hasFile('image'))
+        {
+$profile_image=date('Ymdhms').'.'.$request->file('image')->getClientOriginalExtension();
+$request->file('image')->storeAs('/uploads/users/',$profile_image);
+        }
+$user->update([
+    // field name from db || field name from form
+    'name'=>$request->user_name,
+    'email'=>$request->user_email,
+    'password'=>bcrypt($request->user_password),
+    'NID'=>$request->nid,
+    'Address'=>$request->Address,
+    'Gender'=>$request->gender,
+    'DOB'=>$request->DOB,
+    'image'=>$profile_image,
+    'bio'=>$request->bio,
+    'mobile'=>$request->user_mobile
+
+]);
+return redirect()->route('profile',$user->id)->with('message','Your Profile Updated Successfully.');
+
+
+        
     }
 
     

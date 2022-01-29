@@ -20,12 +20,14 @@ class UserTableSeeder extends Seeder
                 'name'=>'ety',
                 'email'=>'ety@gmail.com',
                 'password'=>bcrypt('331999'),
-                'NID'=>'2345678',
+                'NID'=>'2345678213456',
                 'Address'=>'Dhaka',
                 'Gender'=>'Female',
                 'DOB'=>'03-03-1999',
                 'mobile'=>'01730972988',
-                'role'=>'admin'
+                'role'=>'admin',
+                'bio' => 'Admin of Tour planning management system.',
+                'image'=>'admin.jpg'
                 
             
             ]

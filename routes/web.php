@@ -87,8 +87,7 @@ Route::get('/join/request/approved/{join_request_id}',[JoinController::class,'jo
 Route::get('/join/request/decline/{join_request_id}',[JoinController::class,'joinDecline'])->name('request.join.decline');
 
 
-//profile
-Route::get('/profile/{user_id}',[UserController::class,'profile'])->name('profile');
+
 
 //search
 Route::post('/search',[SearchController::class,'search'])->name('search.plan');
@@ -96,6 +95,14 @@ Route::post('/search',[SearchController::class,'search'])->name('search.plan');
 
 
 });
+
+// -----without any middleware----------//
+
+
+//profile
+Route::get('/profile/{user_id}',[UserController::class,'profile'])->name('profile');
+Route::get('/profile/edit/{user_id}',[UserController::class,'profileEdit'])->name('profile.edit');
+Route::PUT('/profile/update/{user_id}',[UserController::class,'profileUpdate'])->name('profile.update');
 
 //email verification
 Route::get('/user/verify/{token}',[UserController::class,'verifyEmail'])->name('user.verify');
@@ -108,7 +115,7 @@ Route::get('/password/reset/{token}',[UserController::class,'showResetForm'])->n
 Route::post('/password/user/reset',[UserController::class,'resetPassword'])->name('reset.password');
 
 
-//comment
+//comment-reply (blog part)
 
 Route::post('{post}/comment/store',[CommentController::class,'store'])->name('comment.store');
 Route::get('comment/delete/{comment_id}',[CommentController::class,'comment_delete'])->name('comment.delete');
@@ -129,6 +136,7 @@ Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
 Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 //SSLCOMMERZ END
 
+// -----without any middleware----------//
 
 
 //-------Admin------//
