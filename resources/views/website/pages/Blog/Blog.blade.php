@@ -52,10 +52,128 @@
                         
                     </div--> <!-- end of text-container -->
                     </div>
-                    <a style="text-align:right; text-align:right;" class="btn-outline-reg" href="{{url('/')}}">BACK</a>
+                  
 
                 </div>
+                
             </div> <!-- end of row -->
+            
+
+
+            <!-- comment part -->
+
+           
+
         </div>
 <!-- <h1>hello</h1> -->
+<div class="clearfix"></div>
+
+                <br/>
+                <br/>
+                <h4 class=" dosis uppercase"style="border: outset;border-width: 3px;text-align:center; margin-bottom: 1rem;">Comment Section</h4>
+
+                <h4 class="dosis uppercase less-mar3"style="margin-left: 5rem;"><a href="#">{{$blogs->comments->count()}}Comments</a></h4>
+                <br/>
+
+                @forelse($blogs->comments as $comment)
+                    <div class="blog1-post-info-box">
+                        <div class="text-box border padding-3">
+                            <div class="text-box-right more-padding-2"style="margin-left: 5rem;background-color: aliceblue;">
+                                <h5 class="uppercase dosis less-mar2">{{$comment->name}}</h5>
+                                <div class="blog1-post-info">
+                                    <span>
+                                        {{$comment->created_at->diffForHumans()}}
+                                    </span>
+                                </div>
+                                <p class="paddtop1">{{$comment->comment}}</p>
+                                <br/>
+                                @if(auth()->user()->email != $comment->email )
+                                <a
+                                    class="btn btn-border yellow-green btn-small-2 "
+                                    href="#comment-form"
+                                    onclick="document.getElementById('comment_id').value = {{$comment->id}}">
+                                    Reply
+                                </a>
+                                @endif
+                                <a href="{{route('comment.delete',$comment->id)}}"><i class="glyphicon glyphicon-trash"></i> </a>
+                            </div>
+                            @forelse($comment->replies as $reply)
+                                @include('website.pages.Blog.reply._replies', ['reply'=> $reply])
+                            @empty
+                            @endforelse
+                        </div>
+                    </div>
+                    <!--end item-->
+
+                    <div class="clearfix"></div>
+                    <br/>
+                @empty
+                @endforelse
+                <a class="loadmore-but" href="" style="margin-bottom: 1rem;margin-left: 4rem;">Load more Comments</a>
+            <!-- post form -->
+                <div class="smart-forms bmargin" id="comment-form" style="margin-left: 4rem;">
+                    <h4 class=" dosis uppercase"style="    margin-bottom: 1rem;">Post a Comment</h4>
+
+                    <form
+                        method="post"
+                        action="{{route('comment.store',[$blogs->id])}}"
+                        id="smart-form">
+                        @csrf
+                        <input type="hidden" name="comment_id" id="comment_id">
+                        <div>
+                            <div class="section form-group">
+                                <label class="field prepend-icon">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        value="{{auth()->user()?auth()->user()->name:old('name')}}"
+                                        id="sendername"
+                                        class="gui-input form-control"
+                                        placeholder="Enter name">
+                                </label>
+                            </div>
+                            <!-- end section -->
+
+                            <div class="section form-group">
+                                <label class="field prepend-icon">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value="{{auth()->user()?auth()->user()->email:old('email')}}"
+                                        id="emailaddress"
+                                        class="gui-input form-control"
+                                        placeholder="Email address">
+                                </label>
+                            </div>
+                            <!-- end section -->
+
+                            <div class="section form-group">
+                                <label class="field prepend-icon">
+                                    <textarea
+                                        class="gui-textarea form-control"
+                                        id="sendermessage"
+                                        name="comment"
+                                        placeholder="Enter message"></textarea>
+                                    <span
+                                        class="input-hint"style="font-size:10px;">
+                                        <strong >Hint:</strong>
+                                        Please enter between 80 - 300 characters.
+                                    </span>
+                                </label>
+                            </div>
+                            <!-- end section -->
+
+                            <div class="result"></div>
+                            <!-- end .result  section -->
+
+                        </div>
+                        <!-- end .form-body section -->
+                        <div class="form-footer">
+                            <button type="submit" data-btntext-sending="Sending..."
+                                    class="button btn-primary yellow-green">Submit
+                            </button>
+                            <button type="reset" class="button"> Cancel</button>
+                        </div>
+</div>
+<a style="text-align:right; text-align:right;margin-left:4rem;margin-top:2rem;" class="btn-outline-reg" href="{{url('/')}}">BACK</a>
 @endsection

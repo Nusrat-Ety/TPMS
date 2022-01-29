@@ -815,10 +815,7 @@
                                     join
                                 </a>
                             @endif
-                            <a href="" class="about-view packages-btn"
-                                    style="float: right;margin-right:1rem;">
-                                    Pre-Payment
-                                </a>
+                          
                             </div>
                             <!--/.about-btn-->
                         </div>

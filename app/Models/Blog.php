@@ -2,10 +2,11 @@
 
 namespace App\Models;
 use App\Models\User;
-use App\Models\Location;
+use App\Models\Comment;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Location;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Blog extends Model
 {
@@ -18,6 +19,13 @@ class Blog extends Model
     }
     public function location(){
         return $this->belongsTo(Location::class);
+    }
+
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')
+            ->latest()
+            ->whereNull('parent_id');
     }
     
 }

@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\SpotController;
 use App\Http\Controllers\Admin\TourController;
@@ -9,18 +10,18 @@ use App\Http\Controllers\Website\HomeController;
 use App\Http\Controllers\Website\JoinController;
 use App\Http\Controllers\Website\UserController;
 use App\Http\Controllers\Admin\LocationController;
-use App\Http\Controllers\Admin\TravelerController;
 //---website---//
+use App\Http\Controllers\Admin\TravelerController;
 use App\Http\Controllers\Website\ReviewController;
 use App\Http\Controllers\Website\SearchController;
 use App\Http\Controllers\Admin\TransportController;
 use App\Http\Controllers\Website\ContactController;
 use App\Http\Controllers\Admin\AdminReviewController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\Website\WebsiteBlogController;
+
 use App\Http\Controllers\Website\WebsiteLocationController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
-
-use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\Website\TourController as WebsiteTourController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
@@ -106,6 +107,11 @@ Route::post('/password/forgot/link',[UserController::class,'sendResetLink'])->na
 Route::get('/password/reset/{token}',[UserController::class,'showResetForm'])->name('reset.password.form');
 Route::post('/password/user/reset',[UserController::class,'resetPassword'])->name('reset.password');
 
+
+//comment
+
+Route::post('{post}/comment/store',[CommentController::class,'store'])->name('comment.store');
+Route::get('comment/delete/{comment_id}',[CommentController::class,'comment_delete'])->name('comment.delete');
 
 //-----payment-------//
 

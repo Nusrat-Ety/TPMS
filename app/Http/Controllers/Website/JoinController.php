@@ -6,6 +6,7 @@ use App\Models\AddTourPlan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+
 class JoinController extends Controller
 {
     public function JoinRequest($plan_id){
@@ -36,7 +37,9 @@ class JoinController extends Controller
                     'status'=>'approved'
                 ]);
             }
+           
         }
+    
         return redirect()->back();
 
         
