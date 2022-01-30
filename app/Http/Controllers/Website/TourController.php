@@ -101,7 +101,7 @@ class TourController extends Controller
 
     //the plans i joined
     public function MyJoinedPlanList(){
-        $joinedplan=Join::with('tourplan','user')->where('user_id',auth()->user()->id)->get();
+        $joinedplan=Join::with('tourplan','user','order')->where('user_id',auth()->user()->id)->get();
         // dd($joinedplan);
         return view('website.pages.Tourplan.My-Plan.MyJoined-PlanList',compact('joinedplan'));
     }

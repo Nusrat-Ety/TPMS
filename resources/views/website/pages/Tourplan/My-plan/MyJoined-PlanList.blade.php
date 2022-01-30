@@ -25,16 +25,17 @@
                                                     <th style=" text-align: center;"scope="col">Your budget amount</th>
                                                     <th style=" text-align: center;"scope="col">Status</th>
                                                     <th style=" text-align: center;"scope="col">Advance pay</th>
+                                                    <th style=" text-align: center;"scope="col">payment status</th>
                                                   
                                                 </tr>
                                             </thead>
                                          
                                             <tbody>
                                              
-                                         
                                               @foreach($joinedplan as $key=>$joinedplan)
+                                             
                                               <tr >
-                              
+                                            
                                                 <th style=" text-align: center;">{{$key+1}}</th>
                                                 <td style=" text-align: center;">{{$joinedplan->user->name }}</td>
                                                 <td style=" text-align: center;">{{$joinedplan->tourplan->Tourname}}</td>
@@ -49,9 +50,14 @@
                                                 <td style=" text-align: center;">{{round($joinedplan->tourplan->TourBudget/$joinedplan->tourplan->members)}}</td>
                                                 <td style=" text-align: center;">{{$joinedplan->status}}</td>
                                                 <td>
+                                               
+                                                
                                                  <a class="btn btn-primary"style=" text-align: center;" href="{{route('advance.pay',$joinedplan->id)}}">click here</a>
-                                              </td>
-                                                <td style=" text-align: center;">
+                                         
+                                                </td>
+                                               
+                                                <td style=" text-align: center;"></td>
+
                                              
                                               @endforeach
                                               

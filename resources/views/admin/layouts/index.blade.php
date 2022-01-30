@@ -12,15 +12,7 @@
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
                   <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                    <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                     <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
-                      <a class="dropdown-item" href="#">January - March</a>
-                      <a class="dropdown-item" href="#">March - June</a>
-                      <a class="dropdown-item" href="#">June - August</a>
-                      <a class="dropdown-item" href="#">August - November</a>
-                    </div>
+                  
                   </div>
                  </div>
                 </div>
@@ -50,7 +42,7 @@
                   <div class="card card-tale">
                     <div class="card-body">
                       <p class="mb-4">Number of traveler</p>
-                      <p class="fs-30 mb-2">0</p>
+                      <p class="fs-30 mb-2"> {{$count['travelers']}}</p>
                       <p>0</p>
                     </div>
                   </div>
@@ -59,8 +51,10 @@
                   <div class="card card-dark-blue">
                     <div class="card-body">
                       <p class="mb-4">Total thrown plan</p>
-                      <p class="fs-30 mb-2">0</p>
-                      <p>0</p>
+                      <p class="fs-30 mb-2">{{$count['tourplans']}}</p>
+                      <p> {{ $count['pending_tourplans']}} Pending</p>
+                      <p>{{ $count['Approved_tourplans']}} Approved</p>
+                      <p>{{$count['Declined_tourplans']}} Declined</p>
                     </div>
                   </div>
                 </div>
@@ -69,18 +63,20 @@
                 <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
                   <div class="card card-light-blue">
                     <div class="card-body">
-                      <p class="mb-4">Accepted Requests</p>
-                      <p class="fs-30 mb-2">0</p>
-                      <p>0</p>
+                      <p class="mb-4">Locations</p>
+                      <p class="fs-30 mb-2">{{$count['location']}}</p>
+                      <p>{{$count['spot']}} Spots</p>
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6 stretch-card transparent">
                   <div class="card card-light-danger">
                     <div class="card-body">
-                      <p class="mb-4">Number of Events</p>
-                      <p class="fs-30 mb-2">0</p>
-                      <p>0</p>
+                      <p class="mb-4">Number of Blogs</p>
+                      <p class="fs-30 mb-2">{{$count['blogs']}}</p>
+                      <p>{{$count['pending_blogs']}} Pending blogs</p>
+                      <p>{{$count['Approved_blogs']}} Approved blogs</p>
+                      <p>{{ $count['Declined_blogs']}} Declined blogs</p>
                     </div>
                   </div>
                 </div>

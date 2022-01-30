@@ -123,9 +123,13 @@
                     </div>
                 </div>
                 <div class="mb-3">
+                    @php
+                    $your_budget=$join->tourplan->TourBudget/$join->tourplan->members;
+                    $amount=( $your_budget/100)*10;
+                    @endphp
                     <label for="address">Amount to pay</label>
                     <input type="text" class="form-control" id="address" placeholder="amount to pay for advance"
-                           name="amount" required>
+                         value="{{$amount}}"  name="amount" required>
                     <div class="invalid-feedback">
                         Please enter your shipping address.
                     </div>

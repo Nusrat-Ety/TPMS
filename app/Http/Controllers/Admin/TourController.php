@@ -77,5 +77,22 @@ class TourController extends Controller
     
     }
     
-    
+    //report of tourplan list
+
+    public function TourplanReport(){
+        $Tourplans=AddTourPlan::where('status','approved')
+                                ->orwhere('status','declined')
+                                ->get();
+        return view('admin.layouts.Tourplan.Report.TourPlanReport',compact('Tourplans'));
+    }
+
+    public function TourPlanReport_Search(Request $request)
+    {
+
+        $Tourplans=AddTourPlan::whereBetween('created_at',[$request->from,$request->to])->get();
+
+
+        return view('admin.layouts.Tourplan.Report.TourPlanReport',compact('Tourplans'));
+
+    }
 }

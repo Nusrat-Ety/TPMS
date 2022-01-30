@@ -149,9 +149,7 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('admin.doLogin');
 
     Route::group(['prefix'=>'admin','middleware'=>['auth','Admin']],function (){
-        Route::get('/', function () {
-            return view('admin.layouts.index');
-        })->name('admin');
+        Route::get('/',[IndexController::class,'index'])->name('admin');
         //admin logout
         Route::get('/logout',[AdminUserController::class,'logout'])->name('admin.logout');
 //tour controller
@@ -162,6 +160,9 @@ Route::get('/tourplan/delete/{tourplan_id}',[TourController::class,'DeleteTourPl
 Route::get('/ManageTourplan/AdminAddedTourlist',[TourController::class,'ViewAdminTourList'])->name('admin.added.TourList');
 Route::get('/tourplan/Approve/{tourplan_id}',[TourController::class,'approveTour'])->name('admin.approve.Tour');
 Route::get('/tourplan/Decline/{tourplan_id}',[TourController::class,'declineTour'])->name('admin.decline.Tour');
+//--report--//
+Route::get('/tourplan/report',[TourController::class,'TourplanReport'])->name('Tourplan.Report');
+Route::post('/tourplan/report/show',[TourController::class,'TourPlanReport_Search'])->name('Tourplan.Report.show');
 
 //traveller controller
 Route::get('/Managetraveler',[TravelerController::class,'ManageTraveler'])->name('manage.traveler');
@@ -173,6 +174,9 @@ Route::post('/admin/add/travelers',[TravelerController::class,'posttraveler'])->
 Route::get('/admin/Transport/Addtransport',[TransportController::class,'addransport'])->name('admin.addtransportform');
 Route::post('/admin/Transport/Storetransport',[TransportController::class,'Storetransport'])->name('Admin.Transport.Store');
 Route::get('/admin/Transport/transportList',[TransportController::class,'TransportList'])->name('admin.addtransportList');
+//--report--//
+Route::get('/transport/report',[TransportController::class,'TransportReportshow'])->name('transport.Report');
+Route::post('/transport/report/show',[TransportController::class,'TransportReport'])->name('transport.Report.show');
 
 //Spot
 Route::get('/Spot/Addspot',[SpotController::class,'Addspot'])->name('admin.Addspot');
@@ -207,5 +211,8 @@ Route::PUT('/location/update/{location_id}',[LocationController::class,'UpdateLo
 Route::get('/user-review',[AdminReviewController::class,'reviewlist'])->name('admin.review.list');
 Route::get('/user-review/approve/{review_id}',[AdminReviewController::class,'ApproveReview'])->name('admin.review.approve');
 Route::get('/user-review/decline/{review_id}',[AdminReviewController::class,'DeclineReview'])->name('admin.review.decline');
+
+
+
 
 });

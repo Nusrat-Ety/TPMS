@@ -33,7 +33,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="{{route('admin.added.TourList')}}">view Tour plan</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('admin.manage.TourplanReq')}}">Joined Tour Plan List</a></li>
-                <li class="nav-item"><a class="nav-link" href="">Tour Plan Report</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('Tourplan.Report')}}">Tour Plan Report</a></li>
               </ul>
             </div>
           </li>
@@ -50,7 +50,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.addtransportform')}}">Add Transport</a></li>
 
                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.addtransportList')}}">Transport List </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Transport Report</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('transport.Report')}}">Transport Report</a></li>
               </ul>
             </div>
           </li>

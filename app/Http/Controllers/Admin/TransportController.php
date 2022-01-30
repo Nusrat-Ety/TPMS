@@ -33,4 +33,19 @@ class TransportController extends Controller
         $Transports=Transport::all();
         return view('admin.layouts.transport.TransportList',compact('Transports','key'));
     }
+
+    //report transport
+    public function TransportReportshow(){
+        $Transports=Transport::all();
+        return view('admin.layouts.transport.Report.transport_report',compact('Transports'));
+    }
+    public function TransportReport(Request $request)
+    {
+
+        $Transports=Transport::whereBetween('created_at',[$request->from,$request->to])->get();
+
+
+        return view('admin.layouts.transport.Report.transport_report',compact('Transports'));
+
+    }
 }
