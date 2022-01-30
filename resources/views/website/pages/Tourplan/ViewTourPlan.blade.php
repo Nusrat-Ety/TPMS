@@ -118,7 +118,7 @@
     <p class="card-text">
       Please pay advance 10% amount of your budget for your join confirmation.
     </p>
-    <a class="btn btn-default" href="{{route('advance.pay')}}"style="margin-bottom: 2rem;width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">Advance payment</a>
+    <a class="btn btn-default" href="{{route('advance.pay',$tourplan->id)}}"style="margin-bottom: 2rem;width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">Advance payment</a>
 
   </ul>
   </ul>

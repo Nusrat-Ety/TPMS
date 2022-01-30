@@ -98,6 +98,10 @@ Route::post('/search',[SearchController::class,'search'])->name('search.plan');
 
 // -----without any middleware----------//
 
+//change password
+// Route::get('/changepassword/{user_id}',[UserController::class,'changePasswordForm'])->name('changepassword');
+// Route::post('/changepassword/update/{user_id}', [UserController::class,'changePassword'])->name('changepassword.update');
+
 
 //profile
 Route::get('/profile/{user_id}',[UserController::class,'profile'])->name('profile');
@@ -123,8 +127,8 @@ Route::get('comment/delete/{comment_id}',[CommentController::class,'comment_dele
 //-----payment-------//
 
 // SSLCOMMERZ Start
-Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
-Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout'])->name('advance.pay');
+Route::get('/example1/{join_id}', [SslCommerzPaymentController::class, 'exampleEasyCheckout'])->name('advance.pay');;
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
 
 Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
 Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);

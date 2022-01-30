@@ -34,7 +34,7 @@
         <h2>Hosted Payment - SSLCommerz</h2>
         <p class="lead">Below is an example form built entirely with Bootstrap’s form controls. We have provided this sample form for understanding Hosted Checkout Payment with SSLCommerz.</p>
     </div>
-
+<!-- 
     <div class="row">
         <div class="col-md-4 order-md-2 mb-4">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -63,17 +63,21 @@
                     </div>
                     <span class="text-muted">150</span>
                 </li> -->
-                <li class="list-group-item d-flex justify-content-between">
+                <!-- <li class="list-group-item d-flex justify-content-between">
                     <span>Total (BDT)</span>
                     <strong>1200 TK</strong>
                 </li>
             </ul>
-        </div>
+        </div>  -->
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Billing address</h4>
             <form action="{{ url('/pay') }}" method="POST" class="needs-validation">
                 <input type="hidden" value="{{ csrf_token() }}" name="_token" />
                 <div class="row">
+                <input type="hidden" value="{{$join->id}}" name="join_id">
+                    @if(auth()->user())
+                    <input type="hidden" value="{{$join->tourplan->id}}" name="plan_id">
+                    @endif
                     <div class="col-md-12 mb-3">
                         <label for="firstName">Full name</label>
                         <input type="text" name="name" class="form-control" id="customer_name" placeholder=""
@@ -109,7 +113,7 @@
 
                 <div class="mb-3">
                     <label for="address">Address</label>
-                    <input type="text" class="form-control" id="address" placeholder="1234 Main St"
+                    <input type="text" name="address" class="form-control" id="address" placeholder="1234 Main St"
                            required>
                     <div class="invalid-feedback">
                         Please enter your shipping address.

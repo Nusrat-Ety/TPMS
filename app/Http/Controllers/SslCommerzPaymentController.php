@@ -3,24 +3,33 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\Models\Join;
 use Illuminate\Http\Request;
 use App\Library\SslCommerz\SslCommerzNotification;
 
 class SslCommerzPaymentController extends Controller
 {
 
-    public function exampleEasyCheckout()
+    public function exampleEasyCheckout($join_id)
     {
-        return view('exampleEasycheckout');
+        $join = Join::with('tourplan','user')->find($join_id);
+        
+        
+        return view('exampleEasycheckout',compact('join'));
     }
 
     public function exampleHostedCheckout()
     {
+       
+        
         return view('exampleHosted');
     }
 
     public function index(Request $request)
     {
+
+        // dd($request->all());
+        // dd(auth()->user());
         # Here you have to receive all the order data to initate the payment.
         # Let's say, your oder transaction informations are saving in a table called "orders"
         # In "orders" table, order unique identity is "transaction_id". "status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
@@ -29,17 +38,20 @@ class SslCommerzPaymentController extends Controller
         $post_data['total_amount'] = $request->amount; # You cant not pay less than 10
         $post_data['currency'] = "BDT";
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
+        $post_data['plan_id'] = $request->plan_id;
+        $post_data['join_id'] = $request->join_id;
+        $post_data['user_id'] = $request->user_id;
 
         # CUSTOMER INFORMATION
-        $post_data['cus_name'] = auth()->user()->name;
-        $post_data['cus_email'] = auth()->user()->email;
-        $post_data['cus_add1'] = auth()->user()->Address;
+        $post_data['cus_name'] = $request->name;
+        $post_data['cus_email'] = $request->email;
+        $post_data['cus_add1'] = $request->address;
         $post_data['cus_add2'] = "";
         $post_data['cus_city'] = "";
         $post_data['cus_state'] = "";
         $post_data['cus_postcode'] = "";
         $post_data['cus_country'] = "Bangladesh";
-        $post_data['cus_phone'] = auth()->user()->mobile;
+        $post_data['cus_phone'] = $request->phone;
         $post_data['cus_fax'] = "";
 
         # SHIPMENT INFORMATION
@@ -64,12 +76,16 @@ class SslCommerzPaymentController extends Controller
         $post_data['value_d'] = "ref004";
 
         #Before  going to initiate the payment order status need to insert or update as Pending.
+        // dd($post_data['tran_id']);
         $update_product = DB::table('orders')
             ->where('transaction_id', $post_data['tran_id'])
             ->updateOrInsert([
                 'name' => $post_data['cus_name'],
                 'email' => $post_data['cus_email'],
                 'phone' => $post_data['cus_phone'],
+                'join_id' => $post_data['join_id'],
+                'user_id' => $post_data['user_id'],
+                'plan_id' => $post_data['plan_id'],
                 'amount' => $post_data['total_amount'],
                 'status' => 'Pending',
                 'address' => $post_data['cus_add1'],
@@ -78,9 +94,11 @@ class SslCommerzPaymentController extends Controller
             ]);
 
         $sslc = new SslCommerzNotification();
+
+        // dd($sslc);
         # initiate(Transaction Data , false: Redirect to SSLCOMMERZ gateway/ true: Show all the Payement gateway here )
         $payment_options = $sslc->makePayment($post_data, 'hosted');
-
+// dd($payment_options);
         if (!is_array($payment_options)) {
             print_r($payment_options);
             $payment_options = array();
@@ -185,7 +203,9 @@ class SslCommerzPaymentController extends Controller
                 */
                 $update_product = DB::table('orders')
                     ->where('transaction_id', $tran_id)
-                    ->update(['status' => 'Processing']);
+                  
+                    ->update(['status' => 'success']);
+                    
 
                 echo "<br >Transaction is successfully Completed";
             } else {

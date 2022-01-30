@@ -8,7 +8,7 @@
 		<div class="col-md-3 ">
 		     <div class="list-group ">
               <a href="#" class="list-group-item list-group-item-action active">Additional</a>
-              <a href="#" class="list-group-item list-group-item-action">Password change</a>
+              <a href="" class="list-group-item list-group-item-action">Password change</a>
               
      
               

@@ -24,6 +24,7 @@
                                                     <th style=" text-align: center;"scope="col">Budget</th>
                                                     <th style=" text-align: center;"scope="col">Your budget amount</th>
                                                     <th style=" text-align: center;"scope="col">Status</th>
+                                                    <th style=" text-align: center;"scope="col">Advance pay</th>
                                                   
                                                 </tr>
                                             </thead>
@@ -47,6 +48,9 @@
                                                 <td style=" text-align: center;">{{$joinedplan->tourplan->TourBudget}}</td>
                                                 <td style=" text-align: center;">{{round($joinedplan->tourplan->TourBudget/$joinedplan->tourplan->members)}}</td>
                                                 <td style=" text-align: center;">{{$joinedplan->status}}</td>
+                                                <td>
+                                                 <a class="btn btn-primary"style=" text-align: center;" href="{{route('advance.pay',$joinedplan->id)}}">click here</a>
+                                              </td>
                                                 <td style=" text-align: center;">
                                              
                                               @endforeach
