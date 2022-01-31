@@ -16,21 +16,18 @@ class TravelerController extends Controller
         return view('admin.layouts.Traveler.TravelerList',compact('travelers'));
     }
 
-    public function posttraveler(Request $request){
-        // dd($request->all());
+    public function TravelerReportshow(){
+        $Traveler=User::all();
+        return view('admin.layouts.Traveler.Traveler-report',compact('Traveler'));
+    }
+    public function TravelerReport(Request $request)
+    {
 
-        Travelar::create([
-            'first_name'=>$request->Fname,
-            'last_name'=>$request->Lname,
-            'email'=>$request->email,
-            'city'=>$request->City,
-            'contact_number'=>$request->Contactnumber,
-            'natinality'=>$request->Nationality,
-            'NID'=>$request->NID,
-            'Emergency_contact'=>$request->Econtact
+        $Traveler=User::whereBetween('created_at',[$request->from,$request->to])->get();
 
-        ]);
-        return redirect()->back()->with('msg','Traveler created successfully.');
+
+        return view('admin.layouts.Traveler.Traveler-report',compact('Traveler'));
+
     }
 
     

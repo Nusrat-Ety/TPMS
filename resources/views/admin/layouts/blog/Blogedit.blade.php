@@ -64,9 +64,31 @@
     </div>
     <div class="form-row">
   <div class="col-md-8 mb-3">
-      <label for="validationCustomUsername">Description</label>
+      <label for="validationCustomUsername">About</label>
     
         <input name="Description" value="{{$blog->Description}}" class="form-control" id="validationCustomUsername" placeholder="detail" aria-describedby="inputGroupPrepend" required>
+        <div class="valid-feedback">
+          Please choose a username.
+        
+      </div>
+    </div>
+    </div>
+    <div class="form-row">
+  <div class="col-md-8 mb-3">
+      <label for="validationCustomUsername">Description</label>
+    
+        <input name="Description2" value="{{$blog->Description2}}" class="form-control" id="validationCustomUsername" placeholder="detail" aria-describedby="inputGroupPrepend" required>
+        <div class="valid-feedback">
+          Please choose a username.
+        
+      </div>
+    </div>
+    </div>
+    <div class="form-row">
+  <div class="col-md-8 mb-3">
+      <label for="validationCustomUsername">Other details</label>
+    
+        <input name="Description3" value="{{$blog->Description3}}" class="form-control" id="validationCustomUsername" placeholder="detail" aria-describedby="inputGroupPrepend" required>
         <div class="valid-feedback">
           Please choose a username.
         

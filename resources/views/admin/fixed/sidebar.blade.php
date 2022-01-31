@@ -16,8 +16,8 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="">Traveler List</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{route('traveler.List')}}">Traveler Report</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('traveler.List')}}">Traveler List</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route(('traveler.report.show'))}}">Traveler Report</a></li>
               </ul>
             </div>
           </li>
@@ -67,6 +67,7 @@
               <li class="nav-item"> <a class="nav-link" href="{{route('admin.create.location')}}">Add Location </a></li>
               
                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.location.list')}}">Location List</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route ('location.Report')}}">Location Report</a></li>
               </ul>
             </div>
           </li>
@@ -82,7 +83,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.Addspot')}}">Add Spot </a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.Spotlist')}}">Spot List </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html">Manage Spot Info </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('spot.Report')}}">Spot Report </a></li>
 
               </ul>
             </div>
@@ -101,6 +102,7 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.add.blog')}}">Add Blog</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{route('admin.blog.blogList')}}">Blog List</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route('blog.Report')}}">Blog Report</a></li>
               </ul>
             </div>
           </li>
@@ -128,7 +130,7 @@
               <ul class="nav flex-column sub-menu">
      
               <li class="nav-item"> <a class="nav-link" href="{{route('admin.review.list')}}">View Feedback</a></li>
-              <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">Feedback report</a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{route('review.Report')}}">Feedback report</a></li>
               </ul>
             </div>
           </li>

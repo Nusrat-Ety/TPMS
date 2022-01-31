@@ -24,8 +24,8 @@ class IndexController extends Controller
         $count['spot']=Spot::all()->count();
         $count['blogs']=Blog::all()->count();
         $count['Approved_blogs']=Blog::where('status','approved')->get()->count();
-        $count['pending_blogs']=Blog::where('status','declined')->get()->count();
-        $count['Declined_blogs']=Blog::where('status','pending')->get()->count();
+        $count['pending_blogs']=Blog::where('status','pending')->get()->count();
+        $count['Declined_blogs']=Blog::where('status','declined')->get()->count();
         $count['location']=Location::all()->count();
         return view('admin.layouts.index',compact('count'));
         

@@ -67,4 +67,19 @@ class LocationController extends Controller
         ]);
         return redirect()->route('admin.location.list')->with('success','Location Updated successfully.');
     }
+
+    //report location
+    public function locationReportshow(){
+        $locations=Location::all();
+        return view('admin.layouts.location.Report.location_report',compact('locations'));
+    }
+    public function locationReport(Request $request)
+    {
+
+        $locations=Location::whereBetween('created_at',[$request->from,$request->to])->get();
+
+
+        return view('admin.layouts.location.Report.location_report',compact('locations'));
+
+    }
 }

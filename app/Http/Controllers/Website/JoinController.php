@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\website;
 use App\Models\Join;
 use App\Models\User;
+use App\Models\Orders;
 use App\Mail\ConfirmMail;
 use App\Models\AddTourPlan;
 use Illuminate\Http\Request;
@@ -89,6 +90,13 @@ class JoinController extends Controller
         return redirect()->back();
 
         
+    }
+
+    public function payment_info($join_id){
+        
+        $user_pay=Orders::with('join','tourplan','user')->find($join_id);
+        // dd($join_id);
+        return view('website.payment.payment-info',compact('user_pay'));
     }
     
 }

@@ -37,4 +37,7 @@ class AddTourPlan extends Model
         public function question(){
             return $this->hasMany(Query::class,'tourplan_id','id');
         }
+        public function order(){
+            return $this->hasMany(Orders::class,'tourplan_id','id');
+        }
 }

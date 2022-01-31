@@ -45,7 +45,10 @@
   <li><a style="color: deepskyblue;text-align: center;" href="{{route('tourplan.list')}}">tour plan</a></li>
   <li><a style="color: deepskyblue;text-align: center;" href="{{route('My.Joined.Plan.List')}}">I joined</a></li>
   <li><a style="color: deepskyblue;text-align: center;" href="{{route('Myplan.list')}}">My plan</a></li>
+  <li><a style="color: deepskyblue;text-align: center;" href="{{route('My.blog.List')}}">My Blogs</a></li>
 
+
+  
     <li><a style="color: deepskyblue;text-align: center;" href="{{route('user.logout')}}">Log Out</a></li>
   </ul>
 </div>

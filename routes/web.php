@@ -64,6 +64,7 @@ route::get('/view/My-Joined-Plan/list',[WebsiteTourController::class,'MyJoinedPl
 //Blog
 Route::get('/AddBlog',[WebsiteBlogController::class,'BlogAdd'])->name('Add.blog');
 Route::post('/storeBlog',[WebsiteBlogController::class,'Blogstore'])->name('store.blog');
+Route::get('/MyBlogs',[WebsiteBlogController::class,'MyBlogList'])->name('My.blog.List');
 
 
 //Query
@@ -86,7 +87,8 @@ Route::get('/join/view/{join_request_id}',[JoinController::class,'viewJoin'])->n
 Route::get('/join/request/approved/{join_request_id}',[JoinController::class,'joinApprove'])->name('request.join.approve');
 Route::get('/join/request/decline/{join_request_id}',[JoinController::class,'joinDecline'])->name('request.join.decline');
 
-
+//join-payment
+Route::get('/join/payment_info/{join_id}',[JoinController::class,'payment_info'])->name('join.payment.info');
 
 
 //search
@@ -169,6 +171,9 @@ Route::get('/Managetraveler',[TravelerController::class,'ManageTraveler'])->name
 Route::get('/TravelerList',[TravelerController::class,'TravelerList'])->name('traveler.List');
 Route::get('/admin/addtraveler',[TravelerController::class,'addtraveler'])->name('admin.traveler.addtraveler');
 Route::post('/admin/add/travelers',[TravelerController::class,'posttraveler'])->name('admin.traveler.post');
+//--report--//
+Route::get('/travelers/report',[TravelerController::class,'TravelerReportshow'])->name('traveler.report.show');
+Route::post('/travelers/report/search',[TravelerController::class,'TravelerReport'])->name('traveler.report');
 
 //Transport
 Route::get('/admin/Transport/Addtransport',[TransportController::class,'addransport'])->name('admin.addtransportform');
@@ -183,7 +188,9 @@ Route::get('/Spot/Addspot',[SpotController::class,'Addspot'])->name('admin.Addsp
 Route::post('/Spot/StoreSpot',[SpotController::class,'StoreSpot'])->name('admin.StoreSpot');
 Route::get('/Spot/SpotList',[SpotController::class,'SpotList'])->name('admin.Spotlist');
 Route::get('/view/{spot_id}',[SpotController::class,'SpotDetails'])->name('admin.spot.details');
-
+//--spot-report--//
+Route::get('/spot/report',[SpotController::class,'spotReportshow'])->name('spot.Report');
+Route::post('/spot/report/show',[SpotController::class,'spotReport'])->name('spot.Report.show');
 //blog
 Route::get('/admin/blog',[BlogController::class,'Addblog'])->name('admin.add.blog');
 Route::post('/admin/StoreBlog',[BlogController::class,'storeBlog'])->name('admin.Store.Blog');
@@ -194,6 +201,10 @@ Route::get('/blog/edit/{blog_id}',[BlogController::class,'BlogEdit'])->name('adm
 Route::put('/blog/update/{blog_id}',[BlogController::class,'BlogUpdate'])->name('admin.update.blog');
 Route::get('/blog/Approve/{blog_id}',[BlogController::class,'approveBlog'])->name('admin.approve.blog');
 Route::get('/blog/Decline/{blog_id}',[BlogController::class,'declineBlog'])->name('admin.decline.blog');
+//--blog-report--//
+Route::get('/blog/report',[BlogController::class,'blogReportshow'])->name('blog.Report');
+Route::post('/blog/report/show',[BlogController::class,'blogReport'])->name('blog.Report.show');
+
 //location
 Route::get('/create/location',[LocationController::class,'createLocation'])->name('admin.create.location');
 Route::post('/store/location',[LocationController::class,'storeLocation'])->name('admin.store.location');
@@ -202,6 +213,11 @@ Route::get('/location/delete/{location_id}',[LocationController::class,'deletelo
 Route::get('/location/details/{location_id}',[LocationController::class,'LocationDetails'])->name('admin.location.details');
 Route::get('/location/edit/{location_id}',[LocationController::class,'EditLocation'])->name('admin.location.edit');
 Route::PUT('/location/update/{location_id}',[LocationController::class,'UpdateLocation'])->name('admin.location.update');
+//--location-report--//
+Route::get('/location/report',[LocationController::class,'locationReportshow'])->name('location.Report');
+Route::post('/location/report/show',[LocationController::class,'locationReport'])->name('location.Report.show');
+
+
 
 //query
 // Route::get('/query/replyView/{query_id}',[AdminContactController::class,'ViewqueryReply'])->name('admin.view.queryReply');
@@ -211,7 +227,9 @@ Route::PUT('/location/update/{location_id}',[LocationController::class,'UpdateLo
 Route::get('/user-review',[AdminReviewController::class,'reviewlist'])->name('admin.review.list');
 Route::get('/user-review/approve/{review_id}',[AdminReviewController::class,'ApproveReview'])->name('admin.review.approve');
 Route::get('/user-review/decline/{review_id}',[AdminReviewController::class,'DeclineReview'])->name('admin.review.decline');
-
+//--review-report--//
+Route::get('/review/report',[AdminReviewController::class,'reviewReportshow'])->name('review.Report');
+Route::post('/review/report/show',[AdminReviewController::class,'reviewReport'])->name('review.Report.show');
 
 
 

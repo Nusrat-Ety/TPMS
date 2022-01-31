@@ -55,6 +55,13 @@
                                                  <a class="btn btn-primary"style=" text-align: center;" href="{{route('advance.pay',$joinedplan->id)}}">click here</a>
                                          
                                                 </td>
+                                                <td>
+                                               
+                                                
+                                               <a class="btn btn-primary"style=" text-align: center;" href="{{route('join.payment.info',$joinedplan->id)}}">view</a>
+                                       
+                                              </td>
+                                                
                                                
                                                 <td style=" text-align: center;"></td>
 

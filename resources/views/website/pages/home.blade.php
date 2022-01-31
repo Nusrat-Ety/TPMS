@@ -859,9 +859,9 @@
         <div class="owl-carousel owl-theme" id="testemonial-carousel">
             @foreach($reviews as $review)
             <div class="home1-testm item">
-                <div class="home1-testm-single text-center">
+                <div class="home1-testm-single text-center"style="    height: 42rem;">
                     <div class="home1-testm-img">
-                        <img src="{{url('/frontend/assets/images/client/testimonial1.jpg')}}" alt="img" />
+                        <img src="{{url('/uploads/users/'.$review->user->image)}}" alt="img" />
                     </div>
                     <!--/.home1-testm-img-->
                     <div class="home1-testm-txt">
@@ -920,7 +920,7 @@
                 <div class="row">
                     @foreach($Blogs as $key=>$blog)
                     <div class="col-md-4 col-sm-6">
-                        <div class="thumbnail" style="width:374px;">
+                        <div class="thumbnail" style="width:374px;    height: 66rem;">
                             <h2>{{$blog->location->Location_name}}<span
                                     style="float:right; padding-right:15px;font-size:12px">{{$blog->user->name}} </span>
                             </h2>
@@ -935,20 +935,24 @@
                             <!--/.thumbnail-img-->
 
                             <div class="caption">
-                                <div class="blog-txt">
+                                <div class="blog-txt"style="overflow: hidden;text-overflow: ellipsis;">
                                     <h3>
                                         <a style="font-size:20px" href="{{route('website.blog',$blog->id)}}">
                                             {{$blog->BlogName}}
                                         </a>
                                     </h3>
+                                   
 
-
-                                    <p>
+                                    <p style="height: 50px;">
                                         {{$blog->Description}}
                                     </p>
-                                    <a href="{{route('website.blog',$blog->id)}}">Read More</a><span
-                                        style="position:relative;font-size:10px;font-style:italic;">{{$blog->Date}}</span>
+                                  
+                                    
                                 </div>
+                              
+                                    <a style="margin-left: 1.2rem;font-size:13px;color: #00d8ff;" href="{{route('website.blog',$blog->id)}}">Read More</a><span
+                                        style="font-size:10px;font-style:italic;">{{$blog->Date}}</span>
+                                   
                                 <!--/.blog-txt-->
                             </div>
                             <!--/.caption-->

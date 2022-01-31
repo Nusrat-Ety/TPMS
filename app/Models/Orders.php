@@ -15,5 +15,15 @@ class Orders extends Model
         return $this->belongsTo(Join::class,'join_id','id');
         
     }
+    public function tourplan()
+    {
+        return $this->belongsTo(AddTouPlan::class,'plan_id','id');
+        
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class,'user_id','id');
+        
+    }
    
 }

@@ -17,16 +17,18 @@
 
 
 
-        <img style="border-radius: 4px;" width="300px;" src=" {{url('/uploads/Blogs/'.$blog->SecondBlogimage)}}" alt="Blog">
+        <img style="border-radius: 4px;" width="300px;" src=" {{url('/uploads/Blogs/secondimage/'.$blog->SecondBlogimage)}}" alt="Blog">
     
 
 
 
 
-        <img style="border-radius: 4px;" width="300px;" src=" {{url('/uploads/Blogs/'.$blog->ThirdBlogimage)}}" alt="Blog">
+        <img style="border-radius: 4px;" width="300px;" src=" {{url('/uploads/Blogs/thirdimage/'.$blog->ThirdBlogimage)}}" alt="Blog">
         </div>
 
-<p>Blog Description: {{$blog->Description}}</p>
+<p>About: {{$blog->Description}}</p>
+<p>Description: {{$blog->Description2}}</p>
+<p>Other details: {{$blog->Description3}}</p>
 <p>Date: {{$blog->Date}}</p>
 
 </div>

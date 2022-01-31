@@ -31,8 +31,14 @@
                    <div style="padding-left: 25px; padding-right: 25px; margin-bottom: 70px;">
                     <div class="text-container" style="margin-top: 30px;">
                     <p >{{$blogs->Date}}---{{$blogs->user->name}}</p>
-                        <h3 style="padding-bottom: 15px;">Description</h3>
+                        <h3 style="padding-bottom: 15px;">About</h3>
                         <p>{{$blogs->Description}}</p>
+                        <br></br>
+                        <h3 style="padding-bottom: 15px;">Description</h3>
+                        <p>{{$blogs->Description2}}</p>
+                        <br></br>
+                        <h3 style="padding-bottom: 15px;">Other details</h3>
+                        <p>{{$blogs->Description3}}</p>
                     </div> <!-- end of text-container -->
 
                     <!--div class="text-container" style="margin-top: 30px;">

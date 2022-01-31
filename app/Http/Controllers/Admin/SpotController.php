@@ -45,4 +45,19 @@ class SpotController extends Controller
         return view('admin.layouts.Spot.Spotdetails',compact('spot'));
     }
 
+        //report spot
+        public function spotReportshow(){
+            $spots=Spot::all();
+            return view('admin.layouts.Spot.Report.Spot-report',compact('spots'));
+        }
+        public function spotReport(Request $request)
+        {
+    
+            $spots=Spot::whereBetween('created_at',[$request->from,$request->to])->get();
+    
+    
+            return view('admin.layouts.Spot.Report.Spot-report',compact('spots'));
+    
+        }
+
 }

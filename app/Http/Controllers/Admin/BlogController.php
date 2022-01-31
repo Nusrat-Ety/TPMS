@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Models\Blog;
-use App\Models\Location;
-
 use App\Models\User;
-use App\Http\Controllers\Controller;
+
+use App\Models\Location;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class BlogController extends Controller
 {
@@ -44,7 +45,9 @@ class BlogController extends Controller
             'Blogimage'=>$BlogImagefile,
             'SecondBlogimage'=>$SecondBlogImagefile,
             'ThirdBlogimage'=>$ThirdBlogImagefile,
-            'Description'=>$request->Description
+            'Description'=>$request->Description,
+            'Description2'=>$request->Description2,
+            'Description3'=>$request->Description3
 
         ]);
         return redirect()->back()->with('msg','Blog created Successfully');
@@ -106,7 +109,10 @@ $request->file('BlogImagefile')->storeAs('/uploads/Blogs',$blogimage);
         'Blogimage'=>$blogimage,
         'SecondBlogimage'=>$secondblogimage,
         'ThirdBlogimage'=>$thirdblogimagefile,
-        'Description'=>$request->Description
+        'Description'=>$request->Description,
+      
+        'Description2'=>$request->Description2,
+        'Description3'=>$request->Description3
 
        ]);
        return redirect()->route('admin.blog.blogList')->with('success','blog updated successfully');
@@ -121,6 +127,8 @@ $request->file('BlogImagefile')->storeAs('/uploads/Blogs',$blogimage);
             ]);
             return redirect()->back()->with('success','Blog has been approved');
         }
+       
+        
         return redirect()->back();
     
     }
@@ -139,6 +147,21 @@ $request->file('BlogImagefile')->storeAs('/uploads/Blogs',$blogimage);
         }
         return redirect()->back();
     
+    }
+
+    //report blog
+    public function blogReportshow(){
+        $blogs=Blog::all();
+        return view('admin.layouts.blog.Report.blog_report',compact('blogs'));
+    }
+    public function blogReport(Request $request)
+    {
+
+        $blogs=Blog::whereBetween('created_at',[$request->from,$request->to])->get();
+
+
+        return view('admin.layouts.blog.Report.blog_report',compact('blogs'));
+
     }
 
 }

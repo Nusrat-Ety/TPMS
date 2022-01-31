@@ -29,7 +29,7 @@
 </head>
 
 <body>
-	<div id="booking" class="section" style="background-image: url('{{url('image/blog-tour.jpg')}}');">
+	<div id="booking" class="section" style="    height: 100rem;background-image: url('{{url('image/blog-tour.jpg')}}');">
 		<div class="section-center">
           
 			<div class="container">
@@ -46,7 +46,7 @@
 					@if(session()->has('msg'))
         <p class="alert alert-success">{{session()->get('msg')}}</p>
     @endif
-					<div class="col-md-4 col-md-pull-7"style="width:470px;right:150px;">
+					<div class="col-md-4 col-md-pull-7"style="width: 486px;right:150px;">
 						<div class="booking-form"style="background-color: #0000006e;">
 							<form action="{{route('store.blog')}}" method="POST"enctype="multipart/form-data">
 								@csrf
@@ -63,13 +63,17 @@
 								<div class="row">
                                 <div class="col-sm-7">
                                     <label class="form-label">Blogger name</label>
-                                <select class="form-control"name="blogger_name">
-											 @foreach ($user as $user)
-											 @if($user->role=='user')
-												<option value="{{$user->id}}">{{$user->name}}</option>
-												@endif
-												@endforeach
-												</select>
+									<select name="blogger_name" class="form-control" id="exampleFormControlSelect1">
+
+@foreach ($user as $user)
+   <option
+	   @if($user->id==auth()->user()->id)
+	   selected
+	   @endif
+   value="{{$user->id}}">{{$user->name}}</option>
+@endforeach
+
+</select>
 											<span class="select-arrow"></span> 
     </div>
     
@@ -128,8 +132,24 @@
                                             <div class="row">
 									<div class="col-sm-12">
 										<div class="form-group">
+											<span class="form-label">About</span>
+                                            <input  class="form-control" name="Description"type="text" width="400px" required></input>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
 											<span class="form-label">Description</span>
-                                            <textarea style="width: 397px; height: 120px;" class="form-control" name="Description"type="text" width="400px" required></textarea>
+                                            <input  class="form-control" name="Description2"type="text" width="400px" required></input>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<span class="form-label">Other details</span>
+                                            <input  class="form-control" name="Description3"type="text" width="400px" required></input>
 										</div>
 									</div>
 								</div>

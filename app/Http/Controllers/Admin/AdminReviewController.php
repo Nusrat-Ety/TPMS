@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class AdminReviewController extends Controller
 {
     public function reviewlist(){
-        $reviews=Review::all();
+        $reviews=Review::with('user')->get();
         return view('admin.layouts.Review.reviewlist',compact('reviews'));
     }
     public function ApproveReview($review_id){
@@ -37,4 +37,18 @@ public function DeclineReview($review_id){
     return redirect()->back();
 
 }
+    //report spot
+    public function reviewReportshow(){
+        $reviews=Review::all();
+        return view('admin.layouts.Review.Review-report',compact('reviews'));
+    }
+    public function reviewReport(Request $request)
+    {
+
+        $reviews=Review::whereBetween('created_at',[$request->from,$request->to])->get();
+
+
+        return view('admin.layouts.Review.Review-report',compact('reviews'));
+
+    }
 }

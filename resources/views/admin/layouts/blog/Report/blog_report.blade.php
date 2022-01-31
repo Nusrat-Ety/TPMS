@@ -29,58 +29,24 @@
     }
     
     </style>
-    
 <div class="content-wrapper"style="overflow-y:scroll;">
+<div class="form-row">
 
-    <div class="row">
-        <div class="col-md-12 grid-margin">
-            <div class="row">
-                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                    <h3 class="font-weight-bold">Blog List</h3>
-                  
-                    <div class="row">
-                <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                <ul class="navbar-nav mr-lg-2">
-                        
-                        <form action="{{route('admin.blog.blogList')}}" method="get">
-                       
-                        
-              <li class="nav-item nav-search d-none d-lg-block">
-                <div class="input-group">
-                  <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
-                    <span class="input-group-text" id="search"style="display: contents;">
-                        
-                    <button class="btn" type="submit"><i class="icon-search" ></i></button>
-                    </span>
-                  </div>
-                  
-                 
-                  <input type="text" name="search" value="{{$key}}"class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
-                </div>
-         
-              </li>
-    </form>  
-            </ul>           
-</div>
-</div>
+    <div class="form-group col-md-6">
+        <form action="{{route('blog.Report.show')}}" method="post">
+            @csrf
+            <label for="inputPassword4">From date</label>
+            <input name="from" class="form-control" id="inputPassword4"  type="date" placeholder="">
+            </div>
+            <div class="form-group col-md-6">
+            <label for="inputPassword4">To date</label>
+            <input name="to" class="form-control" id="inputPassword4"  type="date" placeholder="">
+            </div>
+            <button style="margin-left: 69rem;" type="submit" class="btn btn-primary">Submit</button>
+        </form>
 
-@if($key)
-        <p style="text-align: center;">You are searching for: {{$key}}. Found {{$Blogs->count()}} results.<span><a href="{{route('admin.blog.blogList')}}">Go to List</a></span></p>
-
-        @endif
-
-          
-        
-
-                    @if(session()->has('success'))
-                            <p class="alert alert-success">
-                                {{session()->get('success')}}
-</p>
-@endif
-                    <table class="table">
-                        <div class="row">  
-                            <div class="col-md-8 grid-margin">
-                                <table class="table text-center" >
+      </div>
+      <table class="table text-center" >
                                     <thead>
                                         <tr>
                                             <th scope="col">SL</th>
@@ -100,7 +66,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                      @foreach($Blogs as $key=>$blog)
+                                      @foreach($blogs as $key=>$blog)
                                       <tr>
                                       
                                         <th>{{$key+1}}</th>
@@ -134,13 +100,8 @@
                                    </tbody>
                                 </table>
                             </div>
-                        </div>
-                   
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-
-@endsection
+      </div>
+      </div>
+      
+      @endsection

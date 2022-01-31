@@ -54,7 +54,10 @@ class WebsiteBlogController extends Controller
             'Blogimage'=>$BlogImagefile,
             'SecondBlogimage'=>$SecondBlogImagefile,
             'ThirdBlogimage'=>$ThirdBlogImagefile,
-            'Description'=>$request->Description
+         
+            'Description'=>$request->Description,
+            'Description2'=>$request->Description2,
+            'Description3'=>$request->Description3
 
         ]);
         return redirect()->back()->with('msg','Blog created Successfully');
@@ -64,6 +67,13 @@ class WebsiteBlogController extends Controller
         // dd($tourplans);
         return view('website.pages.home',compact('Blogs'));
 
+    }
+
+    //user blog list show
+    public function MyBlogList(){
+        $blogs=Blog::with('user','location')->where('user_id',auth()->user()->id)->get();
+        // dd($joinedplan);
+        return view('website.pages.Blog.My-blog-list',compact('blogs'));
     }
     }
 

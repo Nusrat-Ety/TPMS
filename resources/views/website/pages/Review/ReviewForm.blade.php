@@ -50,19 +50,21 @@
 									<div class="col-sm-12">
                             <div class="form-group">
 									<span class="form-label">Traveler Name</span>
-                                    <select class="form-control"name="traveler_name">
+                                  
                                        
-											 @foreach ($user as $user)
-                                             @if(auth()->user())
-												<option value="{{$user->id}}">{{auth()->user()->name}}</option>
-											
-                                                @else
-                                                <option value="{{$user->id}}">{{$user->name}}</option>
-                                               
-                                                @endif
-                                                @endforeach
+									<select name="traveler_name" class="form-control" id="exampleFormControlSelect1">
+
+@foreach ($user as $user)
+   <option
+	   @if($user->id==auth()->user()->id)
+	   selected
+	   @endif
+   value="{{$user->id}}">{{$user->name}}</option>
+@endforeach
+
+</select>
                                                 
-												</select>								
+																			
                                             </div>
 								</div>
 								

@@ -75,7 +75,7 @@
     </div>
     <div class="form-row">
   <div class="col-md-8 mb-3">
-      <label for="validationCustomUsername">Description</label>
+      <label for="validationCustomUsername">About</label>
     
         <input name="Description" class="form-control" id="validationCustomUsername" placeholder="detail" aria-describedby="inputGroupPrepend" required>
         <div class="valid-feedback">
@@ -84,7 +84,28 @@
       </div>
     </div>
     </div>
- 
+    <div class="form-row">
+  <div class="col-md-8 mb-3">
+      <label for="validationCustomUsername">Description</label>
+    
+        <input name="Description2" class="form-control" id="validationCustomUsername" placeholder="detail" aria-describedby="inputGroupPrepend" required>
+        <div class="valid-feedback">
+          Please choose a username.
+        
+      </div>
+    </div>
+    </div>
+    <div class="form-row">
+  <div class="col-md-8 mb-3">
+      <label for="validationCustomUsername">Other details</label>
+    
+        <input name="Description3" class="form-control" id="validationCustomUsername" placeholder="detail" aria-describedby="inputGroupPrepend" required>
+        <div class="valid-feedback">
+          Please choose a username.
+        
+      </div>
+    </div>
+    </div>
   <div class="form-group">
     <div class="form-check">
       <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
