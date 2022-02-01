@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use DB;
 use App\Models\Join;
+use App\Mail\PaymentMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Library\SslCommerz\SslCommerzNotification;
 
 class SslCommerzPaymentController extends Controller
@@ -179,7 +181,7 @@ class SslCommerzPaymentController extends Controller
 
     public function success(Request $request)
     {
-        echo "Transaction is Successful";
+        // echo "Transaction is Successful";
 
         $tran_id = $request->input('tran_id');
         $amount = $request->input('amount');
@@ -207,7 +209,12 @@ class SslCommerzPaymentController extends Controller
                     ->update(['status' => 'success']);
                     
 
-                echo "<br >Transaction is successfully Completed";
+                    $details =[
+                        'title' => 'Mail from Admin',
+                        'body' => 'Your Advance payment for tourplan has been successful!'
+                    ];
+                    Mail::to(auth()->user()->email)->send(new PaymentMail($details));
+                    return view('website.payment.payment-success');
             } else {
                 /*
                 That means IPN did not work or IPN URL was not set in your merchant panel and Transation validation failed.
@@ -243,7 +250,12 @@ class SslCommerzPaymentController extends Controller
             $update_product = DB::table('orders')
                 ->where('transaction_id', $tran_id)
                 ->update(['status' => 'Failed']);
-            echo "Transaction is Falied";
+                $details =[
+                    'title' => 'Mail from admin',
+                    'body' => 'Unfortunately your payment is not received. Please try again'
+                ];
+                Mail::to(auth()->user()->email)->send(new PaymentMail($details));
+            return view('website.payment.payment-fail');
         } else if ($order_detials->status == 'Processing' || $order_detials->status == 'Complete') {
             echo "Transaction is already Successful";
         } else {

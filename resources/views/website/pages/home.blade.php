@@ -59,6 +59,7 @@
                                     tours
                                 </a>
                             </li>
+                           
 
                         </ul>
 
@@ -76,126 +77,30 @@
 
                                                     <h2>destination</h2>
 
-                                                    <div class="travel-select-icon">
-                                                        <select name="spot" class="form-control ">
-                                                            @foreach($spots as $spot)
-                                                            <option value="{{$spot->id}}">{{$spot->SpotName}}</option>
-                                                            <!-- /.option-->
-                                                            @endforeach
+                                                    <div >
+                                                        <input type="text" class="form-control" style="width: 91rem;height: 52px;
+    padding: 7px 8px;" name="search">
 
-                                                        </select><!-- /.select-->
+
                                                     </div><!-- /.travel-select-icon -->
                                                 </div>
-                                                <div class="single-tab-select-box">
 
-                                                    <h2>destination</h2>
-
-                                                    <div class="travel-select-icon">
-                                                        <select name="location" class="form-control ">
-                                                            @foreach($locations as $location)
-                                                            <option value="{{$location->id}}">{{$location->Location_name}}</option>
-                                                            <!-- /.option-->
-                                                            @endforeach
-                                                        
-
-                                                        </select><!-- /.select-->
-                                                    </div><!-- /.travel-select-icon -->
-                                                </div>
                                                 <!--/.single-tab-select-box-->
-                                                <button type="submit" class="btn btn-info">Search</button>
+                                                <button style="    margin-top: -8rem; margin-left: 93rem;width: 12rem;height: 5rem;box-shadow: 0px 2px 6px #141414bf;background-color: #00d8ff;"type="submit" class="btn btn-info">Search</button>
                                             </form>
                                         </div>
                                         <!--/.col-->
 
 
 
-                                        <div class="col-lg-2 col-md-1 col-sm-4">
-                                            <div class="single-tab-select-box">
-                                                <h2>duration</h2>
-                                                <div class="travel-select-icon">
-                                                    <select class="form-control ">
 
-                                                        <option value="default">5</option><!-- /.option-->
-
-                                                        <option value="10">10</option><!-- /.option-->
-
-                                                        <option value="15">15</option><!-- /.option-->
-                                                        <option value="20">20</option><!-- /.option-->
-
-                                                    </select><!-- /.select-->
-                                                </div><!-- /.travel-select-icon -->
-                                            </div>
-                                            <!--/.single-tab-select-box-->
-                                        </div>
-                                        <!--/.col-->
-
-                                        <div class="col-lg-2 col-md-1 col-sm-4">
-                                            <div class="single-tab-select-box">
-                                                <h2>members</h2>
-                                                <div class="travel-select-icon">
-                                                    <select class="form-control ">
-
-                                                        <option value="default">1</option><!-- /.option-->
-
-                                                        <option value="2">2</option><!-- /.option-->
-
-                                                        <option value="4">4</option><!-- /.option-->
-                                                        <option value="8">8</option><!-- /.option-->
-
-                                                    </select><!-- /.select-->
-                                                </div><!-- /.travel-select-icon -->
-                                            </div>
-                                            <!--/.single-tab-select-box-->
-                                        </div>
                                         <!--/.col-->
 
                                     </div>
                                     <!--/.row-->
 
                                     <div class="row">
-                                        <div class="col-sm-5">
-                                            <div class="travel-budget">
-                                                <div class="row">
-                                                    <div class="col-md-3 col-sm-4">
-                                                        <h3>budget : </h3>
-                                                    </div>
-                                                    <!--/.col-->
-                                                    <div class="co-md-9 col-sm-8">
-                                                        <div class="travel-filter">
-                                                            <div class="info_widget">
-                                                                <div class="price_filter">
 
-                                                                    <div id="slider-range"></div>
-                                                                    <!--/.slider-range-->
-
-                                                                    <div class="price_slider_amount">
-                                                                        <input type="text" id="amount" name="price"
-                                                                            placeholder="Add Your Price" />
-                                                                    </div>
-                                                                    <!--/.price_slider_amount-->
-                                                                </div>
-                                                                <!--/.price-filter-->
-                                                            </div>
-                                                            <!--/.info_widget-->
-                                                        </div>
-                                                        <!--/.travel-filter-->
-                                                    </div>
-                                                    <!--/.col-->
-                                                </div>
-                                                <!--/.row-->
-                                            </div>
-                                            <!--/.travel-budget-->
-                                        </div>
-                                        <!--/.col-->
-                                        <div class="clo-sm-7">
-                                            <div class="about-btn travel-mrt-0 pull-right">
-                                                <a class="about-view travel-btn"href="">
-                                                    search
-</a>
-                                                <!--/.travel-btn-->
-                                            </div>
-                                            <!--/.about-btn-->
-                                        </div>
                                         <!--/.col-->
 
                                     </div>
@@ -230,89 +135,7 @@
                                                     </select><!-- /.select-->
                                                 </div><!-- /.travel-select-icon -->
 
-                                                <div class="travel-select-icon">
-                                                    <select class="form-control ">
-
-                                                        <option value="default">enter your destination location</option>
-                                                        <!-- /.option-->
-
-                                                        <option value="istambul">istambul</option><!-- /.option-->
-
-                                                        <option value="mosko">mosko</option><!-- /.option-->
-                                                        <option value="cairo">cairo</option><!-- /.option-->
-
-                                                    </select><!-- /.select-->
-                                                </div><!-- /.travel-select-icon -->
-
-                                            </div>
-                                            <!--/.single-tab-select-box-->
-                                        </div>
-                                        <!--/.col-->
-
-                                        <div class="col-lg-2 col-md-3 col-sm-4">
-                                            <div class="single-tab-select-box">
-                                                <h2>check in</h2>
-                                                <div class="travel-check-icon">
-                                                    <form action="#">
-                                                        <input type="text" name="check_in" class="form-control"
-                                                            data-toggle="datepicker" placeholder="12 -01 - 2017 ">
-                                                    </form>
-                                                </div><!-- /.travel-check-icon -->
-                                            </div>
-                                            <!--/.single-tab-select-box-->
-                                        </div>
-                                        <!--/.col-->
-
-                                        <div class="col-lg-2 col-md-3 col-sm-4">
-                                            <div class="single-tab-select-box">
-                                                <h2>check out</h2>
-                                                <div class="travel-check-icon">
-                                                    <form action="#">
-                                                        <input type="text" name="check_out" class="form-control"
-                                                            data-toggle="datepicker" placeholder="22 -01 - 2017 ">
-                                                    </form>
-                                                </div><!-- /.travel-check-icon -->
-                                            </div>
-                                            <!--/.single-tab-select-box-->
-                                        </div>
-                                        <!--/.col-->
-
-                                        <div class="col-lg-2 col-md-1 col-sm-4">
-                                            <div class="single-tab-select-box">
-                                                <h2>duration</h2>
-                                                <div class="travel-select-icon">
-                                                    <select class="form-control ">
-
-                                                        <option value="default">5</option><!-- /.option-->
-
-                                                        <option value="10">10</option><!-- /.option-->
-
-                                                        <option value="15">15</option><!-- /.option-->
-                                                        <option value="20">20</option><!-- /.option-->
-
-                                                    </select><!-- /.select-->
-                                                </div><!-- /.travel-select-icon -->
-                                            </div>
-                                            <!--/.single-tab-select-box-->
-                                        </div>
-                                        <!--/.col-->
-
-                                        <div class="col-lg-2 col-md-1 col-sm-4">
-                                            <div class="single-tab-select-box">
-                                                <h2>members</h2>
-                                                <div class="travel-select-icon">
-                                                    <select class="form-control ">
-
-                                                        <option value="default">1</option><!-- /.option-->
-
-                                                        <option value="2">2</option><!-- /.option-->
-
-                                                        <option value="4">4</option><!-- /.option-->
-                                                        <option value="8">8</option><!-- /.option-->
-
-                                                    </select><!-- /.select-->
-                                                </div><!-- /.travel-select-icon -->
-                                            </div>
+                                              
                                             <!--/.single-tab-select-box-->
                                         </div>
                                         <!--/.col-->
@@ -686,7 +509,8 @@
                 special Spots
             </h2>
             <p>
-                Select your favorite spot and make your tour plan.
+                Select your favorite spot and make your tour plan or <span><a href="{{route('add.spot.user')}}">Add
+                        spot</a></span>
             </p>
         </div>
         <!--/.gallery-header-->
@@ -776,6 +600,7 @@
         <!--/.gallery-header-->
         <div class="packages-content">
             <div class="row">
+                @if($result == null)
                 @foreach($tourplans as $tourplan)
                 <div class="col-md-4 col-sm-6">
 
@@ -808,14 +633,14 @@
                                     style="float: right;">
                                     View
                                 </a>
-                                
-@else
+
+                                @else
                                 <a href="{{route('request.Join',$tourplan->id)}}" class="about-view packages-btn"
                                     style="float: right;">
                                     join
                                 </a>
-                            @endif
-                          
+                                @endif
+
                             </div>
                             <!--/.about-btn-->
                         </div>
@@ -827,7 +652,57 @@
                 <!--/.col-->
 
                 @endforeach
+                @else
+                @foreach($result as $data)
+                <div class="col-md-4 col-sm-6">
 
+                    <div class="single-package-item"
+                        style="width: 370px;height: 300px; background-image:url('{{url('uploads/Spots/'.$data->spot->SpotImage)}}');background-size: cover;filter: drop-shadow(2px 4px 6px grey);">
+
+                        <div class="single-package-item-txt">
+
+                            <h3
+                                style="color:black;box-shadow: 0 0px 20px rgb(0 0 0 / 0.68);background-color: whitesmoke;font-weight: 600;">
+                                <a style="font-size: inherit;"
+                                    href="{{route('view.tourplan.user',$data->id)}}">{{$data->Tourname}}
+                                </a><span class="pull-right">{{$data->location->Location_name}}</span></h3>
+                            <div class="packages-para" style="background-color: #0000003b;">
+                                <p style="color: #ffffff;font-weight: 500;"><i
+                                        class="fa fa-angle-right"></i>{{$data->members}} </p>
+                                <p style="color: #ffffff;font-weight: 500;"><i
+                                        class="fa fa-angle-right"></i>{{$data->TourBudget}}<span
+                                        class="pull-right">{{$data->TourDuration}}</span>
+                                    <p style="color: #ffffff;font-weight: 500;">{{$data->TourDate}} <span
+                                            class="pull-right">{{$data->user->name}}</span></p>
+
+                            </div>
+                            <!--/.packages-para-->
+
+                            <div class="about-btn">
+
+                                @if(auth()->user()?auth()->user()->id==$data->user->id:0)
+                                <a href="{{route('view.tourplan.user',$data->id)}}" class="about-view packages-btn"
+                                    style="float: right;">
+                                    View
+                                </a>
+
+                                @else
+                                <a href="{{route('request.Join',$data->id)}}" class="about-view packages-btn"
+                                    style="float: right;">
+                                    join
+                                </a>
+                                @endif
+
+                            </div>
+                            <!--/.about-btn-->
+                        </div>
+                        <!--/.single-package-item-txt-->
+                    </div>
+                    <!--/.single-package-item-->
+
+                </div>
+                @endforeach
+                @endif
 
             </div>
             <!--/.row-->
@@ -859,7 +734,7 @@
         <div class="owl-carousel owl-theme" id="testemonial-carousel">
             @foreach($reviews as $review)
             <div class="home1-testm item">
-                <div class="home1-testm-single text-center"style="    height: 42rem;">
+                <div class="home1-testm-single text-center" style="    height: 42rem;">
                     <div class="home1-testm-img">
                         <img src="{{url('/uploads/users/'.$review->user->image)}}" alt="img" />
                     </div>
@@ -935,24 +810,25 @@
                             <!--/.thumbnail-img-->
 
                             <div class="caption">
-                                <div class="blog-txt"style="overflow: hidden;text-overflow: ellipsis;">
+                                <div class="blog-txt" style="overflow: hidden;text-overflow: ellipsis;">
                                     <h3>
                                         <a style="font-size:20px" href="{{route('website.blog',$blog->id)}}">
                                             {{$blog->BlogName}}
                                         </a>
                                     </h3>
-                                   
+
 
                                     <p style="height: 50px;">
                                         {{$blog->Description}}
                                     </p>
-                                  
-                                    
+
+
                                 </div>
-                              
-                                    <a style="margin-left: 1.2rem;font-size:13px;color: #00d8ff;" href="{{route('website.blog',$blog->id)}}">Read More</a><span
-                                        style="font-size:10px;font-style:italic;">{{$blog->Date}}</span>
-                                   
+
+                                <a style="margin-left: 1.2rem;font-size:13px;color: #00d8ff;"
+                                    href="{{route('website.blog',$blog->id)}}">Read More</a><span
+                                    style="font-size:10px;font-style:italic;">{{$blog->Date}}</span>
+
                                 <!--/.blog-txt-->
                             </div>
                             <!--/.caption-->
@@ -995,7 +871,7 @@
                         <a style="padding-top: 11px;font-weight: 500;width: 143px;height: 50px;border-radius: 56px;font-size: 20px;"
                             class="book-btn" href="{{route('user.review')}}">Review</a>
 
-                      
+
 
                     </div>
 

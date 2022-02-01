@@ -46,6 +46,16 @@
 					@if(session()->has('msg'))
         <p class="alert alert-success">{{session()->get('msg')}}</p>
     @endif
+
+	@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 					<div class="col-md-4 col-md-pull-7"style="width:450px;">
 						<div class="booking-form"style="background-color:#0bc4e94d">
 							<form action="{{route('user.added.tourplan')}}" method="POST">

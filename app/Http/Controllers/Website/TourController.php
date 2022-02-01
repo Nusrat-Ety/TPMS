@@ -22,6 +22,16 @@ class TourController extends Controller
         return view('website.pages.Tourplan.TourPlan',compact('user','spot','location','transports'));
     }
     public function storeTourPlan(Request $request){
+
+        $request->validate([
+          
+          
+           'TourDate'=>'after_or_equal:today',
+           'members'=>'required| min:1|max:50',
+           'TourDuration'=>'required| min:1|max:30',
+           'TourBudget'=>'required|integer|between:100,10000',
+
+        ]);
         // dd($request->all());
         AddTourPlan::create([
                 'Tourname'=>$request->TourName,

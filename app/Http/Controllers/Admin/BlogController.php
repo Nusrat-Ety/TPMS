@@ -19,6 +19,13 @@ class BlogController extends Controller
         return view('admin.layouts.blog.AddBlog',compact('user','location'));
     }
     public function storeBlog(Request $request){
+        $request->validate([
+            'Date'=>'after_or_equal:today',
+            'Description'=>'required'|'string',
+            'BlogName'=>'required'|'string',
+          
+           
+        ]);
         $BlogImagefile='';
         if($request->hasFile('BlogImage')){
             $file=$request->file('BlogImage');
@@ -83,6 +90,7 @@ class BlogController extends Controller
 
     }
     public function BlogUpdate(Request $request,$blog_id){
+
         $blog=Blog::find($blog_id);
         $blogimage=$blog->Blogimage;
         if($request->hasFile('BlogImagefile'))
@@ -156,6 +164,10 @@ $request->file('BlogImagefile')->storeAs('/uploads/Blogs',$blogimage);
     }
     public function blogReport(Request $request)
     {
+        $request->validate([
+            'from' => 'required',
+            'to' => 'required|date|after_or_equal:from',
+        ]);
 
         $blogs=Blog::whereBetween('created_at',[$request->from,$request->to])->get();
 

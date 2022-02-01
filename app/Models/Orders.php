@@ -17,7 +17,7 @@ class Orders extends Model
     }
     public function tourplan()
     {
-        return $this->belongsTo(AddTouPlan::class,'plan_id','id');
+        return $this->belongsTo(AddTourPlan::class,'plan_id','id');
         
     }
     public function user()

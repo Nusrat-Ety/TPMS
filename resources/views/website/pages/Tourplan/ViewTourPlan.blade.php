@@ -2,6 +2,7 @@
 
 @extends('website.master')
 @section('item')
+
 <style>
     
     a:hover{
@@ -19,13 +20,14 @@
                     <div class="text-container" >
                          <!-- <h3>Limitations Of Liability</h3> -->
                         <section id="home" class="" style="display:flex; align-items:center; background-size:contain; background-position:center;min-height: 500px; background-image: url('{{url('uploads/Spots/'.$tourplan->spot->SpotImage)}}');">
-			
+                       
 			
 </div>
 </div>
 </div>
 <section id="pack" class="packages">
 			<div class="container">
+     
 				<div class="gallary-header text-center">
 				
                     <div class="text-container" style="margin-top: 30px;">

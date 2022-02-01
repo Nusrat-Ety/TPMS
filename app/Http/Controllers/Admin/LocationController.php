@@ -13,6 +13,14 @@ class LocationController extends Controller
     return view('admin.layouts.Location.location');
     }
     public function storeLocation(Request $request){
+
+        // $request->validate([
+        //     'LocationName'=>'required',
+        //     'Locationdetails'=>'required'|'string',
+        //     'Country'=>'required'|'string',
+            
+           
+        // ]);
         // dd($request->all());
         $LocationImageFile='';
         if($request->hasFile('location_image')){

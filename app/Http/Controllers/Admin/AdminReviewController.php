@@ -44,6 +44,11 @@ public function DeclineReview($review_id){
     }
     public function reviewReport(Request $request)
     {
+        $request->validate([
+            'from' => 'required',
+            'to' => 'required|date|after_or_equal:from',
+        ]);
+
 
         $reviews=Review::whereBetween('created_at',[$request->from,$request->to])->get();
 

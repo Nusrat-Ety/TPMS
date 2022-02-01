@@ -92,10 +92,10 @@ class JoinController extends Controller
         
     }
 
-    public function payment_info($join_id){
-        
-        $user_pay=Orders::with('join','tourplan','user')->find($join_id);
+    public function payment_info(){
         // dd($join_id);
+        $user_pay=Join::with('order')->where('user_id',auth()->user()->id)->get();
+        // dd($user_pay);
         return view('website.payment.payment-info',compact('user_pay'));
     }
     

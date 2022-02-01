@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\User;
 use App\Models\Location;
+
+
 class WebsiteBlogController extends Controller
 {
    public function BlogView($id){
@@ -28,6 +30,14 @@ class WebsiteBlogController extends Controller
         return view('website.pages.Blog.UserAddBlog',compact('user','location'));
     }
     public function Blogstore(Request $request){
+
+        $request->validate([
+            'Date'=>'after_or_equal:today',
+            'Description'=>'required'|'string',
+            'BlogName'=>'required'|'string',
+            'BlogImagefile'=>'required'
+           
+        ]);
         $BlogImagefile='';
         if($request->hasFile('BlogImage')){
             $file=$request->file('BlogImage');

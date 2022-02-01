@@ -44,9 +44,11 @@
                                         <tr>
                                             <th scope="col">SL</th>
                                             <th scope="col">Spot name</th>
+                                            <th scope="col">Traveler name</th>
                                             <th scope="col">Spot location</th>
                                             <th scope="col">Spot image</th>
                                             <th scope="col">Spot Details</th>
+                                            <th scope="col">Status</th>
                                             <th scope="col">Action</th>
 
                                         </tr>
@@ -58,14 +60,21 @@
                       
                                         <th>{{$key+1}}</th>
                                         <td>{{$Spot->SpotName}}</td>
+                                        <td>{{$Spot->user->name}}({{$Spot->user->role}})</td>
                                         <td>{{$Spot->location->Location_name}}</td>
                                         <td><img src="{{url('/uploads/Spots/'.$Spot->SpotImage)}}" width="200px" alt="Spot image"></td>
                                         <td class="setWidth concat"><div>{{$Spot->SpotDetails}}</div></td>
+                                        <td >{{$Spot->status}}</td>
                                        
                                             <td>
                                         <a  href="{{route('admin.spot.details',$Spot->id)}}"><i class="fa fa-eye fa-2x"style="color: #4b49ac;"></i></a>
        <a href=""><span class="ml-2"><i class="fa fa-pencil-square fa-2x"style="color: #4b49ac;"></i></span></a>
-       <a href=""><span class="ml-2"><i class="fa fa-trash fa-2x"style="color:red;"></i></span></a>
+       @if($Spot->status=='pending')
+       <a href="{{route('admin.user.spot.approve',$Spot->id)}}"><span class="ml-2"><i class="fa fa-check-square-o fa-2x"style="color:#4b49ac;" ></i></span></a>
+       
+       <a href="{{route('admin.user.spot.decline',$Spot->id)}}"><span class="ml-2"> <i class="fa fa-times fa-2x"style="color:#4b49ac;" ></i></span></a>
+       @endif
+       <a href="{{route('admin.delete.spot',$Spot->id)}}"><span class="ml-2"><i class="fa fa-trash fa-2x"style="color:red;"></i></span></a>
                                         </td>
                                      
                                       </tr>

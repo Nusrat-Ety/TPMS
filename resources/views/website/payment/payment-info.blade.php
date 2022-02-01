@@ -67,15 +67,15 @@
                             </thead>
                             <tbody>
                             <tr>
-                             @dd($user_pay)
-                              <th style=" text-align: center;">{{$user_pay->tourplan->Tourname}}</th>
-                              <td style=" text-align: center;">{{$user_pay->status}}</td>
-                              <td style=" text-align: center;">{{$user_pay->tourplan->location->Location_name}}</td>
-                              <td style=" text-align: center;">{{$user_pay->order->amount}}</td>
-                              <td style=" text-align: center;">{{$user_pay->order->phone}}</td>
-                              <td style=" text-align: center;">{{$user_pay->order->status}}</td>
-                              <td style=" text-align: center;">{{$user_pay->order->transaction_id}}</td>
-                              
+                          @foreach($user_pay as $data)
+                              <th style=" text-align: center;">{{optional($data->tourplan)->Tourname}}</th>
+                              <td style=" text-align: center;">{{$data->status}}</td>
+                              <td style=" text-align: center;">{{$data->tourplan->location->Location_name}}</td>
+                              <td style=" text-align: center;">{{$data->amount}}</td>
+                              <td style=" text-align: center;">{{$data->phone}}</td>
+                              <td style=" text-align: center;">{{$data->status}}</td>
+                              <td style=" text-align: center;">{{$data->transaction_id}}</td>
+                           @endforeach   
 </tr>
 
                             </tbody>

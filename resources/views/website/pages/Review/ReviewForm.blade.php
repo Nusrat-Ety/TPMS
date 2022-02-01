@@ -42,6 +42,15 @@
 					@if(session()->has('msg'))
         <p class="alert alert-success">{{session()->get('msg')}}</p>
     @endif
+	@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 					<div class="col-md-4 col-md-pull-7"style="width: 460px;right: 31.333333%;">
 						<div class="booking-form"style="background-color: #20043766;    width: 500px;">
 							<form action="{{route('user.store.review')}}" method="POST">

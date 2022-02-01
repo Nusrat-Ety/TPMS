@@ -16,7 +16,7 @@ class HomeController extends Controller
     //home
     public function home(){
         // 
-        $spots=Spot::all();
+        $spots=Spot::where('status','approved')->get();
         $Blogs=Blog::where('status','approved')->get();
         $locations=Location::all();
         
@@ -34,10 +34,10 @@ class HomeController extends Controller
         else {
             $join=Join::all();
         }
-       
+       $result=null;
         
 
-        return view('website.pages.home',compact('spots','Blogs','tourplans','locations','reviews','join'));
+        return view('website.pages.home',compact('spots','Blogs','tourplans','locations','reviews','join','result'));
 
 
     }

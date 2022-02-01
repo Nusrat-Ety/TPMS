@@ -156,7 +156,9 @@
                             <a href="{{route('tourplan.list')}}"class="btn btn-primary"style="width: 15rem;box-shadow: 0px 2px 6px #000000cc;background-color: rgb(0 0 0 / 0%);border-color: rgb(0 0 0 / 8%);">Join Requests</a><br></br>
                             
                           <a href="{{route ('My.Joined.Plan.List')}}"class="btn btn-primary"style="width: 15rem;box-shadow: 0px 2px 6px #000000cc;background-color: rgb(0 0 0 / 0%);border-color: rgb(0 0 0 / 8%);">I joined</a><br></br>
-                          <a href="{{route('My.blog.List')}}"class="btn btn-primary"style="width: 15rem;box-shadow: 0px 2px 6px #000000cc;background-color: rgb(0 0 0 / 0%);border-color: rgb(0 0 0 / 8%);">My Blog List</a>
+                          <a href="{{route('My.blog.List')}}"class="btn btn-primary"style="width: 15rem;box-shadow: 0px 2px 6px #000000cc;background-color: rgb(0 0 0 / 0%);border-color: rgb(0 0 0 / 8%);">My Blog List</a><br></br>
+                          <a href="{{route ('user.spot.list')}}"class="btn btn-primary"style="width: 15rem;box-shadow: 0px 2px 6px #000000cc;background-color: rgb(0 0 0 / 0%);border-color: rgb(0 0 0 / 8%);">My Spot List</a>
+                         
                    
                         </div>
                         <a href="{{route('website')}}">back</a>

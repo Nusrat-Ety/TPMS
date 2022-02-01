@@ -23,6 +23,11 @@ class TravelerController extends Controller
     public function TravelerReport(Request $request)
     {
 
+        $request->validate([
+            'from' => 'required',
+            'to' => 'required|date|after_or_equal:from',
+        ]);
+
         $Traveler=User::whereBetween('created_at',[$request->from,$request->to])->get();
 
 

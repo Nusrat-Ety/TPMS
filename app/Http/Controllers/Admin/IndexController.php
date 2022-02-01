@@ -17,8 +17,8 @@ class IndexController extends Controller
     public function index(){
         $count['tourplans']=AddTourPlan::all()->count();
         $count['Approved_tourplans']=AddTourPlan::where('status','approved')->get()->count();
-        $count['pending_tourplans']=AddTourPlan::where('status','declined')->get()->count();
-        $count['Declined_tourplans']=AddTourPlan::where('status','pending')->get()->count();
+        $count['pending_tourplans']=AddTourPlan::where('status','pending')->get()->count();
+        $count['Declined_tourplans']=AddTourPlan::where('status','declined')->get()->count();
         $count['travelers']=User::where('role','user')->get()->count();
        
         $count['spot']=Spot::all()->count();

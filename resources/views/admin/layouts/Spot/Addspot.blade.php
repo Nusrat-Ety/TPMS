@@ -15,11 +15,13 @@
   <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationCustom01">Spot name</label>
-      <input name="SpotName" class="form-control" id="validationCustom01" placeholder="Tour Name"  required>
+      <input name="SpotName" class="form-control" id="validationCustom01" placeholder="Spot Name"  required>
       <div class="valid-feedback">
         Looks good!
       </div>
     </div>
+    </div>
+    <div class="row">
     <div class="col-md-4 mb-3">
       <label for="validationCustom02">Spot location</label>
       <select name="SpotLocation" class="form-control"  placeholder="spot location"  required>
@@ -36,6 +38,24 @@
     
     </div>
     </div>
+    <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <label class="form-label">Traveler name</label>
+									<select name="traveler_name" class="form-control" id="exampleFormControlSelect1">
+
+@foreach ($users as $user)
+   <option
+	   @if($user->id==auth()->user()->id)
+	   selected
+	   @endif
+   value="{{$user->id}}">{{$user->name}}</option>
+@endforeach
+
+</select>
+											<span class="select-arrow"></span> 
+    </div>
+    </div>
+    
     <div class="form-row">
     <div class="col-md-4 mb-3">
       <label for="validationCustomUsername">Spot Image</label>
@@ -57,7 +77,7 @@
       </div>
     </div>
     </div>
-  
+   
  
   <div class="form-group">
     <div class="form-check">
@@ -74,8 +94,7 @@
   <button class="btn btn-primary" type="submit">Submit form</button>
 </div>
 </div>
-</div>
-</div>
+
 </form>
 @endsection
 

@@ -1,26 +1,20 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-use App\Http\Controllers\Controller;
-use App\Models\AddTourPlan;
-use App\Models\User;
+use App\Models\Join;
 use App\Models\Spot;
-use App\Models\Transport;
+use App\Models\User;
 use App\Models\Location;
+use App\Models\Transport;
+use App\Models\AddTourPlan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class TourController extends Controller
 {
-    //for managing tourplan 
-    public function Managetourplan(){
-        return view('admin.layouts.Tourplan.ManagePlan');
-    }
-    //for managing tourplan request from user
-    public function ManagetourplanReq(){
-        return view('admin.layouts.Tourplan.ManagePlanReq');
-    }
+    
     //for viewing the tourplan list of user
-    //problem
+  
     public function ViewAdminTourList(){
         $key=null;
         if(request()->search){
@@ -34,7 +28,7 @@ class TourController extends Controller
       return view('admin.layouts.Tourplan.AdminTourList',compact('Tourplans','key'));
         
     }
-    //problem
+   
     //for showing details of the tourplan
     public function TourPlanDetails($tourplan_id){
         $tourplan=AddTourPlan::find($tourplan_id);
@@ -88,11 +82,36 @@ class TourController extends Controller
 
     public function TourPlanReport_Search(Request $request)
     {
+        $request->validate([
+            'from' => 'required',
+            'to' => 'required|date|after_or_equal:from',
+        ]);
+
 
         $Tourplans=AddTourPlan::whereBetween('created_at',[$request->from,$request->to])->get();
 
 
         return view('admin.layouts.Tourplan.Report.TourPlanReport',compact('Tourplans'));
+
+    }
+
+    //joined tourplan list
+    public function joinedtourlist(){
+        $joined_tour = Join::with('user','tourplan')->get();
+        return view ('admin.layouts.Tourplan.join.JoinedTourPlanList',compact('joined_tour'));
+    }
+    public function JoinTourPlanReport_Search(Request $request)
+    {
+        $request->validate([
+            'from' => 'required',
+            'to' => 'required|date|after_or_equal:from',
+        ]);
+
+
+        $joined_tour=Join::whereBetween('created_at',[$request->from,$request->to])->get();
+
+
+        return view('admin.layouts.Tourplan.join.JoinedTourPlanList',compact('joined_tour'));
 
     }
 }

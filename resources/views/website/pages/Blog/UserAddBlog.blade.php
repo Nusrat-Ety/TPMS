@@ -31,7 +31,16 @@
 <body>
 	<div id="booking" class="section" style="    height: 100rem;background-image: url('{{url('image/blog-tour.jpg')}}');">
 		<div class="section-center">
-          
+		@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 			<div class="container">
 				<div class="row">
 					<div class="col-md-7 "style="right:150px;">

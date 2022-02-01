@@ -41,6 +41,11 @@ class TransportController extends Controller
     }
     public function TransportReport(Request $request)
     {
+        $request->validate([
+            'from' => 'required',
+            'to' => 'required|date|after_or_equal:from',
+        ]);
+
 
         $Transports=Transport::whereBetween('created_at',[$request->from,$request->to])->get();
 

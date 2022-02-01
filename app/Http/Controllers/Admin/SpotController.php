@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers\admin;
 use App\Models\Spot;
+use App\Models\User;
 use App\Models\Location;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class SpotController extends Controller
 {
     //Add spot
     public function Addspot(){
+        $users=User::all();
         $locations=Location::all();
-        return view('admin.layouts.Spot.Addspot',compact('locations'));
+        return view('admin.layouts.Spot.Addspot',compact('locations','users'));
     }
     //store spot
     public function StoreSpot(Request $request){
@@ -27,15 +29,54 @@ class SpotController extends Controller
         Spot::create([
             
             'SpotName'=>$request->SpotName,
-            'location_id'=>$request->SpotLocation,
-            'SpotImage'=>$Spotimagefile,
-             'SpotDetails'=>$request->Spotdetail
+             'user_id'=>$request->traveler_name,
+             'location_id'=>$request->SpotLocation,
+             'SpotImage'=>$Spotimagefile,
+              'SpotDetails'=>$request->Spotdetail
         ]);
         return redirect()->back()->with('msg','Spot created successfully.');
     }
     public function SpotList(){
-        $Spots=Spot::with('location')->get();
+        $Spots=Spot::with('location','user')->get();
         return view('admin.layouts.Spot.SpotList',compact('Spots'));
+    }
+
+    public function Spotdelete($spot_id){
+        Spot::find($spot_id)->delete();
+        return redirect()->back()->with('msg','spot deleted successfully!');
+    }
+
+    //user added spot approve,decline
+    public function approvespot($spot_id){
+        $spot=Spot::find($spot_id);
+        
+        if($spot)
+        {
+            $spot->update([
+                'status'=>'approved'
+            ]);
+            return redirect()->back()->with('success','Spot been approved');
+        }
+       
+        
+        return redirect()->back();
+    
+    }
+    public function declinespot($spot_id){
+        $spot=Spot::find($spot_id);
+        
+        if($spot)
+        {
+            $spot->update([
+                'status'=>'decline'
+                
+            ]);
+            
+            // $TourPlans=AddTourPlan::find($tourplan_id)->delete();
+            return redirect()->back()->with('error','Spot has been declined');
+        }
+        return redirect()->back();
+    
     }
     //spot details
     public function SpotDetails($spot_id)
@@ -52,6 +93,11 @@ class SpotController extends Controller
         }
         public function spotReport(Request $request)
         {
+            $request->validate([
+                'from' => 'required',
+                'to' => 'required|date|after_or_equal:from',
+            ]);
+    
     
             $spots=Spot::whereBetween('created_at',[$request->from,$request->to])->get();
     

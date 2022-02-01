@@ -19,6 +19,7 @@ use App\Http\Controllers\Website\ContactController;
 use App\Http\Controllers\Admin\AdminReviewController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Controllers\Website\WebsiteBlogController;
+use App\Http\Controllers\Website\SpotController as WebsiteSpotController;
 
 use App\Http\Controllers\Website\WebsiteLocationController;
 use App\Http\Controllers\Admin\UserController as AdminUserController;
@@ -59,6 +60,13 @@ route::get('/view/MyPlan/Edit/{tourplan_id}',[WebsiteTourController::class,'MyPl
 route::PUT('/view/MyPlan/update/{tourplan_id}',[WebsiteTourController::class,'MyPlanUpdate'])->name('Myplan.update');
 route::get('/view/My-Joined-Plan/list',[WebsiteTourController::class,'MyJoinedPlanList'])->name('My.Joined.Plan.List');
 
+//Spot
+route::get('/traveler/spot/add',[WebsiteSpotController::class,'add_spot_view'])->name('add.spot.user');
+Route::post('/storeSpot',[WebsiteSpotController::class,'store_spot'])->name('store.spot');
+Route::get('/user/spot/view',[WebsiteSpotController::class,'userspotlist'])->name('user.spot.list');
+
+
+
 
 
 //Blog
@@ -88,7 +96,7 @@ Route::get('/join/request/approved/{join_request_id}',[JoinController::class,'jo
 Route::get('/join/request/decline/{join_request_id}',[JoinController::class,'joinDecline'])->name('request.join.decline');
 
 //join-payment
-Route::get('/join/payment_info/{join_id}',[JoinController::class,'payment_info'])->name('join.payment.info');
+Route::get('/join/payment_info',[JoinController::class,'payment_info'])->name('join.payment.info');
 
 
 //search
@@ -162,9 +170,15 @@ Route::get('/tourplan/delete/{tourplan_id}',[TourController::class,'DeleteTourPl
 Route::get('/ManageTourplan/AdminAddedTourlist',[TourController::class,'ViewAdminTourList'])->name('admin.added.TourList');
 Route::get('/tourplan/Approve/{tourplan_id}',[TourController::class,'approveTour'])->name('admin.approve.Tour');
 Route::get('/tourplan/Decline/{tourplan_id}',[TourController::class,'declineTour'])->name('admin.decline.Tour');
+
+//--joined Tour--//
+Route::get('/joined/tourplan/list',[TourController::class,'JoinedTourList'])->name('admin.view.joined.tourlist');
+Route::post('/joined-tourplan/report/show',[TourController::class,'JoinTourPlanReport_Search'])->name('Join.Tourplan.Report.show');
+
 //--report--//
 Route::get('/tourplan/report',[TourController::class,'TourplanReport'])->name('Tourplan.Report');
 Route::post('/tourplan/report/show',[TourController::class,'TourPlanReport_Search'])->name('Tourplan.Report.show');
+
 
 //traveller controller
 Route::get('/Managetraveler',[TravelerController::class,'ManageTraveler'])->name('manage.traveler');
@@ -188,6 +202,9 @@ Route::get('/Spot/Addspot',[SpotController::class,'Addspot'])->name('admin.Addsp
 Route::post('/Spot/StoreSpot',[SpotController::class,'StoreSpot'])->name('admin.StoreSpot');
 Route::get('/Spot/SpotList',[SpotController::class,'SpotList'])->name('admin.Spotlist');
 Route::get('/view/{spot_id}',[SpotController::class,'SpotDetails'])->name('admin.spot.details');
+Route::get('/delete/spot/{spot_id}',[SpotController::class,'Spotdelete'])->name('admin.delete.spot');
+Route::get('/approve/spot/{spot_id}',[SpotController::class,'approvespot'])->name('admin.user.spot.approve');
+Route::get('/decline/spot/{spot_id}',[SpotController::class,'declinespot'])->name('admin.user.spot.decline');
 //--spot-report--//
 Route::get('/spot/report',[SpotController::class,'spotReportshow'])->name('spot.Report');
 Route::post('/spot/report/show',[SpotController::class,'spotReport'])->name('spot.Report.show');

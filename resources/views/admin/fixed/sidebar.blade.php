@@ -32,7 +32,7 @@
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="{{route('admin.added.TourList')}}">view Tour plan</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{route('admin.manage.TourplanReq')}}">Joined Tour Plan List</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{route('admin.view.joined.tourlist')}}">Joined Tour Plan List</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('Tourplan.Report')}}">Tour Plan Report</a></li>
               </ul>
             </div>

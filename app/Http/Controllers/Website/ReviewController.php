@@ -17,10 +17,15 @@ public function addreview(){
     return view('website.pages.Review.ReviewForm',compact('user','spot','location'));
 }
 public function storereview(Request $request){
+    $request->validate([
+        'traveler_name' => 'required',
+        'review' => 'required',
+        'traveler_name' => 'required',
+    ]);
    Review::create([
        'user_id'=>$request->traveler_name,
        'location_id'=>$request->location,
-       'spot_id'=>$request->spotname,
+       'spot_id'=>$request->traveler_name,
        'review'=>$request->review
        
    ]);

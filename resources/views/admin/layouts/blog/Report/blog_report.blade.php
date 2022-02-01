@@ -31,7 +31,15 @@
     </style>
 <div class="content-wrapper"style="overflow-y:scroll;">
 <div class="form-row">
-
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
     <div class="form-group col-md-6">
         <form action="{{route('blog.Report.show')}}" method="post">
             @csrf
