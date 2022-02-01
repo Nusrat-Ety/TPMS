@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\Website;
-use App\Models\Spot;
 use App\Models\Blog;
-use App\Models\Review;
 use App\Models\Join;
+use App\Models\Spot;
+use App\Models\Review;
+use App\Models\Contact;
 use App\Models\Location;
 use App\Models\AddTourPlan;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 
 class HomeController extends Controller
@@ -19,7 +20,7 @@ class HomeController extends Controller
         $spots=Spot::where('status','approved')->get();
         $Blogs=Blog::where('status','approved')->get();
         $locations=Location::all();
-        
+        $contacts= Contact::first();        
         // $query=Query::all();
     //    $query=Query::Where('status','replied')->get();
        //dd($query);
@@ -37,7 +38,7 @@ class HomeController extends Controller
        $result=null;
         
 
-        return view('website.pages.home',compact('spots','Blogs','tourplans','locations','reviews','join','result'));
+        return view('website.pages.home',compact('spots','Blogs','tourplans','locations','contacts','reviews','join','result'));
 
 
     }

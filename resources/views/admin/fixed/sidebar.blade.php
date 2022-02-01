@@ -110,12 +110,14 @@
   <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#demo" aria-expanded="false" aria-controls="demo">
               <i class="icon-head menu-icon"></i>
-              <span class="menu-title">Contact us</span>
+              <span class="menu-title">Contact info</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="demo">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="">Manage Contact info</a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{route('contact.show')}}">Add contact info</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{route ('contact.list')}}">contact list</a></li>
+               
               </ul>
             </div>
           </li>

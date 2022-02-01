@@ -52,8 +52,11 @@
             </div>
             <button style="margin-left: 69rem;" type="submit" class="btn btn-primary">Submit</button>
         </form>
+        <input class="btn btn-primary" type="button" onClick="PrintDiv('divToPrint');" value="Print">
 
       </div>
+      <div class="form-row" id="divToPrint">
+
       <table class="table text-center" >
                                     <thead>
                                         <tr>
@@ -111,5 +114,13 @@
 
       </div>
       </div>
-      
+      <script language="javascript">
+    function PrintDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>
       @endsection

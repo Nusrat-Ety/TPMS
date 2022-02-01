@@ -236,9 +236,11 @@ Route::post('/location/report/show',[LocationController::class,'locationReport']
 
 
 
-//query
-// Route::get('/query/replyView/{query_id}',[AdminContactController::class,'ViewqueryReply'])->name('admin.view.queryReply');
-// Route::put('/query/reply/{query_id}',[AdminContactController::class,'queryReply'])->name('admin.query.reply');
+//contact-info
+route::get('/add/contact-info',[AdminContactController::class,'contact_show'])->name('contact.show');
+route::post('/contact/store',[AdminContactController::class,'contact_store'])->name('contact.store');
+route::get('/contact/list',[AdminContactController::class,'contact_list'])->name('contact.list');
+Route::post('/contact/report/show',[AdminContactController::class,'contactReport'])->name('contact.Report.show');
 
 //review
 Route::get('/user-review',[AdminReviewController::class,'reviewlist'])->name('admin.review.list');

@@ -51,10 +51,14 @@
 							<div class="single-footer-item text-center">
 								<h2 class="text-left">contacts</h2>
 								<div class="single-footer-txt text-left">
-									<p>(+880)1770000000</p>
-									<p class="foot-email"><a href="#">info@tplan.com</a></p>
-									<p>Uttara</p>
-									<p>Dhaka, Bangladesh</p>
+								
+
+
+									<p>{{$contacts->company_name}}</p>
+									<p>{{$contacts->phone}}</p>
+									<p class="foot-email"><a href="#">{{$contacts->email}}</a></p>
+									<p>{{$contacts->address}}</p>
+									<p>{{$contacts->country}}</p>
 								</div><!--/.single-footer-txt-->
 							</div><!--/.single-footer-item-->
 						</div><!--/.col-->
