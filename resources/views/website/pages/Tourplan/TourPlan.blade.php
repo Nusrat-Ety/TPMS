@@ -93,6 +93,7 @@
 											 @foreach ($spot as $spot)
 											 
 												<option value="{{$spot->id}}">{{$spot->SpotName}}</option>
+												
 												@endforeach
 												</select>
 										</div>

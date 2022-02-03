@@ -616,12 +616,12 @@
                                 </a><span class="pull-right">{{$tourplan->location->Location_name}}</span></h3>
                             <div class="packages-para" style="background-color: #0000003b;">
                                 <p style="color: #ffffff;font-weight: 500;"><i
-                                        class="fa fa-angle-right"></i>{{$tourplan->members}} </p>
+                                        class="fa fa-angle-right"></i>Members Amount : {{$tourplan->members}} </p>
                                 <p style="color: #ffffff;font-weight: 500;"><i
-                                        class="fa fa-angle-right"></i>{{$tourplan->TourBudget}}<span
-                                        class="pull-right">{{$tourplan->TourDuration}}</span>
-                                    <p style="color: #ffffff;font-weight: 500;">{{$tourplan->TourDate}} <span
-                                            class="pull-right">{{$tourplan->user->name}}</span></p>
+                                        class="fa fa-angle-right"></i>Tour Budget : {{$tourplan->TourBudget}}<span
+                                        class="pull-right">Tour Duration : {{$tourplan->TourDuration}} day</span>
+                                    <p style="color: #ffffff;font-weight: 500;">Tour Date :{{$tourplan->TourDate}} <span
+                                            class="pull-right">Planner :{{$tourplan->user->name}}</span></p>
 
                             </div>
                             <!--/.packages-para-->

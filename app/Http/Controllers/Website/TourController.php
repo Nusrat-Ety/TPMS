@@ -1,14 +1,15 @@
 <?php
 
 namespace App\Http\Controllers\Website;
-use App\Models\AddTourPlan;
-use App\Http\Controllers\Controller;
-use App\Models\User;
-use App\Models\Spot;
-use App\Models\Transport;
 use App\Models\Join;
+use App\Models\Spot;
+use App\Models\User;
+use App\Models\Contact;
 use App\Models\Location;
+use App\Models\Transport;
+use App\Models\AddTourPlan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class TourController extends Controller
 {
@@ -56,28 +57,30 @@ class TourController extends Controller
     }
     public function ViewTourPlanDetails($tourplan_id){
        
-        
+        $contacts=Contact::first();
         $tourplan=AddTourPlan::with('user','travelers')->find($tourplan_id);
         $joins=Join::with('user','tourplan')->where('tourplan_id',$tourplan_id)->get();
         // dd($joins);
         
 
-        return view('website.pages.Tourplan.ViewTourPlan',compact('tourplan','joins'));
+        return view('website.pages.Tourplan.ViewTourPlan',compact('tourplan','joins','contacts'));
 
     }
 
 
     public function viewTourList(){
+        $contacts=Contact::first();
         $tourplans=Join::with('user','tourplan')->get();
       
-        return view('website.pages.Tourplan.TourPlanList',compact('tourplans'));
+        return view('website.pages.Tourplan.TourPlanList',compact('tourplans','contacts'));
     }
     
   //My plan List
   public function MyPlanList(){
+    $contacts=Contact::first();
       $MyPlans=AddTourPlan::with('user','transports','spot','location')->where('user_id',auth()->user()->id)->get();
     //   dd($MyPlans);
-    return view('website.pages.Tourplan.My-Plan.MyPlanList',compact('MyPlans'));
+    return view('website.pages.Tourplan.My-Plan.MyPlanList',compact('MyPlans','contacts'));
   }
 
   //my plan edit
@@ -106,14 +109,15 @@ class TourController extends Controller
         
 
        ]);
-       return redirect()->route('Myplan.list')->with('success','blog updated successfully');
+       return redirect()->route('Myplan.list')->with('success','tourplan updated successfully');
     }
 
     //the plans i joined
     public function MyJoinedPlanList(){
+        $contacts=Contact::first();
         $joinedplan=Join::with('tourplan','user','order')->where('user_id',auth()->user()->id)->get();
         // dd($joinedplan);
-        return view('website.pages.Tourplan.My-Plan.MyJoined-PlanList',compact('joinedplan'));
+        return view('website.pages.Tourplan.My-Plan.MyJoined-PlanList',compact('joinedplan','contacts'));
     }
 }
 

@@ -54,11 +54,11 @@
 								
 
 
-									<p>{{$contacts->company_name}}</p>
+									<p></p>
+									<p></p>
+									<p class="foot-email"><a href="#"></a></p>
+									<p></p>
 									<p>{{$contacts->phone}}</p>
-									<p class="foot-email"><a href="#">{{$contacts->email}}</a></p>
-									<p>{{$contacts->address}}</p>
-									<p>{{$contacts->country}}</p>
 								</div><!--/.single-footer-txt-->
 							</div><!--/.single-footer-item-->
 						</div><!--/.col-->

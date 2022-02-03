@@ -19,7 +19,7 @@ class Join extends Model
         return $this->belongsTo(User::class);
     }
     public function order(){
-        return $this->hasMany(Orders::class);
+        return $this->hasOne(Orders::class);
     }
 
    

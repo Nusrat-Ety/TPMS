@@ -49,8 +49,8 @@
     <div class="row">
         <div class="col-xl-12">
             <div class="card">
-                <div class="card-body">
-                    <h5 class="header-title pb-3 mt-0">Payments</h5>
+            <div class="text-container" style="margin-top: 30px;margin-right: 7rem;margin-left: 10rem;">
+                <h3 style="text-align:center;background-color: #00d8ffeb;text-shadow: 1px 2px 1px #0000006b;padding-bottom: 15px;margin-bottom: 4rem;color: #ffffff;border: outset;">Payment Information</h3>
                     <div class="table-responsive">
                         <table class="table table-hover mb-0">
                             <thead>
@@ -67,22 +67,21 @@
                             </thead>
                             <tbody>
                             <tr>
-                          @foreach($user_pay as $data)
-                              <th style=" text-align: center;">{{optional($data->tourplan)->Tourname}}</th>
-                              <td style=" text-align: center;">{{$data->status}}</td>
-                              <td style=" text-align: center;">{{$data->tourplan->location->Location_name}}</td>
-                              <td style=" text-align: center;">{{$data->amount}}</td>
-                              <td style=" text-align: center;">{{$data->phone}}</td>
-                              <td style=" text-align: center;">{{$data->status}}</td>
-                              <td style=" text-align: center;">{{$data->transaction_id}}</td>
-                           @endforeach   
+                         
+                              <th style=" text-align: center;">{{$user_pay->id}}</th>
+                              <td style=" text-align: center;">{{$user_pay->order->status}}</td>
+                              <td style=" text-align: center;">{{$user_pay->order->tourplan->location->Location_name}}</td>
+                              <td style=" text-align: center;">{{$user_pay->order->amount}}</td>
+                              <td style=" text-align: center;">{{$user_pay->order->phone}}</td>
+                              <td style=" text-align: center;">{{$user_pay->order->status}}</td>
+                              <td style=" text-align: center;">{{$user_pay->order->transaction_id}}</td>
+                          
 </tr>
 
                             </tbody>
                         </table>
                     </div>
                     <!--end table-responsive-->
-                    <div class="pt-3 border-top text-right"><a href="#" class="text-primary">View all <i class="mdi mdi-arrow-right"></i></a></div>
                 </div>
             </div>
         </div>

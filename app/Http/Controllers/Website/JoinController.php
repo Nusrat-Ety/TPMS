@@ -4,6 +4,7 @@ namespace App\Http\Controllers\website;
 use App\Models\Join;
 use App\Models\User;
 use App\Models\Orders;
+use App\Models\Contact;
 use App\Mail\ConfirmMail;
 use App\Models\AddTourPlan;
 use Illuminate\Http\Request;
@@ -92,11 +93,12 @@ class JoinController extends Controller
         
     }
 
-    public function payment_info(){
-        // dd($join_id);
-        $user_pay=Join::with('order')->where('user_id',auth()->user()->id)->get();
+    public function payment_info($join_id){
+      
+        $user_pay=Join::with('order')->find($join_id);
+        $contacts=Contact::first();
         // dd($user_pay);
-        return view('website.payment.payment-info',compact('user_pay'));
+        return view('website.payment.payment-info',compact('user_pay','contacts'));
     }
     
 }

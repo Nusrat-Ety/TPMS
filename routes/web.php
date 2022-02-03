@@ -90,13 +90,13 @@ route::post('/review/store',[ReviewController::class,'storereview'])->name('user
 
 
 //join
-Route::get('/join/{join_request_id}',[JoinController::class,'JoinRequest'])->name('request.Join');
+Route::get('/join/request/{join_request_id}',[JoinController::class,'JoinRequest'])->name('request.Join');
 Route::get('/join/view/{join_request_id}',[JoinController::class,'viewJoin'])->name('request.Join.view');
 Route::get('/join/request/approved/{join_request_id}',[JoinController::class,'joinApprove'])->name('request.join.approve');
 Route::get('/join/request/decline/{join_request_id}',[JoinController::class,'joinDecline'])->name('request.join.decline');
 
 //join-payment
-Route::get('/join/payment_info',[JoinController::class,'payment_info'])->name('join.payment.info');
+Route::get('/join/payment_info/{join_id}',[JoinController::class,'payment_info'])->name('join.payment.info');
 
 
 //search

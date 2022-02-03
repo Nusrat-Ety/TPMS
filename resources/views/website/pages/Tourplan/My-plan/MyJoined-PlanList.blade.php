@@ -57,7 +57,7 @@
                                                 <td>
                                                
                                                 
-                                               <a class="btn btn-primary"style=" text-align: center;" href="{{route('join.payment.info')}}">view</a>
+                                               <a class="btn btn-primary"style=" text-align: center;" href="{{route('join.payment.info',$joinedplan->id)}}">view</a>
                                        
                                               </td>
                                                 

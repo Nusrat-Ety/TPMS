@@ -4,6 +4,7 @@ namespace App\Http\Controllers\website;
 
 use App\Models\Spot;
 use App\Models\User;
+use App\Models\Contact;
 use App\Models\Location;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -44,8 +45,9 @@ class SpotController extends Controller
 
     }
     public function userspotlist(){
+        $contacts=Contact::first();
         $spots=Spot::with('user','location')->where('user_id',auth()->user()->id)->get();
         // dd($joinedplan);
-        return view('website.pages.Spot.My-Spot-list',compact('spots'));
+        return view('website.pages.Spot.My-Spot-list',compact('spots','contacts'));
     }
 }

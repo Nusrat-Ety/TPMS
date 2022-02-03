@@ -20,7 +20,7 @@ class AddTourPlan extends Model
         //who->relation name->to whom
             // 1 to  1 dependent =belongsTo
             // 1 to 1 not dependent = hasOne
-            return $this->belongsTo(User::class);
+            return $this->belongsTo(User::class,'user_id','id');
         }
         public function transports(){
             return $this->belongsTo(Transport::class,'transport_id','id');

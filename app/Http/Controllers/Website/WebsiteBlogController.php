@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Website;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\User;
+use App\Models\Contact;
 use App\Models\Location;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 
 class WebsiteBlogController extends Controller
@@ -81,9 +82,10 @@ class WebsiteBlogController extends Controller
 
     //user blog list show
     public function MyBlogList(){
+        $contacts=Contact::first();
         $blogs=Blog::with('user','location')->where('user_id',auth()->user()->id)->get();
         // dd($joinedplan);
-        return view('website.pages.Blog.My-blog-list',compact('blogs'));
+        return view('website.pages.Blog.My-blog-list',compact('blogs','contacts'));
     }
     }
 

@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\website;
-use App\Models\User;
-use App\Models\AddTourPlan;
-use App\Models\Query;
 use Carbon\Carbon;
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Models\Query;
+use App\Models\Contact;
+use App\Models\AddTourPlan;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ContactController extends Controller
 {
@@ -34,8 +35,9 @@ class ContactController extends Controller
    
  //view query list
 public function ViewQueryList(){
+    $contacts= Contact::first();
 $query=Query::with('user','tourplan')->get();
-return view('website.pages.Contact.query-list',compact('query'));
+return view('website.pages.Contact.query-list',compact('query','contacts'));
 }
 
 //query reply page view

@@ -32,22 +32,43 @@
 				
                     <div class="text-container" style="margin-top: 30px;">
                    
-                        <h3 style="padding-bottom: 15px;">About Tour Plan</h3>
-                        <p>{{$tourplan->Tourname}}</p>
+                        <p style="font-size:30px;    border: dashed;
+    border-color: black;
+    box-shadow: 0 1px 4px">{{$tourplan->Tourname}}</p>
+                        <br></br>
+                        <h3 style="padding-bottom: 15px;text-decoration:underline;">About Tour Plans Location</h3>
+                        <br></br>
+
+                        <h4 style="padding-bottom: 15px;">{{$tourplan->location->Location_name}}</h4>
+                        <p>{{$tourplan->location->LocationDetails}}</p>
+                        <br></br>
+                        <h3 style="padding-bottom: 15px;text-decoration:underline;">About Tour Plans Spot</h3>
+                        <br></br>
+
+                        <h4 style="padding-bottom: 15px;">{{$tourplan->spot->SpotName}}</h4>
+                        
+                        <p>{{$tourplan->spot->SpotDetails}}</p>
 					<div>
 					<div>
 
 </div>
-<div class="gallary-header text-center">
+<br></br>
+<h3 style="padding-bottom: 21px;text-decoration: underline">Tour Plan details</h3>
+<br></br>
+<div class="gallary-header text-center"style="   background-color: #00d8ff4a;
+    box-shadow: 0 2px 6px black;">
 				
-                    <div class="text-container" style="margin-top: 30px;margin-right:70rem;border:solid;">
+                    <div class="text-container" >
                    
                         <h3 style="padding-bottom: 15px;">{{$tourplan->spot->SpotName}} | {{$tourplan->location->Location_name}}</h3>
-                        <p><span style="color:black;background-color:#00d8ff7a;">Tour name :</span>{{$tourplan->Tourname}}</p>
-                        <p><span style="color:black;background-color:#00d8ff7a;">Tour From :</span>{{$tourplan->from}}</p>
-                        <p><span style="color:black;background-color:#00d8ff7a;">Tour Duration :</span>{{$tourplan->TourDuration}}</p>
-                        <p><span style="color:black;background-color:#00d8ff7a;">Tour Date :</span>{{$tourplan->TourDate}}</p>
-                        <p><span style="color:black;background-color:#00d8ff7a;">Tour Budget :</span>{{$tourplan->TourBudget}}</p>
+                        <p><span style="color:black;">Tour name : </span>{{$tourplan->Tourname}}</p>
+                        <p><span style="color:black;">Tour From : </span>{{$tourplan->from}}</p>
+                        <p><span style="color:black;">Tour Destination : </span>{{$tourplan->location->Location_name}}</p>
+                        <p><span style="color:black;">Tour Duration : </span>{{$tourplan->TourDuration}} day</p>
+                        <p><span style="color:black;">Tour Date : </span>{{$tourplan->TourDate}}</p>
+                        <p><span style="color:black;">Tour Budget : </span>{{$tourplan->TourBudget}}</p>
+                        <p><span style="color:black;">Per person Budget : </span>{{$tourplan->TourBudget/$tourplan->members}}</p>
+                        <p><span style="color:black;">Members Amount : </span>{{$tourplan->members}}</p>
   </div>
   </div>
   @if(auth()->user()?auth()->user()->id==$tourplan->user->id:0)  
@@ -60,10 +81,10 @@
             <table class="table text-center">
                                     <thead>
                                         <tr>
-                                            <th scope="col">SL</th>
-                                            <th scope="col">Traveller Name</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Action</th>
+                                            <th style="text-align:center;"scope="col">SL</th>
+                                            <th style="text-align:center;"scope="col">Traveller Name</th>
+                                            <th style="text-align:center;"scope="col">Status</th>
+                                            
 
                                         </tr>
                                     </thead>
@@ -78,12 +99,7 @@
                                         <td>{{$traveler->user->name}}</td>
                                         <td>{{$traveler->status}}</td>
                                     
-                                        <td>
-                                       
-                                            <a class="btn btn-primary" href="">approve</a>
-                                            <a class="btn btn-primary" href="">decline</a>
-                                    
-                                        </td>
+                                        
                                       </tr>
                                       @endforeach
                                       
@@ -97,7 +113,8 @@
   </div>
   </div>
   @endif
-<div class="card" style="width: 28rem;height:28rem;margin-left: 1000px;margin-top: -155px; box-shadow: 2px 2px 4px black;height: max-content;background-color:#e7ffff;">
+  @if(auth()->user()?auth()->user()->id!=$tourplan->user->id:0)  
+<div class="card" style="width: 28rem;height:28rem;margin-left: 1000px;margin-top: -383px; box-shadow: 2px 2px 4px black;height: max-content;background-color:#e7ffff;">
   <!-- <img
     src="https://mdbcdn.b-cdn.net/img/new/standard/city/062.webp"
     class="card-img-top"
@@ -107,7 +124,7 @@
    
     <h5 class="card-title"style="font-size: 23px; text-shadow: 2px 2px 2px #00000047;">Join Request</h5>
     <p class="card-text">
-      If you want to join in the tour, please select the join button.For the traveler detail select the traveler profile.
+      If you want to join in the tour, please select the join button.For the tour planner detail select the planner profile.For any query click on Ask us.
     </p>
   </div>
   
@@ -115,7 +132,8 @@
 <a class="btn btn-default" href="{{route('query.list.view')}}"style="margin-bottom: 2rem;width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">Question/Answer</a>
 
 
-    <a class="btn btn-default" href="{{route('user.query',$tourplan->id)}}"style="margin-bottom: 2rem;width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">Ask Us</a>
+<a class="btn btn-default" href="{{route('user.query',$tourplan->id)}}"style="margin-bottom: 2rem;width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">Ask Us</a>
+    <a class="btn btn-default" href="{{route('profile',$tourplan->user->id)}}"style="margin-bottom: 2rem;width: 200px;box-shadow: 2px 2px 2px black;color: #fff;background-color: #00d8ff;">Planner profile</a>
 
     <p class="card-text">
       Please pay advance 10% amount of your budget for your join confirmation.
@@ -126,7 +144,7 @@
   </ul>
     <!-- <li class="list-group-item"></li> -->
     
- 
+ @endif
 
        
 </section>
