@@ -70,8 +70,8 @@ class TourController extends Controller
 
     public function viewTourList(){
         $contacts=Contact::first();
-        $tourplans=Join::with('user','tourplan')->get();
-      
+        $tourplans=Join::with('user','tourplan','order')->get();
+    //   dd($tourplans);
         return view('website.pages.Tourplan.TourPlanList',compact('tourplans','contacts'));
     }
     

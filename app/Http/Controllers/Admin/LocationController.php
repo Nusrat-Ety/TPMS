@@ -40,8 +40,15 @@ class LocationController extends Controller
 
     }
     public function LocationList(){
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $locations=Location::whereLike(['Location_name'],$key)->get();;
+        // dd($travelers);
+        return view('admin.layouts.Location.LocationList',compact('locations','key'));
+        }
         $locations=Location::all();
-        return view('admin.layouts.Location.LocationList',compact('locations'));
+        return view('admin.layouts.Location.LocationList',compact('locations','key'));
 
     }
     public function deletelocation($location_id){

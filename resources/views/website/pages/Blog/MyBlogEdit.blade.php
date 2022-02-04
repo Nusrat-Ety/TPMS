@@ -57,14 +57,15 @@
     @endif
 					<div class="col-md-4 col-md-pull-7"style="width: 486px;right:150px;">
 						<div class="booking-form"style="background-color: #0000006e;">
-							<form action="{{route('store.blog')}}" method="POST"enctype="multipart/form-data">
+							<form action="{{route('My.Update.blog',$blog->id)}}" method="POST"enctype="multipart/form-data">
 								@csrf
+								@method('PUT')
 								
 									
                             <div class="form-group">
                             <div class="col-12">
 									<label class="form-label">Blog Name</label>
-									<input class="form-control" name="BlogName" type="text" placeholder="blog name" required>
+									<input class="form-control" value="{{$blog->BlogName}}"name="BlogName" type="text" placeholder="blog name" required>
 								</div>
 								</div>
 								
@@ -91,8 +92,11 @@
 											<span class="form-label">Location</span>
 											<select class="form-control"name="Location"required>
 											 @foreach ($location as $location)
-											 
-												<option value="{{$location->id}}">{{$location->Location_name}}</option>
+											 <option class="form-control"
+       @if($location->id==$blog->location_id)
+       selected
+       @endif
+   value="{{$location->id}}">{{$location->Location_name}}</option>
 												@endforeach
 												</select>
 										</div>
@@ -103,7 +107,7 @@
 								<div class="col-sm-6">
 										<div class="form-group">
 											<span class="form-label">Blog image</span>
-											<input class="form-control" name="BlogImage"type="file" required>
+											<input class="form-control" name="BlogImage"type="file" >
                                            
 										</div>
 									</div>
@@ -134,7 +138,7 @@
 											<div class="col-sm-7">
 										<div class="form-group">
 											<span class="form-label">Date</span>
-											<input class="form-control"name="Date" type="dateTime-local" required>
+											<input class="form-control"value="{{date('Y-m-d\TH:i', strtotime($blog->Date)) }}"name="Date" type="dateTime-local" required>
 										</div>
 									</div>
                                             </div>
@@ -142,7 +146,7 @@
 									<div class="col-sm-12">
 										<div class="form-group">
 											<span class="form-label">About</span>
-                                            <input  class="form-control" name="Description"type="text" width="400px" required></input>
+                                            <input  class="form-control"value="{{$blog->Description}}" name="Description"type="text" width="400px" required></input>
 										</div>
 									</div>
 								</div>
@@ -150,7 +154,7 @@
 									<div class="col-sm-12">
 										<div class="form-group">
 											<span class="form-label">Description</span>
-                                            <input  class="form-control" name="Description2"type="text" width="400px" required></input>
+                                            <input  class="form-control" value="{{$blog->Description2}}"name="Description2"type="text" width="400px" required></input>
 										</div>
 									</div>
 								</div>
@@ -158,7 +162,7 @@
 									<div class="col-sm-12">
 										<div class="form-group">
 											<span class="form-label">Other details</span>
-                                            <input  class="form-control" name="Description3"type="text" width="400px" required></input>
+                                            <input  class="form-control"value="{{$blog->Description3}}" name="Description3"type="text" width="400px" required></input>
 										</div>
 									</div>
 								</div>

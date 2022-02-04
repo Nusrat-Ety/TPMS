@@ -115,7 +115,7 @@
                     <br/>
                 @empty
                 @endforelse
-                <a class="loadmore-but" href="" style="margin-bottom: 1rem;margin-left: 4rem;">Load more Comments</a>
+
             <!-- post form -->
                 <div class="smart-forms bmargin" id="comment-form" style="margin-left: 4rem;">
                     <h4 class=" dosis uppercase"style="    margin-bottom: 1rem;">Post a Comment</h4>

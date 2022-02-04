@@ -54,10 +54,10 @@
 								
 
 
-									<p></p>
-									<p></p>
+									<p>{{$contacts->company_name}}</p>
+									<p>{{$contacts->email}}</p>
 									<p class="foot-email"><a href="#"></a></p>
-									<p></p>
+									<p>{{$contacts->country}}</p>
 									<p>{{$contacts->phone}}</p>
 								</div><!--/.single-footer-txt-->
 							</div><!--/.single-footer-item-->
@@ -69,11 +69,8 @@
 				<hr>
 				<div class="foot-icons ">
 					<ul class="footer-social-links list-inline list-unstyled">
-		                <li><a href="#" target="_blank" class="foot-icon-bg-1"><i class="fa fa-facebook"></i></a></li>
-		                <li><a href="#" target="_blank" class="foot-icon-bg-2"><i class="fa fa-twitter"></i></a></li>
-		                <li><a href="#" target="_blank" class="foot-icon-bg-3"><i class="fa fa-instagram"></i></a></li>
-		        	</ul>
-		        	<p>&copy; 2022 <a href="https://www.themesine.com">ThemeSINE</a>. All Right Reserved</p>
+		              </ul>
+		        	<p>&copy; 2022 <a href="https://www.tourplan">Tourplan</a>. Created by Nusrat Ety</p>
 
 		        </div><!--/.foot-icons-->
 				<div id="scroll-Top">

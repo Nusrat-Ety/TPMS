@@ -25,7 +25,35 @@
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                     <h3 class="font-weight-bold">Review List</h3>
                   
-               
+                    <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                <ul class="navbar-nav mr-lg-2">
+                        
+                        <form action="{{route('admin.review.list')}}" method="get">
+                       
+                        
+              <li class="nav-item nav-search d-none d-lg-block">
+                <div class="input-group">
+                  <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                    <span class="input-group-text" id="search"style="display: contents;">
+                        
+                    <button class="btn" type="submit"><i class="icon-search" ></i></button>
+                    </span>
+                  </div>
+                  
+                 
+                  <input type="text" name="search" value="{{$key}}"class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                </div>
+         
+              </li>
+    </form>  
+            </ul>           
+</div>
+
+@if($key)
+        <p style="text-align: center;">You are searching for: {{$key}}. Found {{$reviews->count()}} results.<span><a href="{{route('admin.blog.blogList')}}">Go to List</a></span></p>
+
+        @endif
+        </div>
 
           
         

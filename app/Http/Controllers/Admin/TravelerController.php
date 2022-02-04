@@ -11,9 +11,16 @@ class TravelerController extends Controller
     
     //for showing the traveler list 
     Public function TravelerList(){
-       $travelers=User::all();
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+       $travelers=User::whereLike(['name','Address','email'],$key)->get();;
         // dd($travelers);
-        return view('admin.layouts.Traveler.TravelerList',compact('travelers'));
+        return view('admin.layouts.Traveler.TravelerList',compact('travelers','key'));
+        }
+        $travelers=User::all();
+        return view('admin.layouts.Traveler.TravelerList',compact('travelers','key'));
+        
     }
 
     public function TravelerReportshow(){

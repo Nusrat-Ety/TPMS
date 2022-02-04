@@ -8,8 +8,15 @@ use Illuminate\Http\Request;
 class AdminReviewController extends Controller
 {
     public function reviewlist(){
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $reviews=Review::with('user')->whereLike(['user.name'],$key)->get();;
+        // dd($travelers);
+        return view('admin.layouts.Review.reviewlist',compact('reviews','key'));
+        }
         $reviews=Review::with('user')->get();
-        return view('admin.layouts.Review.reviewlist',compact('reviews'));
+        return view('admin.layouts.Review.reviewlist',compact('reviews','key'));
     }
     public function ApproveReview($review_id){
         $review=Review::find($review_id);

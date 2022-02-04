@@ -16,6 +16,7 @@
                                                     <th style=" text-align: center;"scope="col">Your name</th>
                                                     <th style=" text-align: center;"scope="col">Joined traveler name</th>
                                                     <th style=" text-align: center;"scope="col">Status</th>
+                                                    <th style=" text-align: center;"scope="col">Payment Status</th>
                                                     <th style=" text-align: center;" scope="col">Action</th>
         
                                                 </tr>
@@ -33,6 +34,11 @@
                                                 <td style=" text-align: center;">{{$traveler->tourplan->user->name}}</td>
                                                 <td style=" text-align: center;">{{$traveler->user->name}}</td>
                                                 <td style=" text-align: center;">{{$traveler->status}}</td>
+                                                @if($traveler->order)
+                                                <td style=" text-align: center;">{{$traveler->order->status}}</td>
+                                               @else
+                                               <td style=" text-align: center;">pending</td>
+                                                    @endif                                            
                                                 <td style=" text-align: center;">
                                                @if($traveler->status=='pending')
                                                     <a class="btn btn-primary" href="{{route('request.join.approve',$traveler->id)}}">approve</a>

@@ -38,8 +38,8 @@
 								<img style="height:200px;"src="{{url('uploads/Spots/'.$spot->SpotImage)}}" alt="package-place">
 								<div class="single-package-item-txt">
 									<h3>{{$spot->SpotName}} <span class="pull-right">{{$spot->location->Location_name}}</span></h3>
-									<div class="packages-para">
-										<p><i class="fa fa-angle-right"></i>{{$spot->SpotDetails}}	</p>
+									<div class="packages-para"style="overflow: hidden;text-overflow: ellipsis;">
+										<p style="height: 100px;"><i class="fa fa-angle-right"></i>{{$spot->SpotDetails}}	</p>
                                     
 									</div><!--/.packages-para-->
 									

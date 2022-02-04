@@ -42,7 +42,7 @@
    <ul class="dropdown-menu"style="background-color: transparent;box-shadow: 0 6px 20px rgba(0,0,0,.53);border-radius:2ch;">
    <li><a style="color: deepskyblue;text-align: center;" href="{{route('profile',auth()->user()->id)}}">Profile</a></li>
 
-  <li><a style="color: deepskyblue;text-align: center;" href="{{route('tourplan.list')}}">tour plan</a></li>
+  <li><a style="color: deepskyblue;text-align: center;" href="{{route('tourplan.list')}}">Join Requests</a></li>
   <li><a style="color: deepskyblue;text-align: center;" href="{{route('My.Joined.Plan.List')}}">I joined</a></li>
   <li><a style="color: deepskyblue;text-align: center;" href="{{route('Myplan.list')}}">My plan</a></li>
   <li><a style="color: deepskyblue;text-align: center;" href="{{route('My.blog.List')}}">My Blogs</a></li>

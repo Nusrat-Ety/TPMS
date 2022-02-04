@@ -14,7 +14,7 @@
 
                             </h2>
                             <div class="about-btn">
-                                <button class="about-view">
+                                <button class="about-view"href="">
                                     explore now
                                 </button>
                             </div>
@@ -861,14 +861,14 @@
                 Register and Be a member to make your tourplan.
             </h2>
             <p>
-                For any Queries select query and for review select review button.
+                To add review select review button.
             </p>
         </div>
         <form>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" style="margin-left: 38%;">
                     <div class="custom-input-group">
-                        <a style="padding-top: 11px;font-weight: 500;width: 143px;height: 50px;border-radius: 56px;font-size: 20px;"
+                        <a style="padding-top: 11px;font-weight: 500;width: 153px;height: 50px;border-radius: 56px;font-size: 20px;"
                             class="book-btn" href="{{route('user.review')}}">Review</a>
 
 

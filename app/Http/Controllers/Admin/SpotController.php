@@ -37,8 +37,15 @@ class SpotController extends Controller
         return redirect()->back()->with('msg','Spot created successfully.');
     }
     public function SpotList(){
+        $key=null;
+        if(request()->search){
+            $key=request()->search;
+            $Spots=Spot::with('location','user')->whereLike(['SpotName','location.Location_name','user.name'],$key)->get();;
+        // dd($travelers);
+        return view('admin.layouts.Spot.SpotList',compact('Spots','key'));
+        }
         $Spots=Spot::with('location','user')->get();
-        return view('admin.layouts.Spot.SpotList',compact('Spots'));
+        return view('admin.layouts.Spot.SpotList',compact('Spots','key'));
     }
 
     public function Spotdelete($spot_id){

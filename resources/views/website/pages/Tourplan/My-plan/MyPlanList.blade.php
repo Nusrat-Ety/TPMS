@@ -1,5 +1,11 @@
 @extends('website.master')
 @section('item')
+<style>
+    
+    a:hover{
+    transform:scale(1.5);
+    }
+    </style>
 <br></br>
 <br></br>
 <br></br>

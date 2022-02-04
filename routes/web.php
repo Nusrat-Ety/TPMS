@@ -73,6 +73,9 @@ Route::get('/user/spot/view',[WebsiteSpotController::class,'userspotlist'])->nam
 Route::get('/AddBlog',[WebsiteBlogController::class,'BlogAdd'])->name('Add.blog');
 Route::post('/storeBlog',[WebsiteBlogController::class,'Blogstore'])->name('store.blog');
 Route::get('/MyBlogs',[WebsiteBlogController::class,'MyBlogList'])->name('My.blog.List');
+Route::get('/MyBlog/MyBlogEdit/{blog_id}',[WebsiteBlogController::class,'MyBlogEdit'])->name('My.blog.edit.user');
+Route::put('/My blog/Update/{blog_id}',[WebsiteBlogController::class,'UpdateMyblog'])->name('My.Update.blog');
+Route::get('/MyBlog/delete/{blog_id}',[WebsiteBlogController::class,'MyBlogDelete'])->name('My.blog.delete');
 
 
 //Query
@@ -183,8 +186,7 @@ Route::post('/tourplan/report/show',[TourController::class,'TourPlanReport_Searc
 //traveller controller
 Route::get('/Managetraveler',[TravelerController::class,'ManageTraveler'])->name('manage.traveler');
 Route::get('/TravelerList',[TravelerController::class,'TravelerList'])->name('traveler.List');
-Route::get('/admin/addtraveler',[TravelerController::class,'addtraveler'])->name('admin.traveler.addtraveler');
-Route::post('/admin/add/travelers',[TravelerController::class,'posttraveler'])->name('admin.traveler.post');
+
 //--report--//
 Route::get('/travelers/report',[TravelerController::class,'TravelerReportshow'])->name('traveler.report.show');
 Route::post('/travelers/report/search',[TravelerController::class,'TravelerReport'])->name('traveler.report');

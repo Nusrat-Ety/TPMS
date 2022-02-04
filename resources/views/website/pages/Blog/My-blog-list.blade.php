@@ -1,12 +1,18 @@
 @extends('website.master')
 @section('item')
+<style>
+    
+    a:hover{
+    transform:scale(1.5);
+    }
+    </style>
 <br></br>
 <br></br>
 <br></br>
 <div class="gallary-header text-center">
 				
                 <div class="text-container" style="margin-top: 30px;margin-right: 7rem;margin-left: 10rem;">
-                <h3 style="background-color: #00d8ffeb;text-shadow: 1px 2px 1px #0000006b;padding-bottom: 15px;margin-bottom: 4rem;color: #ffffff;border: outset;">Plans That I Joined</h3>
+                <h3 style="background-color: #00d8ffeb;text-shadow: 1px 2px 1px #0000006b;padding-bottom: 15px;margin-bottom: 4rem;color: #ffffff;border: outset;">Blogs That I Created</h3>
         
                 <table class="table text-center" >
                                     <thead>
@@ -45,9 +51,9 @@
                                         <td class="setWidth concat"><div>{{$blog->Description3}}</div></td>
                                         
                                         <td>
-                                        <a  href="{{route('admin.blog.details',$blog->id)}}"><i class="fa fa-eye fa-2x"style="color: #4b49ac;"></i></a>
-       <a href=""><span class="ml-2"><i class="fa fa-pencil-square fa-2x"style="color: #4b49ac;"></i></span></a>
-       <a href=""><span class="ml-2"><i class="fa fa-trash fa-2x"style="color:red;"></i></span></a>
+                                        <a  href="{{route('website.blog',$blog->id)}}"><i class="fa fa-eye fa-2x"style="color: #4b49ac;"></i></a>
+       <a href="{{route('My.blog.edit.user',$blog->id)}}"><span class="ml-2"><i class="fa fa-pencil-square fa-2x"style="color: #4b49ac;"></i></span></a>
+       <a href="{{route('My.blog.delete',$blog->id)}}"><span class="ml-2"><i class="fa fa-trash fa-2x"style="color:red;"></i></span></a>
                                        
                                      
       </td>
